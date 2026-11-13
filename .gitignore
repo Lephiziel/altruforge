@@ -1,0 +1,25 @@
+# Go build and release output
+/bin/
+/dist/
+/coverage/
+*.test
+/coverage.out
+
+# Local credentials and runtime state
+.env
+.env.*
+!.env.example
+.altruforge/state/
+.altruforge/logs/
+.altruforge/workspaces/
+.altruforge/reports/
+*.db-wal
+*.db-shm
+
+# Local tooling
+/node_modules/
+/.venv/
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db

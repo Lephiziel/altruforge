@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:altruforge:draft-0.1:event",
+  "title": "Altruforge event draft 0.1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run_[0-9a-f]{32}$"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "type": {
+      "enum": [
+        "run.state_changed",
+        "task.selected",
+        "agent.message",
+        "check.completed",
+        "budget.notice",
+        "checkpoint.saved",
+        "publication.created",
+        "run.error"
+      ]
+    },
+    "data": {
+      "type": "object",
+      "description": "Versioned event-specific public data. Secrets and hidden reasoning are forbidden."
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "sequence",
+    "timestamp",
+    "type",
+    "data"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,37 @@
+name: Implementation task
+description: Define a bounded work package with dependencies and verifiable acceptance.
+title: "[Task] "
+body:
+  - type: input
+    id: task_id
+    attributes:
+      label: Task ID
+      description: Existing MVP ID, or a proposed new identifier.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Required outcome and scope
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Required tasks, ADRs, and accepted evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable behavior, failure cases, and exact evidence required.
+    validations:
+      required: true
+  - type: textarea
+    id: exclusions
+    attributes:
+      label: Out of scope
+    validations:
+      required: true

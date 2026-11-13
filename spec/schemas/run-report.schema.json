@@ -1,0 +1,396 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:altruforge:draft-0.1:run-report",
+  "title": "Altruforge run-report draft 0.1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run_[0-9a-f]{32}$"
+    },
+    "status": {
+      "enum": [
+        "awaiting_review",
+        "paused",
+        "no_work",
+        "blocked",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "repository": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "task_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^github:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+#[1-9][0-9]*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finished_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "base_sha": {
+      "type": "string",
+      "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+    },
+    "result_sha": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "policy_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "attempts": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "elapsed_seconds": {
+      "type": "number",
+      "minimum": 0
+    },
+    "lease_generation": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "execution": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "image_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "platform": {
+              "enum": [
+                "linux/amd64",
+                "linux/arm64"
+              ]
+            }
+          },
+          "required": [
+            "image_digest",
+            "platform"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "exit_code": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "timed_out": {
+            "type": "boolean"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "required",
+          "exit_code",
+          "timed_out",
+          "passed"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "passed",
+            "blocked",
+            "not_run"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "pull_request": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "number": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "draft": {
+              "const": true
+            },
+            "head_sha": {
+              "type": "string",
+              "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+            },
+            "upstream_checks": {
+              "enum": [
+                "pending",
+                "passed",
+                "failed",
+                "unknown"
+              ]
+            }
+          },
+          "required": [
+            "url",
+            "number",
+            "draft",
+            "head_sha",
+            "upstream_checks"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "total_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "available",
+        "total_tokens",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "status",
+    "repository",
+    "task_id",
+    "started_at",
+    "finished_at",
+    "base_sha",
+    "result_sha",
+    "policy_digest",
+    "attempts",
+    "elapsed_seconds",
+    "lease_generation",
+    "execution",
+    "checks",
+    "review",
+    "pull_request",
+    "usage",
+    "summary",
+    "limitations"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "awaiting_review"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "pattern": "^github:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+#[1-9][0-9]*$"
+          },
+          "result_sha": {
+            "type": "string",
+            "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+          },
+          "lease_generation": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "pull_request": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "number": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "draft": {
+                "const": true
+              },
+              "head_sha": {
+                "type": "string",
+                "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+              },
+              "upstream_checks": {
+                "enum": [
+                  "pending",
+                  "passed",
+                  "failed",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "url",
+              "number",
+              "draft",
+              "head_sha",
+              "upstream_checks"
+            ],
+            "additionalProperties": false
+          },
+          "review": {
+            "properties": {
+              "status": {
+                "const": "passed"
+              }
+            }
+          },
+          "checks": {
+            "minItems": 1,
+            "items": {
+              "if": {
+                "properties": {
+                  "required": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "required"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "passed": {
+                    "const": true
+                  },
+                  "timed_out": {
+                    "const": false
+                  },
+                  "exit_code": {
+                    "const": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "no_work"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "task_id": {
+            "type": "null"
+          },
+          "pull_request": {
+            "type": "null"
+          },
+          "result_sha": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

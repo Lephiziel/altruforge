@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_00000000000000000000000000000000",
+  "sequence": 1,
+  "timestamp": "2026-11-13T17:00:00Z",
+  "type": "task.selected",
+  "data": {
+    "task_id": "github:example/project#42",
+    "summary": "Add a regression test for the documented parsing bug."
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:altruforge:draft-0.1:project",
+  "title": "Altruforge project draft 0.1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+        },
+        "default_branch": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "repository",
+        "default_branch"
+      ],
+      "additionalProperties": false
+    },
+    "tasks": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "const": "github_issues"
+        },
+        "required_labels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "excluded_labels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "selection": {
+          "enum": [
+            "agent_ranked",
+            "oldest_first"
+          ]
+        },
+        "max_active_leases": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "max_open_pull_requests": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "source",
+        "required_labels",
+        "excluded_labels",
+        "selection",
+        "max_active_leases",
+        "max_open_pull_requests"
+      ],
+      "additionalProperties": false
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "allowed_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "denied_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "allowed_paths",
+        "denied_paths"
+      ],
+      "additionalProperties": false
+    },
+    "agent": {
+      "type": "object",
+      "properties": {
+        "backend": {
+          "const": "codex"
+        },
+        "independent_review": {
+          "const": true
+        }
+      },
+      "required": [
+        "backend",
+        "independent_review"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "backend": {
+          "const": "docker"
+        },
+        "image": {
+          "type": "string",
+          "minLength": 1
+        },
+        "platform": {
+          "enum": [
+            "linux/amd64",
+            "linux/arm64"
+          ]
+        },
+        "network": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "enum": [
+                "deny",
+                "allowlist"
+              ]
+            },
+            "allow_hosts": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0
+            }
+          },
+          "required": [
+            "mode",
+            "allow_hosts"
+          ],
+          "additionalProperties": false
+        },
+        "cpus": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "memory_mb": {
+          "type": "integer",
+          "minimum": 256
+        }
+      },
+      "required": [
+        "backend",
+        "image",
+        "platform",
+        "network",
+        "cpus",
+        "memory_mb"
+      ],
+      "additionalProperties": false
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "argv": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3600
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "argv",
+          "timeout_seconds",
+          "required"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "limits": {
+      "type": "object",
+      "properties": {
+        "max_duration_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 86400
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        }
+      },
+      "required": [
+        "max_duration_seconds",
+        "max_attempts"
+      ],
+      "additionalProperties": false
+    },
+    "publication": {
+      "type": "object",
+      "properties": {
+        "draft": {
+          "const": true
+        },
+        "auto_merge": {
+          "const": false
+        },
+        "branch_prefix": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "draft",
+        "auto_merge",
+        "branch_prefix"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "enabled",
+    "project",
+    "tasks",
+    "instructions",
+    "policy",
+    "agent",
+    "execution",
+    "checks",
+    "limits",
+    "publication"
+  ],
+  "additionalProperties": false
+}

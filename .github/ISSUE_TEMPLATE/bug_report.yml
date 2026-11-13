@@ -1,0 +1,28 @@
+name: Bug report
+description: Report a reproducible problem in the repository or an implemented feature.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The runtime is not released yet. Documentation and contract bugs are welcome.
+        Do not include credentials, session exports, or private vulnerability details.
+  - type: input
+    id: revision
+    attributes:
+      label: Revision or version
+      description: Commit SHA or released version.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Minimal steps, expected behavior, and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and redacted evidence
+      description: OS, relevant tool versions, and the smallest useful output.

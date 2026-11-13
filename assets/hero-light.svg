@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="420" viewBox="0 0 1440 420" role="img" aria-labelledby="title desc">
+<title id="title">Altruforge</title><desc id="desc">AI capacity for open-source work, guided by maintainers. Abstract paths converge into a shared contribution.</desc>
+<defs><pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M 38 0 L 0 0 0 38" fill="none" stroke="#DDE1D5" stroke-width="0.6"/></pattern></defs>
+<rect width="1440" height="420" rx="20" fill="#F6F4ED"/>
+<rect x="1010" width="430" height="420" fill="url(#grid)" opacity="0.65"/>
+<path d="M1055 420Q1145 180 1440 165" fill="none" stroke="#DDE1D5" stroke-width="1"/>
+<path d="M1130 420Q1195 245 1440 232" fill="none" stroke="#DDE1D5" stroke-width="1"/>
+<path d="M1205 420Q1250 308 1440 300" fill="none" stroke="#DDE1D5" stroke-width="1"/>
+<g transform="translate(83 125)">
+<path d="M18 12V58Q18 86 48 86H80Q110 86 110 116V152" fill="none" stroke="#181A15" stroke-width="14" stroke-linecap="round"/>
+<path d="M110 12V46Q110 86 80 86" fill="none" stroke="#F2A43A" stroke-width="14" stroke-linecap="round"/>
+<path d="M200 12V58Q200 86 170 86H144Q110 86 110 116" fill="none" stroke="#546B3C" stroke-width="14" stroke-linecap="round"/>
+<rect x="89" y="131" width="42" height="42" rx="11" fill="#181A15"/>
+<path d="M101 151L109 159L121 145" fill="none" stroke="#F6F4ED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<text x="350" y="105" fill="#64695B" font-size="13" letter-spacing="3">OPEN CONTRIBUTION RUNTIME</text>
+<text x="343" y="233" fill="#181A15" font-size="104" font-weight="600" letter-spacing="-5">Altruforge</text>
+<text x="350" y="283" fill="#64695B" font-size="25">AI capacity for open-source work.</text>
+<line x1="350" y1="330" x2="793" y2="330" stroke="#DDE1D5"/>
+<text x="350" y="362" fill="#64695B" font-size="13" letter-spacing="1.2">MAINTAINER-GOVERNED</text>
+<rect x="1118" y="46" width="250" height="40" rx="20" fill="#181A15"/>
+<text x="1243" y="72" text-anchor="middle" fill="#F6F4ED" font-size="12" font-weight="600" letter-spacing="1.1">SPECIFICATION DRAFT 0.1</text>
+</g></svg>

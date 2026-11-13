@@ -1,0 +1,2 @@
+# Documentation/contract tooling only; not application dependencies.
+check-jsonschema==0.39.0

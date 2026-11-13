@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_00000000000000000000000000000000",
+  "status": "awaiting_review",
+  "repository": "example/project",
+  "task_id": "github:example/project#42",
+  "started_at": "2026-11-13T17:00:00Z",
+  "finished_at": "2026-11-13T17:05:00Z",
+  "base_sha": "1111111111111111111111111111111111111111",
+  "result_sha": "2222222222222222222222222222222222222222",
+  "policy_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "attempts": 1,
+  "elapsed_seconds": 300,
+  "lease_generation": 1,
+  "execution": {
+    "image_digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "platform": "linux/amd64"
+  },
+  "checks": [
+    {
+      "id": "tests",
+      "required": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "passed": true
+    }
+  ],
+  "review": {
+    "status": "passed",
+    "summary": "Illustrative fixture, not recorded execution evidence."
+  },
+  "pull_request": {
+    "url": "https://github.com/example/project/pull/42",
+    "number": 42,
+    "draft": true,
+    "head_sha": "2222222222222222222222222222222222222222",
+    "upstream_checks": "pending"
+  },
+  "usage": {
+    "available": false,
+    "total_tokens": null,
+    "source": null
+  },
+  "summary": "Illustrative successful handoff shape. No real PR is represented.",
+  "limitations": [
+    "This is a synthetic contract fixture, not runtime evidence."
+  ]
+}

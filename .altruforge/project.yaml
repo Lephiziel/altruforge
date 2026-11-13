@@ -1,0 +1,67 @@
+# Disabled until the self-hosting release gate passes.
+schema_version: '0.1'
+enabled: false
+project:
+  repository: Lephiziel/altruforge
+  default_branch: main
+tasks:
+  source: github_issues
+  required_labels:
+  - agent-ready
+  excluded_labels:
+  - security
+  - needs-design
+  selection: agent_ranked
+  max_active_leases: 1
+  max_open_pull_requests: 2
+instructions:
+- AGENTS.md
+- .altruforge/instructions.md
+policy:
+  allowed_paths:
+  - cmd/**
+  - internal/**
+  - docs/**
+  - spec/**
+  - README.md
+  denied_paths:
+  - .github/**
+  - .altruforge/**
+  - LICENSE
+  - NOTICE
+agent:
+  backend: codex
+  independent_review: true
+execution:
+  backend: docker
+  image: docker.io/library/golang:1.27
+  platform: linux/amd64
+  network:
+    mode: allowlist
+    allow_hosts:
+    - proxy.golang.org
+    - sum.golang.org
+  cpus: 2
+  memory_mb: 4096
+checks:
+- id: tests
+  argv:
+  - go
+  - test
+  - ./...
+  timeout_seconds: 600
+  required: true
+- id: vet
+  argv:
+  - go
+  - vet
+  - ./...
+  timeout_seconds: 300
+  required: true
+limits:
+  max_duration_seconds: 1800
+  max_attempts: 2
+publication:
+  draft: true
+  auto_merge: false
+  branch_prefix: altruforge/

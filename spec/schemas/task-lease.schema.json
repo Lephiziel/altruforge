@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:altruforge:draft-0.1:task-lease",
+  "title": "Altruforge task-lease draft 0.1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "lease_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^github:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+#[1-9][0-9]*$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run_[0-9a-f]{32}$"
+    },
+    "holder": {
+      "type": "object",
+      "properties": {
+        "github_login": {
+          "type": "string",
+          "minLength": 1
+        },
+        "github_user_id": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "github_login",
+        "github_user_id"
+      ],
+      "additionalProperties": false
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "base_sha": {
+      "type": "string",
+      "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+    },
+    "policy_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "state_commit": {
+      "type": "string",
+      "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "lease_id",
+    "task_id",
+    "run_id",
+    "holder",
+    "generation",
+    "issued_at",
+    "expires_at",
+    "base_sha",
+    "policy_digest",
+    "state_commit"
+  ],
+  "additionalProperties": false
+}
