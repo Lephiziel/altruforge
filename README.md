@@ -11,6 +11,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Lephiziel/altruforge/actions/workflows/documentation.yml"><img alt="Documentation checks" src="https://img.shields.io/github/actions/workflow/status/Lephiziel/altruforge/documentation.yml?branch=main&amp;label=docs&amp;style=flat-square"></a>
   <a href="LICENSE"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/license-Apache_2.0-18181B?style=flat-square"></a>
   <a href="docs/product/mvp.md"><img alt="Stage: pre-implementation" src="https://img.shields.io/badge/stage-pre--implementation-F59E0B?style=flat-square"></a>
   <a href="docs/platforms.md"><img alt="Target platforms: Windows, macOS, Linux" src="https://img.shields.io/badge/targets-Windows_%C2%B7_macOS_%C2%B7_Linux-3F3F46?style=flat-square"></a>
@@ -41,17 +42,10 @@ A contributor supplies their supported AI tool and GitHub account. The maintaine
 4. **Review the result:** a Draft PR, a verification report, and a clear account of what finished or stopped.
 5. **The maintainer decides** what to merge.
 
-```mermaid
-flowchart TD
-    M["Maintainer rules and eligible tasks"] --> H["Altruforge run"]
-    C["Contributor agent and budget"] --> H
-    H --> W["Bounded work in an isolated workspace"]
-    W --> V{"Required checks pass?"}
-    V -- "No" --> B["Repair within budget or stop"]
-    B -- "Budget remains" --> W
-    V -- "Yes" --> P["Draft PR and verification report"]
-    P --> R["Project CI and maintainer review"]
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/workflow-dark.svg">
+  <img src="assets/workflow-light.svg" alt="Planned workflow: select an eligible task, implement it, verify it, and hand off a Draft PR; failed checks lead to bounded repair or a stopped report." width="100%">
+</picture>
 
 ### What makes the contribution useful
 
@@ -65,6 +59,8 @@ flowchart TD
 A successful local run does not certify correctness. Project CI and human review remain authoritative. A badge or an agent's own report cannot replace them.
 
 ## Build the first MVP
+
+[Track the first MVP](https://github.com/Lephiziel/altruforge/issues/19).
 
 Start with [the agent entry point](AGENTS.md), then [the implementation guide](docs/agents/START_HERE.md). The [backlog](docs/tasks/README.md) defines dependencies, acceptance criteria, and evidence for every work package.
 
