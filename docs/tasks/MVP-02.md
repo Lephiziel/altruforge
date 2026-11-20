@@ -1,7 +1,7 @@
 # MVP-02 Bootstrap the Go module and core development workflow
 
-Status: not implemented.
-Dependencies: None.
+Status: partial bootstrap proposed; dependency metadata and validation pending.
+Dependencies: None for proposing the bootstrap. MVP-01 evidence remains independent.
 
 ## Outcome
 
@@ -15,19 +15,27 @@ Create the actual Go development foundation without assuming that the provider/e
 
 ## Acceptance criteria
 
-- [ ] Initialize the Go module as github.com/Lephiziel/altruforge and pin a supported stable toolchain.
-- [ ] Introduce the smallest useful CLI/core structure and dependency versions; use Cobra and the selected storage approach without speculative frameworks.
-- [ ] Establish real formatting, vet, tests, build, and appropriate race checks; run the application checks on Windows, macOS, and Linux CI.
-- [ ] Keep the existing documentation/contract checks active and independent from runtime CI.
-- [ ] Define small ports for actual external dependencies and document commands that genuinely run in the checkout.
-- [ ] Do not claim sandbox/login compatibility or add a fake success path for unimplemented commands.
+- [ ] Initialize github.com/Lephiziel/altruforge with Go 1.27.3 and complete verified dependency checksums.
+- [ ] Validate the minimal Cobra command and pinned SQLite dependency without speculative frameworks.
+- [ ] Demonstrate help-output error propagation and regression sensitivity.
+- [ ] Validate a real SQLite persistence round trip in a Unicode/spaced path.
+- [ ] Pass all 12 mandatory local checks on the immutable candidate with trusted execution records.
+- [ ] Obtain independent review of code, tests, scope, CI, and all mandatory outcomes.
+- [ ] Obtain actual application CI execution URLs for Windows, macOS, and Linux.
+- [ ] Preserve the independent documentation and contract workflow.
+- [ ] Complete the English handoff against the repository handoff template.
+- [ ] Keep MVP-01 and dependent task evidence explicitly unproven.
 
 ## Out of scope
 
-Complete adapters, provider credentials, distributed services, and empty abstractions for every possible future feature.
+Complete adapters, credentials, distributed services, runtime orchestration, storage migrations, and speculative abstractions.
 
-## Required handoff
+## Provisional handoff
 
-A buildable module, reproducible development commands, and real CI URLs. This task may proceed while MVP-01 is gathering evidence, but cannot close that gate.
+Changes: a minimal command with explicit output writers, help and rejection tests, a real SQLite persistence test, pinned direct dependencies, and an independent three-platform application workflow are proposed.
 
-Use [the handoff template](../agents/HANDOFF.md). All changes and reports must be in English.
+Validation: no commands were executed. There are no passing local results, tested Linux architecture, executor identity, regression experiment results, or CI URLs to report. The supplied source set did not include the handoff template; conformity to that template remains unverified.
+
+Remaining work: generate complete dependency metadata with the trusted offline executor; run and record all 12 mandatory checks against the immutable candidate; demonstrate the regression test fails with ignored help errors; obtain independent review and real application CI results on all three platforms. The workflow intentionally rejects missing or modified dependency metadata.
+
+Issue #4 and full MVP-02 completion remain pending. The prior candidate 3efdb8367526c06494becc44f82f6f5ef7abba66 supplies no accepted evidence for this proposal. No dependent task becomes unblocked. MVP-01 security, supported login, isolation, cancellation, and recovery remain unproven.

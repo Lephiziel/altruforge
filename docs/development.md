@@ -2,34 +2,37 @@
 
 ## Current checkout
 
-There is no Go module or runtime implementation yet. The repository currently checks documentation and draft data contracts. Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for the working documentation commands.
+The proposed MVP-02 bootstrap adds a minimal Cobra command and a real SQLite persistence test. Runtime execution, provider sign-in, isolation, recovery, and publication remain planned. No executable release or successful application checks are established by this proposal.
 
-MVP-02 owns Go module initialization, pinned dependencies, the build command, and actual Go CI. Do not invent a passing runtime build before that task lands.
+Go 1.27.3 is selected in the module and application CI. Direct dependencies are Cobra v1.10.2 and modernc.org/sqlite v1.60.1. Dependency resolution remains incomplete: the trusted offline executor must generate and verify the complete go.sum and any indirect module requirements before this candidate can pass review.
 
-## Runtime toolchain decision
+## Development commands
 
-Use a supported stable Go toolchain and pin the selected version in the Go module and CI together. Cobra is the CLI library; SQLite is accessed through `database/sql` and `modernc.org/sqlite` so release builds need not depend on CGO.
-
-Provider and executor integrations remain adapters. Avoid an orchestration framework, service mesh, broker, or external database until a measured requirement justifies one.
-
-## Checks introduced with implementation
-
-Once the Go module exists, MVP-02 must establish and document:
+After dependency metadata has been completed with the trusted offline executor, use:
 
 ```sh
-go fmt ./...
+go mod download
 go vet ./...
 go test ./...
 go test -race ./...
 go build ./cmd/altruforge
+go run ./cmd/altruforge --help
 ```
 
-Use a race-enabled CI environment with its required toolchain. A CGO-free release configuration does not imply that the race detector works in that same configuration.
+Check formatting with `gofmt -l cmd internal`; any output is a failure. Apply formatting with `gofmt -w cmd internal`.
 
-Add contract, integration, and cross-platform tests as their tasks land. A normal test run must not spend a contributor's real subscription or create upstream PRs.
+The application workflow independently configures Windows, macOS, and Linux checks with Go 1.27.3. Race checks use CGO and require a supported native C toolchain. The build step disables CGO. Configuration alone supplies no execution evidence. Keep documentation and contract checks independent; their commands remain in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
-## Changes and state
+## Behavior and regression checks
 
-Do not commit runtime databases, run logs, working clones, provider sessions, or credentials. Use temporary directories in tests. Persisted data migrations need forward compatibility checks and recovery behavior.
+The command supports root help and rejects unknown commands, including planned runtime commands. Actual output uses standard writer interfaces. Cobra's help callback cannot return an error, so Execute explicitly collects and returns help-output failures.
 
-A task handoff must state the exact commands run, their outcomes, tested OS/architectures, and missing live-provider evidence.
+`TestRootHelpPropagatesWriteError` checks the underlying error identity for root help, `--help`, and `-h`. To demonstrate regression sensitivity on a disposable candidate, change Execute to return only `root.Execute()` and run `go test ./internal/cli -run '^TestRootHelpPropagatesWriteError$' -count=1`; it must fail. Restore the implementation and repeat; it must pass. This experiment has not been executed.
+
+`TestSQLitePersistence` uses database/sql and the real modernc driver against a temporary database in a Unicode/spaced directory. It creates a table, inserts and reads a value, closes the database, reopens it, and checks persistence. Cleanup closes handles before removal of the temporary directory.
+
+## Changes and evidence
+
+Do not commit runtime databases, run logs, working clones, provider sessions, or credentials. Persisted runtime migrations remain outside this bootstrap.
+
+No checks were executed while preparing this patch. Record all 12 mandatory checks, exact argv, outcomes, executor/toolchain identity, immutable candidate identity, and tested Linux architecture through the trusted workflow. Obtain independent review and actual application CI URLs for Windows, macOS, and Linux before claiming full MVP-02 completion. MVP-01 security, login, and execution evidence remains unproven; downstream gates remain blocked.
