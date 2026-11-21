@@ -2,34 +2,58 @@
 
 ## Current checkout
 
-There is no Go module or runtime implementation yet. The repository currently checks documentation and draft data contracts. Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for the working documentation commands.
+[Draft PR #20](https://github.com/Lephiziel/altruforge/pull/20) contains the MVP-02 Go bootstrap: minimal Cobra help/error handling and a real SQLite persistence test. No executable release is published. Provider sign-in, contributor task execution, isolation, cancellation, recovery and publication remain unimplemented or unverified.
 
-MVP-02 owns Go module initialization, pinned dependencies, the build command, and actual Go CI. Do not invent a passing runtime build before that task lands.
+The independently reviewed source commit is `65f0d894d40db5d34c48d403a1efd8e3fc430c27` with tree `2df63d0ba0c1d1fd9dba9dc3262ae77b6efd1912`. It passed 12/12 mandatory isolated offline checks before and after exceptional operator-maintenance local integration, and received fresh independent external APPROVED review. This is not an autonomous Harness approval or remote merge.
 
-## Runtime toolchain decision
+The module and application CI select Go 1.27.3, Cobra v1.10.2, and `modernc.org/sqlite` v1.60.1. The three-OS GitHub Actions matrix checks dependency metadata, formatting, vet, tests, race tests, and a build with CGO disabled.
 
-Use a supported stable Go toolchain and pin the selected version in the Go module and CI together. Cobra is the CLI library; SQLite is accessed through `database/sql` and `modernc.org/sqlite` so release builds need not depend on CGO.
+## Development commands
 
-Provider and executor integrations remain adapters. Avoid an orchestration framework, service mesh, broker, or external database until a measured requirement justifies one.
-
-## Checks introduced with implementation
-
-Once the Go module exists, MVP-02 must establish and document:
+With Go 1.27.3 and dependencies available, run from repository root:
 
 ```sh
-go fmt ./...
+go mod download
 go vet ./...
 go test ./...
 go test -race ./...
 go build ./cmd/altruforge
+go run ./cmd/altruforge --help
 ```
 
-Use a race-enabled CI environment with its required toolchain. A CGO-free release configuration does not imply that the race detector works in that same configuration.
+Race checks require a native C toolchain with `CGO_ENABLED=1`. A CGO-free release-style build can use:
 
-Add contract, integration, and cross-platform tests as their tasks land. A normal test run must not spend a contributor's real subscription or create upstream PRs.
+```sh
+CGO_ENABLED=0 go build ./cmd/altruforge
+```
 
-## Changes and state
+Check formatting with `gofmt -l cmd internal`: output means failure. Apply formatting with `gofmt -w cmd internal`.
 
-Do not commit runtime databases, run logs, working clones, provider sessions, or credentials. Use temporary directories in tests. Persisted data migrations need forward compatibility checks and recovery behavior.
+## Behavior and regression checks
 
-A task handoff must state the exact commands run, their outcomes, tested OS/architectures, and missing live-provider evidence.
+The command supports root help, `--help`, and `-h`. Unsupported commands are rejected. Because Cobra's help callback cannot return an error, `Execute` joins the underlying help-output error with the command execution error.
+
+`TestRootHelpPropagatesWriteError` checks the underlying writer-error identity on all supported help paths. In a disposable regression experiment, the normal test passed, changing `return errors.Join(root.Execute(), helpErr)` to `return root.Execute()` failed as expected, and restoring byte-identical source passed again. The targeted command is:
+
+```sh
+go test ./internal/cli -run '^TestRootHelpPropagatesWriteError$' -count=1
+```
+
+`TestSQLitePersistence` exercises `database/sql` and the real `modernc.org/sqlite` driver in a temporary Unicode/spaced directory, checking data before and after closing and reopening the database. Both test files are covered by passing native Go CI on three operating systems.
+
+## Observed verification
+
+- [Go application push run 44931960163](https://github.com/Lephiziel/altruforge/actions/runs/44931960163): **PASS** on Ubuntu, Windows and macOS for source SHA `65f0d894`.
+- [Go application PR run 44932106464](https://github.com/Lephiziel/altruforge/actions/runs/44932106464): **PASS** on Ubuntu, Windows and macOS for the same SHA.
+- [Documentation/contracts PR run 44932106438](https://github.com/Lephiziel/altruforge/actions/runs/44932106438): **PASS** in the separate documentation workflow for the same SHA.
+- Pinned offline executor: **12/12 mandatory checks PASS** before and after the local maintenance integration. The receipts remain in the operator's local evidence store and are not part of the public GitHub CI logs.
+- Independent external reviewer: **APPROVED** for the exact candidate and evidence, not an approved Harness review transition.
+- A subsequent documentation-only commit must pass its own GitHub Actions checks before that revision can be marked passing.
+
+The exact required offline commands and handoff are in [MVP-02](tasks/MVP-02.md). Keep the documentation and draft-contract workflow independent from application CI; see [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+## Scope and limitations
+
+Do not commit runtime databases, workspace clones, run logs, credentials or provider sessions. Migrations of future persisted runtime state need forward-compatibility and recovery checks. A working CLI bootstrap is not evidence that provider sign-in, real sandbox boundaries, process-tree termination, or remote publication works.
+
+PR #20 remains a Draft and [Issue #4](https://github.com/Lephiziel/altruforge/issues/4) remains open until maintainer acceptance. MVP-01 evidence is separate and outstanding; dependent gates remain blocked.
