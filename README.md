@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://github.com/Lephiziel/altruforge/actions/workflows/documentation.yml"><img alt="Documentation checks" src="https://img.shields.io/github/actions/workflow/status/Lephiziel/altruforge/documentation.yml?branch=main&amp;label=docs&amp;style=flat-square"></a>
   <a href="LICENSE"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/license-Apache_2.0-18181B?style=flat-square"></a>
-  <a href="docs/tasks/MVP-02.md"><img alt="Stage: bootstrap validation pending" src="https://img.shields.io/badge/stage-bootstrap_validation_pending-F59E0B?style=flat-square"></a>
+  <a href="docs/tasks/MVP-02.md"><img alt="Stage: bootstrap PR validated" src="https://img.shields.io/badge/stage-bootstrap_PR_validated-3F3F46?style=flat-square"></a>
   <a href="docs/platforms.md"><img alt="Target platforms: Windows, macOS, Linux" src="https://img.shields.io/badge/targets-Windows_%C2%B7_macOS_%C2%B7_Linux-3F3F46?style=flat-square"></a>
   <a href="spec/README.md"><img alt="Specification: draft 0.1" src="https://img.shields.io/badge/spec-draft_0.1-3F3F46?style=flat-square"></a>
 </p>
@@ -32,7 +32,7 @@ People already pay for capable coding agents. Open-source maintainers already kn
 
 A contributor supplies their supported AI tool and GitHub account. The maintainer defines eligible work, change boundaries, and acceptance checks. Altruforge selects a task, explains what it will do, carries out the work, and hands the result to the maintainer.
 
-**Current status:** the source tree includes a minimal Go CLI bootstrap alongside the implementation brief, draft contracts, agent instructions, and ordered MVP backlog. The CLI implements root help and rejects unsupported commands. A real SQLite persistence test and an independent application CI configuration are included. Trusted local validation and actual Windows, macOS, and Linux application CI evidence remain pending. There is no executable release yet. The workflow below describes the planned product.
+**Current status:** [Draft PR #20](https://github.com/Lephiziel/altruforge/pull/20) contains the minimal Go CLI bootstrap, real SQLite persistence tests, and the application CI workflow. The source candidate passed 12 mandatory offline checks and received an independent external approval through a one-time local maintenance process. [Go application CI passed on Linux, macOS, and Windows](https://github.com/Lephiziel/altruforge/actions/runs/44932106464), while [documentation and contract checks passed independently](https://github.com/Lephiziel/altruforge/actions/runs/44932106438). This is still an unmerged Draft PR, not a released or complete contributor harness; MVP-01 security evidence remains outstanding. The workflow below describes the planned product.
 
 ### Try the bootstrap
 
@@ -45,7 +45,7 @@ go test ./...
 go build ./cmd/altruforge
 ```
 
-These are development instructions, not recorded passing results. See [development guidance](docs/development.md) and [MVP-02 status and handoff](docs/tasks/MVP-02.md) for validation requirements. Login, task execution, isolation, recovery, and publication remain planned. Bootstrap work does not establish MVP-01 security or execution evidence and does not unblock dependent tasks.
+These developer commands have passing GitHub Actions and offline verification evidence for the reviewed bootstrap candidate. See [development guidance](docs/development.md) and [MVP-02 handoff](docs/tasks/MVP-02.md) for exact results and limitations. Login, task execution, isolation, recovery, and publication remain planned. Bootstrap checks do not establish MVP-01 evidence or unblock dependent tasks.
 
 ## How it will work
 

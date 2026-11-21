@@ -1,44 +1,70 @@
 # MVP-02 Bootstrap the Go module and core development workflow
 
-Status: local bootstrap source present; trusted validation and remote evidence pending.
-Dependencies: None for proposing the bootstrap. MVP-01 evidence remains independent.
+Status: validated in [Draft PR #20](https://github.com/Lephiziel/altruforge/pull/20); not merged into remote `main`. [Issue #4](https://github.com/Lephiziel/altruforge/issues/4) remains open pending maintainer acceptance.
+
+Dependencies: No prerequisite for the bootstrap itself. MVP-01 security and runtime-boundary evidence remains a separate unproven gate.
 
 ## Outcome
 
-Create the actual Go development foundation without assuming that the provider/execution boundary is already proven.
+Provide a buildable Go module, minimal Cobra CLI, real SQLite regression coverage, and Windows/macOS/Linux application CI without claiming the provider or executor runtime has been implemented.
 
 ## Read first
 
-- [docs/adr/0001-reference-runtime.md](../../docs/adr/0001-reference-runtime.md)
-- [docs/development.md](../../docs/development.md)
-- [docs/architecture.md](../../docs/architecture.md)
+- [Runtime ADR](../adr/0001-reference-runtime.md)
+- [Development guide](../development.md)
+- [Architecture](../architecture.md)
+- [Task handoff template](../agents/HANDOFF.md)
 
 ## Acceptance criteria
 
-- [ ] Initialize github.com/Lephiziel/altruforge with Go 1.27.3 and complete verified dependency checksums.
-- [ ] Validate the minimal Cobra command and pinned SQLite dependency without speculative frameworks.
-- [ ] Demonstrate help-output error propagation and regression sensitivity.
-- [ ] Validate a real SQLite persistence round trip in a Unicode/spaced path.
-- [ ] Pass all 12 mandatory local checks on the immutable candidate with trusted execution records.
-- [ ] Obtain independent review of code, tests, scope, CI, and all mandatory outcomes.
-- [ ] Obtain actual application CI execution URLs for Windows, macOS, and Linux.
-- [ ] Preserve the independent documentation and contract workflow.
-- [ ] Complete the English handoff against the repository handoff template.
-- [ ] Keep MVP-01 and dependent task evidence explicitly unproven.
+These are verified against the approved source candidate, not against an upstream release:
 
-## Out of scope
+- [x] Initialize `github.com/Lephiziel/altruforge`, pin Go 1.27.3, and check dependency metadata.
+- [x] Provide a minimal Cobra command and pinned SQLite driver.
+- [x] Verify help-writer error propagation and demonstrate regression sensitivity.
+- [x] Run a real SQLite persistence round trip through a Unicode/spaced path.
+- [x] Pass all 12 offline mandatory checks before and after local integration of the exact candidate.
+- [x] Obtain a fresh independent APPROVED review bound to the exact candidate and evidence.
+- [x] Obtain actual application CI results for Windows, macOS, and Linux.
+- [x] Preserve the independent documentation and contract workflow.
+- [x] Record an English handoff using the repository template.
+- [x] Explicitly leave MVP-01 security and dependent runtime tasks unproven.
 
-Complete adapters, credentials, distributed services, runtime orchestration, storage migrations, and speculative abstractions.
+## Task and revision
 
-## Handoff: changes
+- Task: MVP-02, [Issue #4](https://github.com/Lephiziel/altruforge/issues/4).
+- Branch: `review/mvp-02-bootstrap`, [Draft PR #20](https://github.com/Lephiziel/altruforge/pull/20).
+- Independently reviewed source commit: `65f0d894d40db5d34c48d403a1efd8e3fc430c27`.
+- Source tree: `2df63d0ba0c1d1fd9dba9dc3262ae77b6efd1912`.
+- Remote PR base: `0c81c5b5c0d3f5d5ce2ae50d79a91832e6bec4b4`. The branch includes predecessor `ed9d76de6135ce0ea5dad876b12af39df70fa271` and then the reviewed commit.
+- This documentation update follows the source review; it does not alter the reviewed Go source, tests, or CI configuration.
 
-The supplied source implements a minimal Cobra command with explicit output writers and a thin executable entry point. Tests cover help output, underlying help writer failures, rejection of unsupported commands, and a real SQLite persistence round trip in a Unicode/spaced path. The module pins Go 1.27.3, Cobra v1.10.2, and modernc.org/sqlite v1.60.1 and supplies indirect requirements and checksums.
+## Resulting behavior
 
-An independent application workflow configures formatting, dependency metadata checks, vet, tests, races, and builds on Windows, macOS, and Linux. This patch updates README and development guidance to distinguish that source implementation from planned runtime features and pending execution evidence. The documentation workflow is outside this patch.
+The CLI displays root help and responds to `--help` and `-h`, returns underlying help-writer errors, and rejects unsupported commands without fake success. The real SQLite test creates a database in a Unicode/spaced temporary directory, writes and reads a value, closes the database, reopens it, and checks persistence. This is not a released or fully functioning contributor harness.
 
-## Handoff: validation
+## Changes
 
-No tools or commands were run during this patch preparation, as required by the patch-only instruction. No mandatory check is recorded as passing. The following entries are exact argv arrays supplied by the task, not execution records:
+- `go.mod`, `go.sum`: Go 1.27.3; Cobra v1.10.2; `modernc.org/sqlite` v1.60.1 and pinned dependency metadata.
+- `cmd/altruforge/main.go`, `internal/cli/root.go`: minimal executable and CLI.
+- `internal/cli/root_test.go`, `internal/cli/sqlite_test.go`: help, error, unsupported-command and database regression tests.
+- `.github/workflows/go.yml`: native application CI on Ubuntu, Windows, and macOS.
+- `README.md`, `docs/development.md`, and this task handoff: documented scope and observed evidence.
+- Existing documentation/contract CI remains separate; no schemas or normative contracts were changed.
+
+## Validation
+
+| Command or scenario | Environment | Observed result |
+| --- | --- | --- |
+| All 12 mandatory checks listed below | Pinned network-disabled local executor, source commit `65f0d894` | **PASS 12/12** both before and after exceptional local integration; container cleanup verified |
+| Independent candidate review | Fresh external reviewer of exact candidate and mutation evidence | **APPROVED**; not recorded as Harness approval |
+| Help-writer mutation experiment | Disposable isolated test | **PASS / expected FAIL / PASS** after restoring identical source |
+| [Go application — branch push](https://github.com/Lephiziel/altruforge/actions/runs/44931960163) | GitHub Actions ubuntu-latest, macos-latest, windows-latest | **PASS** on all three operating systems |
+| [Go application — PR](https://github.com/Lephiziel/altruforge/actions/runs/44932106464) | GitHub Actions ubuntu-latest, macos-latest, windows-latest | **PASS** on all three operating systems |
+| [Documentation and draft contracts — PR](https://github.com/Lephiziel/altruforge/actions/runs/44932106438) | Separate GitHub Actions documentation job | **PASS** |
+| Documentation-only follow-up commit | This PR branch revision after `65f0d894` | Check new CI runs separately before reporting their results |
+
+The immutable candidate was checked with these 12 registered commands:
 
 ```json
 [
@@ -57,20 +83,22 @@ No tools or commands were run during this patch preparation, as required by the 
 ]
 ```
 
-The trusted workflow must record the immutable candidate identity, actual executor image digest, actual toolchain version, Linux architecture, and each command's exit status and outcome. None of those execution results was supplied. Go 1.27.3 is the configured version, not an observed toolchain result. Windows, macOS, and Linux application CI execution URLs remain absent.
+The original trusted check receipts, independent review, and maintenance-integration record are retained in the operator's local evidence store; they are not uploaded to this public repository. The GitHub Actions links above are separately observable public CI evidence. Go 1.27.3 is pinned in the workflow; a configured version is not a substitute for separately captured toolchain output.
 
-The help regression mutation experiment is specified in [development guidance](../development.md). Neither its expected failure with ignored output errors nor its expected success after restoration has been observed here. Dependency checksum completeness and the SQLite round trip also remain unverified.
+## Boundaries
 
-## Handoff: remaining work
+- The candidate was integrated into **local** `main` under one-time operator-authorized maintenance, not through an autonomous approved Harness workflow.
+- No provider login, contributor task orchestration, runtime sandbox, cancellation, recovery, remote publication or release is established.
+- Three-OS Go application CI validates the bootstrap jobs only, not the complete planned runtime on those hosts.
+- This PR remains a Draft; upstream `main` has not changed and Issue #4 remains open.
+- MVP-01 trust-boundary and supported login/isolated-execution evidence is still outstanding.
 
-Execute all 12 mandatory checks against the final immutable candidate through the trusted offline executor. Resolve any failures within the admitted paths and repeat checks on the resulting immutable candidate. Demonstrate the help regression test's sensitivity separately. Obtain independent review of the candidate, regression experiment, SQLite behavior, CI configuration, scope, and all mandatory results.
+## Dependency handoff
 
-Compare this handoff with [the repository handoff template](../agents/HANDOFF.md) before acceptance. The template and referenced contracts were not supplied, and tools were prohibited, so template conformity and contract review cannot be established from this patch.
+After maintainer acceptance, the module, CLI, SQLite baseline, and cross-platform CI provide a starting point for dependent source implementation. The bootstrap does **not** satisfy or unblock any gate that requires MVP-01 execution and security evidence.
 
-Obtain real application CI executions and URLs for Windows, macOS, and Linux. Configuring the workflow and passing Linux local checks cannot substitute for these executions.
+## Review notes
 
-## Handoff: dependencies and disposition
+Unimplemented commands are deliberately rejected. No additional runtime framework, provider adapter, security exception, or schema change was introduced. SQLite uses `database/sql` and the non-CGO modernc driver; race checks enable CGO independently, and the release-style build disables it. No new ADR was required.
 
-Issue #4 and full MVP-02 completion remain pending. Neither prior candidate 3efdb8367526c06494becc44f82f6f5ef7abba66 nor rejected candidate ed9d76de6135ce0ea5dad876b12af39df70fa271 supplies accepted completion evidence for this patch.
-
-No dependent task becomes unblocked. MVP-01 security, supported login, execution, isolation, cancellation, and recovery remain explicitly unproven. The local bootstrap cannot certify those gates.
+The evidence supports the bootstrap candidate, not a claim that the full Altruforge product or autonomous Findrail Harness flow is complete.
