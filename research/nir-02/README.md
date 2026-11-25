@@ -57,7 +57,9 @@ The script creates temporary local repositories. [Recorded output](pilot-results
 
 The script models missing acknowledgement by omitting the local completion update after a successful push. It uses a fixture commit and exercises local Git only. Process termination, network faults, PRs, CI, independently verified patches, and agent execution remain outside this pilot.
 
-## Next experiment: P0.1 (not run)
+## P0.1 plan at the end of NIR-02
+
+The execution record is in [NIR-03](../nir-03/README.md).
 
 Use a disposable local forge (e.g. Forgejo, chosen after contract checks) and an independent observer. Pin versions and use identical pre-generated candidate patches. First establish actual operation contracts: push CAS, PR uniqueness and lookup, check attribution. Then compare matched retry, checkpoint, read-back + native conditional/idempotent operations, fail-stop, and candidate reconciliation. Compare a strong contract-aware baseline with the candidate using the same provider guarantees. Inject before dispatch, after confirmed remote effect but before durable completion, delayed acknowledgement, and remote drift. Verify that a fault actually occurred. Include no-fault runs. Capture independent remote state and effect history, not only final output. Primary measures: unsafe completion, unauthorized effects, successful resolution among eligible cases, explicit unknowns; secondary: recovery time and manual intervention. Freeze scenarios, policies and grading before confirmatory runs; count all assigned trials, including unknown outcomes. No automatic merge or production repositories.
 
