@@ -563,6 +563,8 @@ def execute_trial(base_url: str, token_file: Path, askpass: Path, scenario: str,
 
 
 def run_study(args):
+    if not args.output:
+        raise SystemExit("--output is required for a full study run")
     parsed = urllib.parse.urlsplit(args.base_url)
     if parsed.scheme != "http" or parsed.hostname not in ("127.0.0.1", "localhost", "::1"):
         raise SystemExit("refusing non-loopback Forgejo URL")
@@ -635,7 +637,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--base-url", required=True)
     parser.add_argument("--token-file", required=True)
-    parser.add_argument("--output", required=True)
+    parser.add_argument("--output")
     parser.add_argument("--disposable-root", default="/tmp/altruforge-nir03-study")
     parser.add_argument("--worker", action="store_true")
     parser.add_argument("--repo", default="")
