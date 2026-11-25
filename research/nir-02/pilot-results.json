@@ -1,0 +1,19 @@
+{
+  "git_version": "git version 2.56.1",
+  "python_version": "3.12.14",
+  "platform": "Linux x86_64",
+  "scope": "local bare Git with simulated missing local acknowledgement",
+  "observations": [
+    {
+      "case": "remote_push_completed_without_local_ack",
+      "observed_head_matches_intent": true,
+      "ledger_still_intent": true
+    },
+    {
+      "case": "remote_ref_drift",
+      "ordinary_push_rejection": "fetch first",
+      "explicit_lease_push_rejection": "stale info",
+      "concurrent_change_preserved": true
+    }
+  ]
+}
