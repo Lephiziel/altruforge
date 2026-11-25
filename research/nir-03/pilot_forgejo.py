@@ -279,10 +279,10 @@ def git_call(command: list[str], cwd: Path, env: dict[str, str]):
 def prepare_repo(base_url: str, token: str, token_file: Path, askpass: Path, repo: str, scenario: str, root: Path):
     create_repo(base_url, token, repo)
     work = root / "worker"
-    cloned = run(["git", "clone", f"{base_url}/{OWNER}/{repo}.git", str(work)])
-    if cloned.returncode:
-        raise RuntimeError(f"clone failed ({cloned.returncode})")
     env = sanitized_git_env(token_file, askpass)
+    cloned = run(["git", "clone", f"{base_url}/{OWNER}/{repo}.git", str(work)], env=env)
+    if cloned.returncode:
+        raise RuntimeError(f"clone failed ({cloned.returncode}): {cloned.stderr.strip()}")
     for key, value in (("user.name", "NIR-03 Experiment"), ("user.email", "nir03@example.invalid")):
         git_call(["config", key, value], work, env)
     base_sha = git_call(["rev-parse", "HEAD"], work, env)["stdout"]
@@ -320,9 +320,12 @@ def prepare_repo(base_url: str, token: str, token_file: Path, askpass: Path, rep
     competitor = None
     if scenario == "remote_drift":
         competitor = root / "competitor"
-        cl = run(["git", "clone", f"{base_url}/{OWNER}/{repo}.git", str(competitor)])
+        cl = run(
+            ["git", "clone", f"{base_url}/{OWNER}/{repo}.git", str(competitor)],
+            env=env,
+        )
         if cl.returncode:
-            raise RuntimeError("competitor clone failed")
+            raise RuntimeError(f"competitor clone failed: {cl.stderr.strip()}")
         for key, value in (("user.name", "Concurrent Writer"), ("user.email", "writer@example.invalid")):
             git_call(["config", key, value], competitor, env)
         git_call(["checkout", "-b", "competitor", "origin/feature"], competitor, env)
