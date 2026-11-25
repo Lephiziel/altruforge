@@ -5,3 +5,4 @@ Altruforge research records include study questions, experiment scripts, and obs
 | Study | Scope | Status |
 | --- | --- | --- |
 | [NIR-02](nir-02/README.md) | Crash-consistent delivery of verified commits | Literature review and local Git pilot |
+| [NIR-03](nir-03/README.md) | Publication recovery on a disposable forge | Bounded TLA+ checks and exploratory P0.1 execution |

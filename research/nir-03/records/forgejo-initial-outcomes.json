@@ -1,0 +1,699 @@
+{
+  "lab_error": null,
+  "errors": 14,
+  "trials": [
+    {
+      "scenario": "control",
+      "strategy": "retry",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "retry-control"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 7,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "control",
+      "strategy": "checkpoint",
+      "trial": "checkpoint-control",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 450.019,
+      "recovery_attempts_ms": null,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 8,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "control",
+      "strategy": "readback",
+      "trial": "readback-control",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 460.406,
+      "recovery_attempts_ms": null,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 9,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "control",
+      "strategy": "fail-stop",
+      "trial": "fail-stop-control",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 451.949,
+      "recovery_attempts_ms": null,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 10,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "control",
+      "strategy": "retry-reconcile",
+      "trial": "retry-reconcile-control",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 522.883,
+      "recovery_attempts_ms": null,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 11,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "kill-before-create",
+      "strategy": "retry",
+      "trial": "retry-kill-before-create",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 593.227,
+      "recovery_attempts_ms": 475.111,
+      "successful_recovery_ms": 475.111
+    },
+    {
+      "scenario": "kill-before-create",
+      "strategy": "checkpoint",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "checkpoint-kill-before-create"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 12,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "kill-before-create",
+      "strategy": "readback",
+      "trial": "readback-kill-before-create",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 662.289,
+      "recovery_attempts_ms": 503.632,
+      "successful_recovery_ms": 503.632
+    },
+    {
+      "scenario": "kill-before-create",
+      "strategy": "fail-stop",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "fail-stop-kill-before-create"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 13,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "kill-before-create",
+      "strategy": "retry-reconcile",
+      "trial": "retry-reconcile-kill-before-create",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 670.036,
+      "recovery_attempts_ms": 531.222,
+      "successful_recovery_ms": 531.222
+    },
+    {
+      "scenario": "kill-after-create",
+      "strategy": "retry",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "retry-kill-after-create"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 14,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": true,
+      "safe_blocked": false,
+      "successful": false,
+      "verdict": "unknown",
+      "publisher": "publisher",
+      "scenario": "kill-after-create",
+      "strategy": "checkpoint",
+      "trial": "checkpoint-kill-after-create",
+      "post_requests": 2,
+      "eligible": true,
+      "completion_or_stop_ms": 842.556,
+      "recovery_attempts_ms": 304.429,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 15,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "kill-after-create",
+      "strategy": "readback",
+      "trial": "readback-kill-after-create",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 1501.951,
+      "recovery_attempts_ms": 555.441,
+      "successful_recovery_ms": 555.441
+    },
+    {
+      "scenario": "kill-after-create",
+      "strategy": "fail-stop",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "fail-stop-kill-after-create"
+    },
+    {
+      "scenario": "kill-after-create",
+      "strategy": "retry-reconcile",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "retry-reconcile-kill-after-create"
+    },
+    {
+      "scenario": "drop-response",
+      "strategy": "retry",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "retry-drop-response"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 16,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": true,
+      "safe_blocked": false,
+      "successful": false,
+      "verdict": "unknown",
+      "publisher": "publisher",
+      "scenario": "drop-response",
+      "strategy": "checkpoint",
+      "trial": "checkpoint-drop-response",
+      "post_requests": 2,
+      "eligible": true,
+      "completion_or_stop_ms": 1289.1,
+      "recovery_attempts_ms": 405.571,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 17,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "drop-response",
+      "strategy": "readback",
+      "trial": "readback-drop-response",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 1423.39,
+      "recovery_attempts_ms": 646.551,
+      "successful_recovery_ms": 646.551
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 18,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": true,
+      "safe_blocked": false,
+      "successful": false,
+      "verdict": "unknown",
+      "publisher": "publisher",
+      "scenario": "drop-response",
+      "strategy": "fail-stop",
+      "trial": "fail-stop-drop-response",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 3137.903,
+      "recovery_attempts_ms": 607.101,
+      "successful_recovery_ms": null
+    },
+    {
+      "scenario": "drop-response",
+      "strategy": "retry-reconcile",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "retry-reconcile-drop-response"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 19,
+          "number": 1,
+          "head_sha": "784214211019e05e05f0519d37e612fcc4afd6fe",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": true,
+      "successful": false,
+      "verdict": "blocked",
+      "publisher": "publisher",
+      "scenario": "drift-before-recovery",
+      "strategy": "retry",
+      "trial": "retry-drift-before-recovery",
+      "post_requests": 1,
+      "eligible": false,
+      "completion_or_stop_ms": 1862.724,
+      "recovery_attempts_ms": 218.661,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 20,
+          "number": 1,
+          "head_sha": "784214211019e05e05f0519d37e612fcc4afd6fe",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": true,
+      "successful": false,
+      "verdict": "blocked",
+      "publisher": "publisher",
+      "scenario": "drift-before-recovery",
+      "strategy": "checkpoint",
+      "trial": "checkpoint-drift-before-recovery",
+      "post_requests": 1,
+      "eligible": false,
+      "completion_or_stop_ms": 2184.98,
+      "recovery_attempts_ms": 167.352,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 21,
+          "number": 1,
+          "head_sha": "784214211019e05e05f0519d37e612fcc4afd6fe",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": true,
+      "successful": false,
+      "verdict": "blocked",
+      "publisher": "publisher",
+      "scenario": "drift-before-recovery",
+      "strategy": "readback",
+      "trial": "readback-drift-before-recovery",
+      "post_requests": 1,
+      "eligible": false,
+      "completion_or_stop_ms": 1559.266,
+      "recovery_attempts_ms": 131.33,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 22,
+          "number": 1,
+          "head_sha": "784214211019e05e05f0519d37e612fcc4afd6fe",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": true,
+      "successful": false,
+      "verdict": "blocked",
+      "publisher": "publisher",
+      "scenario": "drift-before-recovery",
+      "strategy": "fail-stop",
+      "trial": "fail-stop-drift-before-recovery",
+      "post_requests": 1,
+      "eligible": false,
+      "completion_or_stop_ms": 2120.05,
+      "recovery_attempts_ms": 234.609,
+      "successful_recovery_ms": null
+    },
+    {
+      "scenario": "drift-before-recovery",
+      "strategy": "retry-reconcile",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "retry-reconcile-drift-before-recovery"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 23,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": true,
+      "safe_blocked": false,
+      "successful": false,
+      "verdict": "unknown",
+      "publisher": "publisher",
+      "scenario": "kill-while-recovering",
+      "strategy": "retry",
+      "trial": "retry-kill-while-recovering",
+      "post_requests": 3,
+      "eligible": true,
+      "completion_or_stop_ms": 1338.286,
+      "recovery_attempts_ms": 838.938,
+      "successful_recovery_ms": null
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 24,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": true,
+      "safe_blocked": false,
+      "successful": false,
+      "verdict": "unknown",
+      "publisher": "publisher",
+      "scenario": "kill-while-recovering",
+      "strategy": "checkpoint",
+      "trial": "checkpoint-kill-while-recovering",
+      "post_requests": 3,
+      "eligible": true,
+      "completion_or_stop_ms": 1206.558,
+      "recovery_attempts_ms": 709.078,
+      "successful_recovery_ms": null
+    },
+    {
+      "scenario": "kill-while-recovering",
+      "strategy": "readback",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "readback-kill-while-recovering"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 25,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": true,
+      "safe_blocked": false,
+      "successful": false,
+      "verdict": "unknown",
+      "publisher": "publisher",
+      "scenario": "kill-while-recovering",
+      "strategy": "fail-stop",
+      "trial": "fail-stop-kill-while-recovering",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 938.027,
+      "recovery_attempts_ms": 339.999,
+      "successful_recovery_ms": null
+    },
+    {
+      "scenario": "kill-while-recovering",
+      "strategy": "retry-reconcile",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "retry-reconcile-kill-while-recovering"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 26,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": true,
+      "safe_blocked": false,
+      "successful": false,
+      "verdict": "unknown",
+      "publisher": "publisher",
+      "scenario": "kill-after-receipt",
+      "strategy": "retry",
+      "trial": "retry-kill-after-receipt",
+      "post_requests": 2,
+      "eligible": true,
+      "completion_or_stop_ms": 836.922,
+      "recovery_attempts_ms": 317.348,
+      "successful_recovery_ms": null
+    },
+    {
+      "scenario": "kill-after-receipt",
+      "strategy": "checkpoint",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "checkpoint-kill-after-receipt"
+    },
+    {
+      "scenario": "kill-after-receipt",
+      "strategy": "readback",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "readback-kill-after-receipt"
+    },
+    {
+      "expected_candidate_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+      "expected_base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c",
+      "observed_prs": [
+        {
+          "id": 27,
+          "number": 1,
+          "head_sha": "b4bf10066a447dfd14561ba190432bde1c01349f",
+          "base_sha": "8c704ef3698885d94d3bc8f21c44ac67eb0e0f4c"
+        }
+      ],
+      "publication_effects": 1,
+      "history_agrees": true,
+      "unauthorized_changes": [],
+      "false_completion": false,
+      "explicit_unknown": false,
+      "safe_blocked": false,
+      "successful": true,
+      "verdict": "complete",
+      "publisher": "publisher",
+      "scenario": "kill-after-receipt",
+      "strategy": "fail-stop",
+      "trial": "fail-stop-kill-after-receipt",
+      "post_requests": 1,
+      "eligible": true,
+      "completion_or_stop_ms": 818.5,
+      "recovery_attempts_ms": 184.856,
+      "successful_recovery_ms": 184.856
+    },
+    {
+      "scenario": "kill-after-receipt",
+      "strategy": "retry-reconcile",
+      "error": "expected HTTP 200, received 404: {'message': \"The target couldn't be found.\", 'url': 'http://127.0.0.1:52303/api/swagger', 'errors': []}",
+      "trial": "retry-reconcile-kill-after-receipt"
+    }
+  ]
+}
