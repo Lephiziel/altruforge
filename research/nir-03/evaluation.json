@@ -1,0 +1,36 @@
+{
+  "assigned_trials": 25,
+  "candidate_recovery_classes_observed": [
+    "complete",
+    "conflict",
+    "not_executed"
+  ],
+  "candidate_resolution": 4,
+  "contract_probe_failures": [],
+  "duplicate_cells": 0,
+  "eligible_resolution_by_policy_out_of_four": {
+    "blind_retry": 2,
+    "candidate_reconciliation": 4,
+    "checkpoint_replay": 2,
+    "contract_aware": 4,
+    "fail_stop": 1
+  },
+  "incorrect_status_attribution_count": 0,
+  "independent_outcome_counts": {
+    "complete": 13,
+    "conflict": 5,
+    "unknown": 7
+  },
+  "input": "research/nir-03/pilot-results.json",
+  "interpretation": "Exploratory replication: no observed resolution advantage over the strong contract-aware baseline.",
+  "matrix_complete": true,
+  "missing_cells": [],
+  "resolution_difference_candidate_minus_baseline": 0,
+  "setup_errors_in_denominator": 0,
+  "statistical_efficacy_claimed": false,
+  "strong_baseline_resolution": 4,
+  "study": "NIR-03 P0.1 exploratory Forgejo pilot",
+  "unauthorized_or_duplicate_effect_count": 0,
+  "unexpected_cells": [],
+  "unsafe_completion_count": 0
+}

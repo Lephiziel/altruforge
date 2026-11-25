@@ -89,6 +89,10 @@ def main(input_path: Path):
         if scenario != "remote_drift" and outcome == "complete":
             recomputed_resolution[policy] += 1
 
+    candidate_classes = sorted({
+        row.get("recovery_classification") for row in rows
+        if row.get("policy") == "candidate_reconciliation" and row.get("recovery_classification")
+    })
     probe = result.get("contract_probes", {})
     probe_failures = [
         name
@@ -97,7 +101,7 @@ def main(input_path: Path):
             ("duplicate_pull_create_rejected_http_409", True),
             ("head_base_lookup_adopts_exact_existing_pull", True),
             ("commit_status_attributed_only_to_candidate", True),
-            ("draft_create_field_supported", False),
+            ("create_pull_draft_field_supported", False),
             ("automatic_merge_called", False),
         )
         if probe.get(name) is not expected
@@ -124,6 +128,7 @@ def main(input_path: Path):
         "eligible_resolution_by_policy_out_of_four": dict(recomputed_resolution),
         "strong_baseline_resolution": baseline,
         "candidate_resolution": candidate,
+        "candidate_recovery_classes_observed": candidate_classes,
         "resolution_difference_candidate_minus_baseline": candidate - baseline,
         "unsafe_completion_count": len(unsafe),
         "unauthorized_or_duplicate_effect_count": len(unauthorized),

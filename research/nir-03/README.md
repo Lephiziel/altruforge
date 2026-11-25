@@ -72,7 +72,8 @@ Run the disposable forge pilot with a verified local Forgejo instance:
 python3 research/nir-03/pilot_forgejo.py \
   --base-url http://127.0.0.1:30300 \
   --token-file /path/to/private/temporary/token \
-  --output research/nir-03/pilot-results.json
+  --output research/nir-03/pilot-results.json \
+  --disposable-root /tmp/altruforge-nir03-fresh-run
 python3 research/nir-03/evaluate_pilot.py research/nir-03/pilot-results.json
 ```
 
@@ -80,4 +81,4 @@ The token file must remain outside Git, mode `0600`, and must not be printed. Th
 
 ## Results and limitations
 
-See [protocol-v2 pilot results](pilot-results.json), [protocol-v1 contract-discovery run](pilot-results-contract-discovery.json), [provider contract evidence](provider-contracts.json), and [independent outcome evaluation](evaluation.md). One Forgejo version, Linux host, generated tasks, and one observation per cell limit generalization. The pilot does not exercise GitHub, CI jobs, process crash recovery inside a product runtime, agent verification quality, protected branch administration, or multiple Forge implementations. Any claim about those surfaces remains unverified.
+See [protocol-v2 pilot results](pilot-results.json), [protocol-v1 contract-discovery run](pilot-results-contract-discovery.json), [provider contract evidence](provider-contracts.json), [independent outcome evaluation](evaluation.md), and [execution notes](execution-notes.md). The retained matrix found no resolution advantage over the strong contract-aware baseline (4/4 versus 4/4 eligible cases). It is a negative exploratory result, not a statistical efficacy claim. The explicit candidate-ledger `unknown` class was not observed and remains a follow-up gap. One Forgejo version, Linux host, generated tasks, and one observation per cell limit generalization. The pilot does not exercise GitHub, CI jobs, process crash recovery inside a product runtime, agent verification quality, protected branch administration, or multiple Forge implementations. Any claim about those surfaces remains unverified.
