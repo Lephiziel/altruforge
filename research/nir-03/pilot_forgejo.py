@@ -573,7 +573,7 @@ def run_study(args):
     status, version = api(args.base_url, token, "GET", "/version")
     if status != 200 or not isinstance(version, dict):
         raise SystemExit(f"Forgejo version probe failed with HTTP {status}")
-    if version.get("version") != "17.0.2":
+    if not version.get("version", "").startswith("17.0.2"):
         raise SystemExit(f"expected Forgejo 17.0.2, observed {version.get('version')!r}")
 
     root = Path(args.disposable_root).resolve()
