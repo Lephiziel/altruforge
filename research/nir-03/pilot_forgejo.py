@@ -302,6 +302,11 @@ def prepare_repo(base_url: str, token: str, token_file: Path, askpass: Path, rep
     git_call(["checkout", "feature"], work, env)
     git_call(["reset", "--hard", candidate_sha], work, env)
 
+    candidate_ref = git_call(
+        ["push", "origin", "HEAD:refs/heads/candidate"], work, env
+    )
+    if candidate_ref["returncode"]:
+        raise RuntimeError("candidate identity ref push failed before fault injection")
     if scenario != "remote_drift":
         candidate_push = git_call(
             [
@@ -314,7 +319,7 @@ def prepare_repo(base_url: str, token: str, token_file: Path, askpass: Path, rep
             env,
         )
         if candidate_push["returncode"]:
-            raise RuntimeError("candidate ref push failed before fault injection")
+            raise RuntimeError("candidate feature ref push failed before fault injection")
 
     drift_sha = None
     competitor = None
@@ -595,15 +600,37 @@ def run_study(args):
     )
     askpass.chmod(0o700)
 
-    trials = []
+    result = {
+        "study": "NIR-03 P0.1 exploratory Forgejo pilot",
+        "protocol_revision": "frozen-before-execution",
+        "forgejo_version": version["version"],
+        "git_version": run(["git", "--version"]).stdout.strip(),
+        "python_version": platform.python_version(),
+        "platform": f"{platform.system()} {platform.machine()}",
+        "forge_url_scope": "loopback only",
+        "actions_enabled": False,
+        "automatic_merge_enabled": False,
+        "assigned_trial_count": len(SCENARIOS) * len(POLICIES),
+        "scenario_count": len(SCENARIOS),
+        "policy_count": len(POLICIES),
+        "status": "in_progress",
+        "trials": [],
+    }
+
+    def save_progress():
+        temp_output = output.with_name(output.name + ".in-progress")
+        temp_output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        temp_output.replace(output)
+
+    save_progress()
     index = 0
     for scenario in SCENARIOS:
         for policy in POLICIES:
             index += 1
             trial_root = root / f"trial-{index:02d}"
             trial_root.mkdir(mode=0o700)
-            trials.append(
-                execute_trial(
+            try:
+                trial = execute_trial(
                     args.base_url,
                     token_file,
                     askpass,
@@ -612,25 +639,25 @@ def run_study(args):
                     trial_root,
                     index,
                 )
-            )
-    result = {
-        "study": "NIR-03 P0.1 exploratory Forgejo pilot",
-        "protocol_revision": "frozen-before-execution",
-        "forgejo_version": version["version"],
-        "git_version": run(["git", "--version"]) .stdout.strip(),
-        "python_version": platform.python_version(),
-        "platform": f"{platform.system()} {platform.machine()}",
-        "forge_url_scope": "loopback only",
-        "actions_enabled": False,
-        "automatic_merge_enabled": False,
-        "assigned_trial_count": len(trials),
-        "scenario_count": len(SCENARIOS),
-        "policy_count": len(POLICIES),
-        "trials": trials,
-    }
-    output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(json.dumps({"assigned": len(trials), "output": str(output), "forgejo": version["version"]}))
+                result["trials"].append(trial)
+            except Exception as error:  # Preserve assigned setup failures in the denominator.
+                result["trials"].append(
+                    {
+                        "trial_index": index,
+                        "scenario": scenario,
+                        "policy": policy,
+                        "outcome": "setup_error",
+                        "error_type": type(error).__name__,
+                    }
+                )
+            save_progress()
+    errors = sum(trial.get("outcome") == "setup_error" for trial in result["trials"])
+    result["status"] = "complete" if errors == 0 else "complete_with_setup_errors"
+    result["setup_error_count"] = errors
+    save_progress()
+    print(json.dumps({"assigned": len(result["trials"]), "setup_errors": errors, "output": str(output), "forgejo": version["version"]}))
+    if errors:
+        raise SystemExit(2)
 
 
 def parse_args():
