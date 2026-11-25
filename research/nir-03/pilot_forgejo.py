@@ -114,7 +114,6 @@ def create_pull(base_url: str, token: str, repo: str, branch: str, marker: str, 
             "base": "main",
             "title": f"Disposable P0.1 candidate {marker}",
             "body": f"Synthetic NIR-03 experiment. Run marker: {marker}\nCandidate identity is recorded in the experiment artifact.",
-            "draft": True,
         },
         timeout=timeout,
     )
@@ -122,7 +121,7 @@ def create_pull(base_url: str, token: str, repo: str, branch: str, marker: str, 
 
 def find_pulls(base_url: str, token: str, repo: str, branch: str):
     query = urllib.parse.urlencode(
-        {"state": "all", "head": f"{OWNER}:{branch}", "base": "main"}
+        {"state": "all", "head": branch, "base": "main"}
     )
     status, pulls = api(
         base_url, token, "GET", f"/repos/{OWNER}/{repo}/pulls?{query}"
@@ -352,7 +351,7 @@ def exact_pull(pulls: list[dict], candidate: str, marker: str):
         for p in pulls
         if p.get("head", {}).get("sha") == candidate
         and p.get("base", {}).get("ref") == "main"
-        and p.get("draft") is True
+        and p.get("state") == "open"
         and marker in p.get("body", "")
         and p.get("merged") is False
     ]
@@ -442,6 +441,8 @@ def execute_trial(base_url: str, token_file: Path, askpass: Path, scenario: str,
     status, pulls = find_pulls(base_url, token, repo, "feature")
     strategy_action = "normal_first_attempt"
     recovered_status = None
+    policy_completed = False
+    reconciliation_classification = None
 
     if scenario == "remote_drift":
         strategy_action = "conflict_observed"
@@ -471,6 +472,7 @@ def execute_trial(base_url: str, token_file: Path, askpass: Path, scenario: str,
         created, _value = create_pull(base_url, token, repo, "feature", marker)
         recovered_status = {"http_status": created}
         strategy_action = "normal_create"
+        policy_completed = created in (200, 201)
     elif policy == "fail_stop":
         strategy_action = "stopped_without_recovery_write"
         outcome = "unknown"
@@ -478,27 +480,47 @@ def execute_trial(base_url: str, token_file: Path, askpass: Path, scenario: str,
         if policy in ("blind_retry", "checkpoint_replay"):
             recovered_status, _value = create_pull(base_url, token, repo, "feature", marker)
             strategy_action = "replayed_pr_create"
+            policy_completed = recovered_status in (200, 201)
         else:
+            observed_branch_status, observed_branch_sha = branch_sha(
+                base_url, token, repo, "feature"
+            )
             status, pulls = find_pulls(base_url, token, repo, "feature")
             existing = exact_pull(pulls, candidate_sha, marker)
-            if existing:
+            if existing and observed_branch_sha == candidate_sha:
                 strategy_action = "adopted_exact_existing_pr"
-            elif not pulls:
+                policy_completed = True
+                reconciliation_classification = "complete"
+            elif not pulls and observed_branch_sha == candidate_sha:
+                reconciliation_classification = "not_executed"
                 recovered_status, _value = create_pull(base_url, token, repo, "feature", marker)
                 strategy_action = "created_after_absence_probe"
+                policy_completed = recovered_status in (200, 201)
             else:
                 strategy_action = "conflicting_pr_found"
+                reconciliation_classification = "conflict" if observed_branch_status == 200 else "unknown"
     elif scenario == "before_dispatch":
         if policy in ("contract_aware", "candidate_reconciliation"):
+            observed_branch_status, observed_branch_sha = branch_sha(
+                base_url, token, repo, "feature"
+            )
             status, pulls = find_pulls(base_url, token, repo, "feature")
-            if exact_pull(pulls, candidate_sha, marker):
+            if exact_pull(pulls, candidate_sha, marker) and observed_branch_sha == candidate_sha:
                 strategy_action = "unexpected_existing_exact_pr"
-            else:
+                policy_completed = True
+                reconciliation_classification = "complete"
+            elif not pulls and observed_branch_sha == candidate_sha:
+                reconciliation_classification = "not_executed"
                 recovered_status, _value = create_pull(base_url, token, repo, "feature", marker)
                 strategy_action = "created_after_absence_probe"
+                policy_completed = recovered_status in (200, 201)
+            else:
+                strategy_action = "conflict_or_unavailable_state"
+                reconciliation_classification = "conflict" if observed_branch_status == 200 else "unknown"
         else:
             recovered_status, _value = create_pull(base_url, token, repo, "feature", marker)
             strategy_action = "replayed_pr_create"
+            policy_completed = recovered_status in (200, 201)
 
     # A separate observer reads state regardless of the policy's own knowledge.
     observed_http, observed_branch = branch_sha(base_url, token, repo, "feature")
@@ -520,15 +542,16 @@ def execute_trial(base_url: str, token_file: Path, askpass: Path, scenario: str,
     )
     if scenario == "remote_drift":
         outcome = "conflict" if observed_branch == drift_sha else "unsafe_or_unknown"
-    elif policy == "fail_stop" and scenario != "no_fault":
-        outcome = "unknown"
     else:
-        outcome = "complete" if exact and status_attribution else "unknown"
+        outcome = "complete" if policy_completed and exact and status_attribution else "unknown"
     if policy == "candidate_reconciliation":
         ledger["state"] = outcome
-        ledger["expected_effects"] = ["feature_ref_at_candidate_sha", "exact_draft_pr", "candidate_sha_status"]
+        ledger["expected_effects"] = ["feature_ref_at_candidate_sha", "exact_open_pr", "candidate_sha_status"]
+        ledger["recovery_classification"] = reconciliation_classification or (
+            "conflict" if scenario == "remote_drift" else "complete" if policy_completed else "unknown"
+        )
     else:
-        ledger["state"] = "complete" if exact else "pending"
+        ledger["state"] = outcome
     ledger_path.write_text(json.dumps(ledger, sort_keys=True) + "\n", encoding="utf-8")
 
     exact_count = len(exact)
@@ -552,7 +575,7 @@ def execute_trial(base_url: str, token_file: Path, askpass: Path, scenario: str,
             "branch_sha": observed_branch,
             "pulls_http": pulls_http,
             "matching_pull_count": len(pulls),
-            "exact_candidate_draft_count": exact_count,
+            "exact_candidate_pr_count": exact_count,
             "candidate_status_http": status_http,
             "base_status_http": wrong_sha_http,
             "status_attributed_only_to_candidate": status_attribution,
@@ -585,6 +608,14 @@ def run_study(args):
         raise SystemExit(f"Forgejo version probe failed with HTTP {status}")
     if not version.get("version", "").startswith("17.0.2"):
         raise SystemExit(f"expected Forgejo 17.0.2, observed {version.get('version')!r}")
+    swagger_request = urllib.request.Request(
+        f"{args.base_url.rstrip('/')}/swagger.v1.json",
+        headers={"Authorization": f"token {token}", "Accept": "application/json"},
+    )
+    with urllib.request.urlopen(swagger_request, timeout=5) as response:
+        swagger = json.loads(response.read())
+    create_pull_fields = swagger.get("definitions", {}).get("CreatePullRequestOption", {}).get("properties", {})
+    draft_create_supported = "draft" in create_pull_fields
 
     root = Path(args.disposable_root).resolve()
     if root.exists():
@@ -602,7 +633,7 @@ def run_study(args):
 
     result = {
         "study": "NIR-03 P0.1 exploratory Forgejo pilot",
-        "protocol_revision": "frozen-before-execution",
+        "protocol_revision": "v2-amended-after-local-contract-probes",
         "forgejo_version": version["version"],
         "git_version": run(["git", "--version"]).stdout.strip(),
         "python_version": platform.python_version(),
@@ -610,6 +641,7 @@ def run_study(args):
         "forge_url_scope": "loopback only",
         "actions_enabled": False,
         "automatic_merge_enabled": False,
+        "draft_create_supported_by_api": draft_create_supported,
         "assigned_trial_count": len(SCENARIOS) * len(POLICIES),
         "scenario_count": len(SCENARIOS),
         "policy_count": len(POLICIES),
@@ -654,6 +686,33 @@ def run_study(args):
     errors = sum(trial.get("outcome") == "setup_error" for trial in result["trials"])
     result["status"] = "complete" if errors == 0 else "complete_with_setup_errors"
     result["setup_error_count"] = errors
+    drift_candidate = next(
+        (trial for trial in result["trials"] if trial.get("scenario") == "remote_drift" and trial.get("policy") == "candidate_reconciliation"),
+        {},
+    )
+    duplicate_retry = next(
+        (trial for trial in result["trials"] if trial.get("scenario") == "effect_before_completion" and trial.get("policy") == "blind_retry"),
+        {},
+    )
+    adopted_retry = next(
+        (trial for trial in result["trials"] if trial.get("scenario") == "effect_before_completion" and trial.get("policy") == "contract_aware"),
+        {},
+    )
+    result["contract_probes"] = {
+        "git_expected_old_ref_rejected_and_drift_preserved": bool(
+            drift_candidate.get("recovery_observation", {}).get("stale_rejection")
+            and drift_candidate.get("observer", {}).get("branch_sha") == drift_candidate.get("concurrent_sha")
+        ),
+        "duplicate_pull_create_rejected_http_409": duplicate_retry.get("recovery_observation") == 409,
+        "head_base_lookup_adopts_exact_existing_pull": adopted_retry.get("recovery_action") == "adopted_exact_existing_pr",
+        "commit_status_attributed_only_to_candidate": all(
+            trial.get("observer", {}).get("status_attributed_only_to_candidate") is True
+            for trial in result["trials"]
+            if trial.get("scenario") != "remote_drift"
+        ),
+        "create_pull_draft_field_supported": draft_create_supported,
+        "automatic_merge_called": False,
+    }
     save_progress()
     print(json.dumps({"assigned": len(result["trials"]), "setup_errors": errors, "output": str(output), "forgejo": version["version"]}))
     if errors:
