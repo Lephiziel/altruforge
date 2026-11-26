@@ -1,0 +1,15 @@
+{
+  "base_sha": "04156972abd3d3e283359a3902e473a542c12b3d",
+  "candidate_sha": "5008e7636a287a99283c9106f5fea4dffd63b7da",
+  "created_at": "2026-11-26T02:45:12.811345+00:00",
+  "expected_effects": [
+    "feature ref at candidate",
+    "one exact PR",
+    "exact status receipt"
+  ],
+  "label": "nir03-s1-r2-R7-candidate-reconciliation",
+  "object_format": "sha1",
+  "repository": "nir03-s1-r2-r7-can",
+  "schema": "nir03-s1-intent-v1",
+  "verification_id": "bc333a4e267c4b75a4881ec1b2e5d612bfce94bc47786c1456378f1a70755515"
+}

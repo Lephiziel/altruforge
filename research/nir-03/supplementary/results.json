@@ -1,0 +1,329 @@
+{
+  "assignments": [
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.396142+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R1-contract-aware",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "contract-aware",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r1-con",
+      "scenario": "R1",
+      "started_at": "2026-11-26T02:01:19.352112+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.434081+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R1-candidate-reconciliation",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "candidate-reconciliation",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r1-can",
+      "scenario": "R1",
+      "started_at": "2026-11-26T02:01:19.396170+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.471121+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R2-contract-aware",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "contract-aware",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r2-con",
+      "scenario": "R2",
+      "started_at": "2026-11-26T02:01:19.434106+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.509014+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R2-candidate-reconciliation",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "candidate-reconciliation",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r2-can",
+      "scenario": "R2",
+      "started_at": "2026-11-26T02:01:19.471147+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.545401+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R3-contract-aware",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "contract-aware",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r3-con",
+      "scenario": "R3",
+      "started_at": "2026-11-26T02:01:19.509038+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.581754+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R3-candidate-reconciliation",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "candidate-reconciliation",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r3-can",
+      "scenario": "R3",
+      "started_at": "2026-11-26T02:01:19.545429+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.618276+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R4-contract-aware",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "contract-aware",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r4-con",
+      "scenario": "R4",
+      "started_at": "2026-11-26T02:01:19.581782+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.654459+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R4-candidate-reconciliation",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "candidate-reconciliation",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r4-can",
+      "scenario": "R4",
+      "started_at": "2026-11-26T02:01:19.618299+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.689881+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R5-contract-aware",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "contract-aware",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r5-con",
+      "scenario": "R5",
+      "started_at": "2026-11-26T02:01:19.654481+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.725874+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R5-candidate-reconciliation",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "candidate-reconciliation",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r5-can",
+      "scenario": "R5",
+      "started_at": "2026-11-26T02:01:19.689904+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.765120+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R6-contract-aware",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "contract-aware",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r6-con",
+      "scenario": "R6",
+      "started_at": "2026-11-26T02:01:19.725897+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.804839+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R6-candidate-reconciliation",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "candidate-reconciliation",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r6-can",
+      "scenario": "R6",
+      "started_at": "2026-11-26T02:01:19.765143+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.840174+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R7-contract-aware",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "contract-aware",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r7-con",
+      "scenario": "R7",
+      "started_at": "2026-11-26T02:01:19.804868+00:00",
+      "status": "blocked"
+    },
+    {
+      "barriers": [],
+      "driver_claimed_classifications": [],
+      "ended_at": "2026-11-26T02:01:19.875386+00:00",
+      "error": {
+        "message": "fixture git failed: error: missing config key GIT_CONFIG_KEY_1\nfatal: unable to parse command-line config\n",
+        "type": "RuntimeError"
+      },
+      "label": "nir03-s1-R7-candidate-reconciliation",
+      "mutation_trace": [],
+      "observer_captures": [],
+      "policy": "candidate-reconciliation",
+      "protocol_deviations": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "proxy_events": [],
+      "proxy_url": "http://127.0.0.1:41535",
+      "repository": "nir03-s1-r7-can",
+      "scenario": "R7",
+      "started_at": "2026-11-26T02:01:19.840200+00:00",
+      "status": "blocked"
+    }
+  ],
+  "ended_at": "2026-11-26T02:01:19.876927+00:00",
+  "environment": {
+    "observer_credential_scope": "read:repository,read:user",
+    "provider_origin": "http://127.0.0.1:30301",
+    "proxy_origin": "http://127.0.0.1:41535",
+    "read_only_observer_account": "s1-observer"
+  },
+  "protocol": "research/nir-03/supplementary/PREREGISTRATION.md",
+  "schema": "nir03-s1-results-v1",
+  "source_commit": "8a5d27c477421aeb1786e1f2b1abb4872738f066",
+  "tool_versions": {
+    "forgejo": {
+      "version": "17.0.2+gitea-1.22.0"
+    },
+    "git": "git version 2.56.1",
+    "python": "3.14.10 (main, Nov  4 2026, 18:21:50) [GCC 16.2.1 20260810]"
+  }
+}

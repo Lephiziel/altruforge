@@ -1,0 +1,645 @@
+{
+  "archive": "infrastructure-smoke-v1-v8.tar.gz",
+  "archive_sha256": "4a599c1b8e7a900d7d62ac8ebd0dbb8c34eba181484478049fcaf305e57749c3",
+  "entries": [
+    {
+      "archive_member": "v1/forgejo.log",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke/forgejo.log",
+      "sha256": "581cd8792b6f5fa14246ac7e02582bd8846f3936bab7273c88bc131549a6b577",
+      "size_bytes": 1468
+    },
+    {
+      "archive_member": "v1/output/intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke/output/intent.json",
+      "sha256": "15d1caef060fb58cfdeda105165340f7d6bc7d3fb95cfba371c75e4a3b767596",
+      "size_bytes": 512
+    },
+    {
+      "archive_member": "v2/forgejo.log",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v2/forgejo.log",
+      "sha256": "abda82ba983e261ef6aa92598e66d1afcf8fbb07cc41b7757d5b21a04068d278",
+      "size_bytes": 1480
+    },
+    {
+      "archive_member": "v2/output/intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v2/output/intent.json",
+      "sha256": "4227a0a974edd8da357b48cc097fb0fb3b12a8f623e4bd326f9fed49fd3732d9",
+      "size_bytes": 512
+    },
+    {
+      "archive_member": "v3/forgejo.log",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v3/forgejo.log",
+      "sha256": "be7eca4a9581056ed5d185b4fada559ba3718c5fcf2c5c4b47ce497bf12aec80",
+      "size_bytes": 1432
+    },
+    {
+      "archive_member": "v3/output/intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v3/output/intent.json",
+      "sha256": "528901f8bc0906954d7aced406e969afa6ad9863a334032b5845895bc7650282",
+      "size_bytes": 512
+    },
+    {
+      "archive_member": "v4/forgejo.log",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/forgejo.log",
+      "sha256": "ea00be184de136f26de308ceead5097144f848d67fc38d321f7f0000e6645c48",
+      "size_bytes": 1480
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-314972.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-314972.json",
+      "sha256": "53fb1f41d3af59880f15a171f06a22e8b95259f3d5b6854cedb535ffaf0130e4",
+      "size_bytes": 6779
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "sha256": "20904ab50b75b96d3ef57dc0f848b6fc967f42f5f983ea09b7a91ea6e9e1b2dd",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "sha256": "3ddb55b68f749e242829a7c565be5b2869adddded2260311d94312bd3bc0c697",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-314981.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-314981.json",
+      "sha256": "14995fc193a5fc5c5baf1d222f84359eb7f2f63fb3c85d5cd16af31f9f0b3f46",
+      "size_bytes": 18141
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "sha256": "20904ab50b75b96d3ef57dc0f848b6fc967f42f5f983ea09b7a91ea6e9e1b2dd",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "sha256": "3ddb55b68f749e242829a7c565be5b2869adddded2260311d94312bd3bc0c697",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "sha256": "a013b119a6259a20bcee8724f61b15b4d991808a146089b4f42a6356541a74af",
+      "size_bytes": 6985
+    },
+    {
+      "archive_member": "v4/output/intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v4/output/intent.json",
+      "sha256": "1af42c25546a65edabd94f90154e9c8c62139b10e0a4fafe651b7fbd32a0a240",
+      "size_bytes": 512
+    },
+    {
+      "archive_member": "v5/forgejo.log",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/forgejo.log",
+      "sha256": "44b3aa1d90706c836d34f853373a1265298e0623090d59a85d658ac5376fb1a1",
+      "size_bytes": 1480
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-316462.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-316462.json",
+      "sha256": "da14b4bcb97576c12a5ddca64658fa40421f92515ab12245e486110abcf2fc62",
+      "size_bytes": 6948
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "sha256": "0b08696469dbf04c6825ac7ee6cb679acf8836a79d230f250bcf47c9631b4042",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "sha256": "254b23db3b5b3acccbfddeee814087c1d488a8e0bf9117d8fe6d258ffd5e290a",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-316471.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-316471.json",
+      "sha256": "f69fad35d7e772310c4b386f546e90f84dd38ad28a60044abbed09b77d389a20",
+      "size_bytes": 18310
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "sha256": "0b08696469dbf04c6825ac7ee6cb679acf8836a79d230f250bcf47c9631b4042",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "sha256": "254b23db3b5b3acccbfddeee814087c1d488a8e0bf9117d8fe6d258ffd5e290a",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "sha256": "5c797fe64cc5fc9a72c4cc1f33fa565f279dda73ea7bff438339ac8522e64b0a",
+      "size_bytes": 6985
+    },
+    {
+      "archive_member": "v5/output/intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v5/output/intent.json",
+      "sha256": "ae48d6b5555b99f37c6cd629eee709e79f6f909d92b2574537f438c560be4ad7",
+      "size_bytes": 512
+    },
+    {
+      "archive_member": "v6/forgejo.log",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/forgejo.log",
+      "sha256": "dc86ce00fed62cdf81c476880217e5ab766dc3d41e025f0f8a75136acee0f843",
+      "size_bytes": 1432
+    },
+    {
+      "archive_member": "v6/output/ambiguous-intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/ambiguous-intent.json",
+      "sha256": "9cc08e13c71a0ff4bbf885adb613b38abda16f9bcbdb35dbd64fbf24ef00c39f",
+      "size_bytes": 523
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-318388.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-318388.json",
+      "sha256": "9b8e0fe289a1d4e2f2653f6dc9f905f568534a94b6977bc25ac081fcd1eccc48",
+      "size_bytes": 18603
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-branch-0.body",
+      "sha256": "20ec63d441b752df1b5c3ed0e09c5f0a784a5603102ca1fe38251b35eb90e810",
+      "size_bytes": 805
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-candidate_status-2.body",
+      "sha256": "d70291f8bffc48f86bb655bb934e0d237a2ee2e3e8661c32931d4220dae5b02e",
+      "size_bytes": 986
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-pulls-1.body",
+      "sha256": "7afad4163d442c64037d5398a93754e77cb457b231f2286caaf9d821c299e03a",
+      "size_bytes": 7207
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-317985.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-317985.json",
+      "sha256": "f564545fe0b1b1148020975a7d978bacf26208fe137456c36ac548734657a930",
+      "size_bytes": 6953
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "sha256": "26a21ab64904926f889b706c2b1ecb03679db5b11ec25ea08057ff76d6dd873b",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "sha256": "766979b116de945c68ee6e280135a186def565b6dc21881af872c0bc00ab967c",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-317996.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-317996.json",
+      "sha256": "2b3540b37d4e0551daaae6416132af804c28989dce29fbeee5a2359b875185e2",
+      "size_bytes": 18315
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "sha256": "26a21ab64904926f889b706c2b1ecb03679db5b11ec25ea08057ff76d6dd873b",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "sha256": "766979b116de945c68ee6e280135a186def565b6dc21881af872c0bc00ab967c",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "sha256": "374b97c0ce4155bf0a2104810302bbceeb3feb32702d1911d5b6026563e6d7dd",
+      "size_bytes": 6985
+    },
+    {
+      "archive_member": "v6/output/evaluation.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/evaluation.json",
+      "sha256": "24ec320fc6da38f21c94607bcb31ef0c7c9b866e783a8f489eef6ab7b17405f5",
+      "size_bytes": 3160
+    },
+    {
+      "archive_member": "v6/output/intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/intent.json",
+      "sha256": "190269539d6bb27aa7a99c077ba79fc071cfd18621d626ec008e7f1d3d4ab111",
+      "size_bytes": 512
+    },
+    {
+      "archive_member": "v6/output/results.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/results.json",
+      "sha256": "cd7944e0bf733f48483ac2a1b40213f5698411b05dfb15d8227bad0d549b05e7",
+      "size_bytes": 13926
+    },
+    {
+      "archive_member": "v6/output/smoke-summary.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v6/output/smoke-summary.json",
+      "sha256": "b5d5d86c21a3d4fdb6c9fcad7b6da5dc712f895c13eb54dc060e3a8922aa79eb",
+      "size_bytes": 13672
+    },
+    {
+      "archive_member": "v7/forgejo.log",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/forgejo.log",
+      "sha256": "25331031d1360137755495e1a18f6e7d1e9c8e20b93b973f90fcdfeaec862811",
+      "size_bytes": 1480
+    },
+    {
+      "archive_member": "v7/output/ambiguous-intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/ambiguous-intent.json",
+      "sha256": "8785d3b5cda0e40fc542b54e714775d3b7aca4f0d40841260d5d574db8fe60dd",
+      "size_bytes": 523
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-321811.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-321811.json",
+      "sha256": "49414cb33522f17dd782862999705f0bfefd8d3e2c7cfcf4be98a5787386eada",
+      "size_bytes": 18603
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-branch-0.body",
+      "sha256": "7b815f8f1cb4812b97a74767cc6745a4e90d9f265d58f95ee75ee9df0455ee75",
+      "size_bytes": 805
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-candidate_status-2.body",
+      "sha256": "52496a221e8a7a5c74715096784fe3f5df84ffdc1cb7e729a45c112051cda471",
+      "size_bytes": 986
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-pulls-1.body",
+      "sha256": "e2391d551afc4e98c8dc7ae6f36bc846117943b9570faebda7fa7259ccf0ec52",
+      "size_bytes": 7207
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-321423.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-321423.json",
+      "sha256": "7e8fd3e5fd3011bb65a85ae8e34c5728ff956992bb45617cd1e8b67dfde40975",
+      "size_bytes": 6953
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "sha256": "6ca2d53f3aea89b0d5e019406577b8b6c02e58758348bc5546e28b95c89a1624",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "sha256": "766b0e2d82447e3d1e776fda75e3571bcedd4505aa5ad8703553454b1febd0bf",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-321432.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-321432.json",
+      "sha256": "db274eb92191991f139fec84043f03d2c41f4130998b0025f5136d71eccf0a20",
+      "size_bytes": 18315
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "sha256": "6ca2d53f3aea89b0d5e019406577b8b6c02e58758348bc5546e28b95c89a1624",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "sha256": "766b0e2d82447e3d1e776fda75e3571bcedd4505aa5ad8703553454b1febd0bf",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "sha256": "93841c28084b14828a7cbcf04fef8160bb2153532d449911aafdc89448f91956",
+      "size_bytes": 6985
+    },
+    {
+      "archive_member": "v7/output/evaluation.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/evaluation.json",
+      "sha256": "c78590e408a8c557991b5e4d2cfe2521f7b858109ff080096e942792ef8e7a16",
+      "size_bytes": 5349
+    },
+    {
+      "archive_member": "v7/output/intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/intent.json",
+      "sha256": "689d3e5385df8532624b054808f48b24244abf9906a59db4f68e70c171b78b8e",
+      "size_bytes": 512
+    },
+    {
+      "archive_member": "v7/output/results.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/results.json",
+      "sha256": "f48976f0204468000283b00853b63be28a94a8d04abc2bfc71d9f620e1a370fc",
+      "size_bytes": 23601
+    },
+    {
+      "archive_member": "v7/output/smoke-summary.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/smoke-summary.json",
+      "sha256": "711be3f5332fd8a06264c11d6a3edb5374c5f9a45ff6822277e47766a097c1a3",
+      "size_bytes": 25023
+    },
+    {
+      "archive_member": "v8/forgejo.log",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/forgejo.log",
+      "sha256": "d49f9949ad81c1f4d24d4e7d6c68900c13612a1c6e68a56e80bb0379630a3be8",
+      "size_bytes": 1480
+    },
+    {
+      "archive_member": "v8/output/ambiguous-intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/ambiguous-intent.json",
+      "sha256": "97331e625866e6cb4d496f565c4ea2c02e3781163500630ee5ee8907ccfd6420",
+      "size_bytes": 523
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-325912.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-325912.json",
+      "sha256": "9143ed6400c2c05ef572a4a19333bf8c192da207becf6f54e9ace8588dba0d08",
+      "size_bytes": 4018
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-branch-0.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-outage-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-325917.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-325917.json",
+      "sha256": "2292438daa42f97858cfcc6a48217696a80428a9594708e63b4bd0b8c39336b8",
+      "size_bytes": 5212
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-branch-0.body",
+      "sha256": "37c01cc58866c9bf03cf9aec6debdd8fddd961da37de76041664f012e456f5a4",
+      "size_bytes": 772
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R1-no-effect-terminal-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-325618.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-325618.json",
+      "sha256": "9f5afc5e0533d83918d4acece4d15d1698fa7dc9e501c43e86f6357b92023342",
+      "size_bytes": 18603
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-branch-0.body",
+      "sha256": "e29ed309714c0840fba566623b8dfb0252acef7bf0e88feb7645fe1313b71a7f",
+      "size_bytes": 805
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-candidate_status-2.body",
+      "sha256": "b316d1b2ffd5879ea7a9846c9ec4b9cdf3493f8d833200263ae9aa5c51fc3680",
+      "size_bytes": 986
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R4-ambiguous-terminal-pulls-1.body",
+      "sha256": "23229d4d95c42a42effb51409e9efd9e46c5a2be8f64b19d183fdbf142467000",
+      "size_bytes": 7207
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-325237.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-325237.json",
+      "sha256": "c6085321bfd5a647d871cb9bd48c14fd6ec81925dc7eb064859a16311bc37279",
+      "size_bytes": 6953
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "sha256": "63d12ac214d9a65a090dfcedcd91e9cad020ada8195aead110a6d7201120e819",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "sha256": "67f9165bca40bbb40d427ef4744bb2b5f6acdb573fc600aa884a4c511802a62d",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-325248.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-325248.json",
+      "sha256": "eed3f68eeda04f6e20f77c5e99185fe823f20097ea2d92ad2355443c331d7913",
+      "size_bytes": 18315
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "sha256": "63d12ac214d9a65a090dfcedcd91e9cad020ada8195aead110a6d7201120e819",
+      "size_bytes": 794
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "sha256": "67f9165bca40bbb40d427ef4744bb2b5f6acdb573fc600aa884a4c511802a62d",
+      "size_bytes": 976
+    },
+    {
+      "archive_member": "v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "sha256": "343ab5ce5ceb977020229d5e73276882d8e247e41bf143c867a944855ee00955",
+      "size_bytes": 6985
+    },
+    {
+      "archive_member": "v8/output/evaluation.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/evaluation.json",
+      "sha256": "699520ce5f7ddb37562feefc2965e22be5d8d700d459b0bad9efd46bbfdc2c5b",
+      "size_bytes": 6284
+    },
+    {
+      "archive_member": "v8/output/intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/intent.json",
+      "sha256": "23cbb205689fd0d0ac1e0f1112f538fbdea843135022bc799d75654ef98f7ad1",
+      "size_bytes": 512
+    },
+    {
+      "archive_member": "v8/output/no-effect-intent.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/no-effect-intent.json",
+      "sha256": "b8d7db039f4cb82342e62aaeea2e55f2671e36c28debe0975fa267b7f27ce181",
+      "size_bytes": 536
+    },
+    {
+      "archive_member": "v8/output/results.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/results.json",
+      "sha256": "d4c9e47bfde69a062bfc69e3e65ab403b7d9a30b8e9cfda3bd24584af7491256",
+      "size_bytes": 31268
+    },
+    {
+      "archive_member": "v8/output/smoke-summary.json",
+      "original_path": "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/smoke-summary.json",
+      "sha256": "2abbdd1276de94c38efd496205f140c0a2621321bc30fac0a56dbfcf6cc12937",
+      "size_bytes": 31024
+    }
+  ],
+  "file_count": 104,
+  "note": "Infrastructure-only harness development attempts; excluded from S1-R2 assignment data and denominators. v1-v5 are failed setup/smoke iterations; v6-v8 are passing development smoke iterations, with v8 the accepted three-path smoke.",
+  "redactions": "none",
+  "schema": "nir03-s1-r2-smoke-attempt-archive-v1",
+  "secret_scan_matches": 0,
+  "source_roots": [
+    "/tmp/nir03-s1r2-infrastructure-smoke",
+    "/tmp/nir03-s1r2-infrastructure-smoke-v2",
+    "/tmp/nir03-s1r2-infrastructure-smoke-v3",
+    "/tmp/nir03-s1r2-infrastructure-smoke-v4",
+    "/tmp/nir03-s1r2-infrastructure-smoke-v5",
+    "/tmp/nir03-s1r2-infrastructure-smoke-v6",
+    "/tmp/nir03-s1r2-infrastructure-smoke-v7",
+    "/tmp/nir03-s1r2-infrastructure-smoke-v8"
+  ]
+}

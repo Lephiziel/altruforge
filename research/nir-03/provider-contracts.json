@@ -1,0 +1,37 @@
+{
+  "provider": "Forgejo",
+  "release": "17.0.2+gitea-1.22.0",
+  "binary_signature": {
+    "verified": true,
+    "primary_fingerprint": "EB114F5E6C0DC2BCDD183550A4B61A2DC5923710",
+    "subkey_fingerprint": "3BF4E813F84812411DA01E5BC4186DF66F4B6750"
+  },
+  "scope": "loopback-only server; private synthetic repositories; disposable SQLite state under /tmp",
+  "observations": {
+    "create_pull_request_option_has_draft_field": false,
+    "draft_true_in_initial_api_request_returned_draft": false,
+    "pull_list_head_filter_owner_colon_branch_count": 0,
+    "pull_list_head_filter_branch_and_base_count": 1,
+    "duplicate_create_http_status": 409,
+    "explicit_expected_old_git_push_rejected_stale_info": true,
+    "concurrent_branch_head_preserved": true,
+    "status_api_candidate_context_present_on_candidate_sha": true,
+    "status_api_candidate_context_absent_on_base_sha": true,
+    "merge_api_called": false,
+    "merge_observed": false,
+    "actions_enabled_in_instance_config": false
+  },
+  "evidence": [
+    "GET /swagger.v1.json, definitions.CreatePullRequestOption.properties",
+    "Initial protocol-v1 trial PR response with draft=false despite request field draft=true",
+    "GET /repos/{owner}/{repo}/pulls?state=all&head=researcher%3Afeature&base=main returned zero; head=feature&base=main returned one",
+    "Repeated POST of the same synthetic PR returned HTTP 409 and did not create a second PR",
+    "Protocol-v1 candidate_reconciliation remote_drift row recorded stale lease rejection and branch SHA equal to the competing SHA",
+    "Protocol-v1 exact-SHA status observer returned the selected context for candidate and no matching context for base"
+  ],
+  "limitations": [
+    "These are observations for this Forgejo release and configuration only.",
+    "The initial protocol-v1 matrix used a faulty head filter and assumed API draft support; its PR recovery outcomes are retained separately and are not used as protocol-v2 outcome evidence.",
+    "The retained protocol-v2 matrix uses ordinary open PRs and never merges them; this does not establish Draft PR behavior required by the Altruforge MVP."
+  ]
+}

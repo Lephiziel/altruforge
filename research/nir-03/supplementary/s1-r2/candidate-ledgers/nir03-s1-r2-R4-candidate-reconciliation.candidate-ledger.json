@@ -1,0 +1,14 @@
+{
+  "candidate_sha": "19f4411e2fd50419ec6f65846a923193cb412705",
+  "classification": "complete",
+  "expected_effects": {
+    "pull_request": "observed_exact",
+    "ref": "observed_candidate",
+    "status": "observed_exact"
+  },
+  "reason": "classification persisted after recovery reads",
+  "run_id": "nir03-s1-r2-R4-candidate-reconciliation",
+  "schema": "nir03-s1-ledger-v1",
+  "updated_at": "2026-11-26T02:45:04.840785+00:00",
+  "verification_id": "79a52ba09d64ea4461bc2c48fcc6ef27a12673fb14114ae368e075e97a38b48a"
+}

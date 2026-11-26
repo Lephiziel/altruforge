@@ -1,0 +1,110 @@
+{
+  "files": [
+    {
+      "bytes": 526,
+      "path": "intents/nir03-s1-r2-R1-candidate-reconciliation.intent.json",
+      "sha256": "225e91b4bb8698fffb705e06932e19f5648d930d8319be8e83f4f18f71ba53f2"
+    },
+    {
+      "bytes": 516,
+      "path": "intents/nir03-s1-r2-R1-contract-aware.intent.json",
+      "sha256": "9f5813e8a837823e52e389b7583ec6e9271a43205debe994e456f3591c841cf1"
+    },
+    {
+      "bytes": 526,
+      "path": "intents/nir03-s1-r2-R2-candidate-reconciliation.intent.json",
+      "sha256": "dd2f21b7ae1dc73300ce489808f9ac0dc54ee82a2cd0cb839ade2237a6243076"
+    },
+    {
+      "bytes": 516,
+      "path": "intents/nir03-s1-r2-R2-contract-aware.intent.json",
+      "sha256": "1556a8ce1a19294498301e10d001f604425e241d118191604b5d6fa999d93afc"
+    },
+    {
+      "bytes": 526,
+      "path": "intents/nir03-s1-r2-R3-candidate-reconciliation.intent.json",
+      "sha256": "aa489d77e4eb5a36370dc2ea41f095ee0355442d98e8dbc41c0f32ed5f63e425"
+    },
+    {
+      "bytes": 516,
+      "path": "intents/nir03-s1-r2-R3-contract-aware.intent.json",
+      "sha256": "2e0f0235acc7e06154a76c19abb786a70931349fc36f9b703314e6e7f303e961"
+    },
+    {
+      "bytes": 526,
+      "path": "intents/nir03-s1-r2-R4-candidate-reconciliation.intent.json",
+      "sha256": "325f9ef97f447a45e7ac16e74ea6c820f22404ebed61a3bf5ed4dbe85725827c"
+    },
+    {
+      "bytes": 516,
+      "path": "intents/nir03-s1-r2-R4-contract-aware.intent.json",
+      "sha256": "093933b370519bb2014e99258645e137cf1c2fc8d25f0fb445967fa25d46dde6"
+    },
+    {
+      "bytes": 526,
+      "path": "intents/nir03-s1-r2-R5-candidate-reconciliation.intent.json",
+      "sha256": "ed81e6700068cce0302077c8766b4565e5e7999a72cb853262d15fda8f2adcbe"
+    },
+    {
+      "bytes": 516,
+      "path": "intents/nir03-s1-r2-R5-contract-aware.intent.json",
+      "sha256": "c4aef0bdace413136e7ca3d5ef31939296b73c3c72afb296ac807600b81457e9"
+    },
+    {
+      "bytes": 526,
+      "path": "intents/nir03-s1-r2-R6-candidate-reconciliation.intent.json",
+      "sha256": "4f49cdc94d57ad829a7e2fac54bd5cae7dc83dd6e1353b7c6695d5789e90aaa9"
+    },
+    {
+      "bytes": 516,
+      "path": "intents/nir03-s1-r2-R6-contract-aware.intent.json",
+      "sha256": "7ea92f32ee485a52be2dfdfbdd01620048a40f49a0b80b3b351959ab7c63ac86"
+    },
+    {
+      "bytes": 526,
+      "path": "intents/nir03-s1-r2-R7-candidate-reconciliation.intent.json",
+      "sha256": "92495057c6464557542b6496a019347a088a9b335fc872895abd9744e7c93762"
+    },
+    {
+      "bytes": 516,
+      "path": "intents/nir03-s1-r2-R7-contract-aware.intent.json",
+      "sha256": "c45532c31e104ad3a3ed4f1b6d9cb043c99dc5fd18c78a29d9296c4417f30aa4"
+    },
+    {
+      "bytes": 521,
+      "path": "candidate-ledgers/nir03-s1-r2-R1-candidate-reconciliation.candidate-ledger.json",
+      "sha256": "f4e6e17c73943bd3548bc06ff7316601083ca08fdf7bd61fbae98cd20ce0443f"
+    },
+    {
+      "bytes": 520,
+      "path": "candidate-ledgers/nir03-s1-r2-R2-candidate-reconciliation.candidate-ledger.json",
+      "sha256": "1878686493a3eab8efceca30abfb8733dcbbde2cfb9f52ba4fc09a3654c00ba1"
+    },
+    {
+      "bytes": 520,
+      "path": "candidate-ledgers/nir03-s1-r2-R3-candidate-reconciliation.candidate-ledger.json",
+      "sha256": "79055057ef7cf642b045dedaf2a113ec012450d17ac2416d77a7854020f68f56"
+    },
+    {
+      "bytes": 520,
+      "path": "candidate-ledgers/nir03-s1-r2-R4-candidate-reconciliation.candidate-ledger.json",
+      "sha256": "6c5f95fb44745416ed18bd48d709abac666e54bfab176624ecac63f84a3f53f1"
+    },
+    {
+      "bytes": 520,
+      "path": "candidate-ledgers/nir03-s1-r2-R5-candidate-reconciliation.candidate-ledger.json",
+      "sha256": "e9d89ee88f04721f9481505b3aae3220640dc34769007f8d9648f4adb94c4565"
+    },
+    {
+      "bytes": 522,
+      "path": "candidate-ledgers/nir03-s1-r2-R6-candidate-reconciliation.candidate-ledger.json",
+      "sha256": "ee820dba32db91878b20ed161cfbdb6826ba006df086557940886f9820dd23fd"
+    },
+    {
+      "bytes": 520,
+      "path": "candidate-ledgers/nir03-s1-r2-R7-candidate-reconciliation.candidate-ledger.json",
+      "sha256": "4a8d1b435ba676fef8937258fe25aa05090c8db2fd1f30210fd9cfe6ccb3d182"
+    }
+  ],
+  "schema": "nir03-s1-r2-durable-state-index-v1"
+}

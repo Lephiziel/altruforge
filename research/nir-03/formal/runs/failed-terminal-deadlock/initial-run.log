@@ -1,0 +1,89 @@
+TLC2 Version 2026.11.19.180144 (rev: bc1b506)
+Warning: Please run the Java VM, which executes TLC with a throughput optimized garbage collector, by passing the "-XX:+UseParallelGC" property.
+(Use the -nowarning option to disable this warning.)
+Running breadth-first search Model-Checking with fp 116 and seed 668521028454946195 with 1 worker on 16 cores with 8004MB heap and 64MB offheap memory [pid: 21] (Linux 7.3.5-arch1-1 amd64, Arch Linux 27.0.1.1 64bit, MSBDiskFPSet, DiskStateQueue).
+Parsing file /home/lephiziel/Projects/altruforge-nir03-p01/research/nir-03/formal/CandidatePublication.tla
+Parsing file /tmp/tlc-2312488640227193074/Naturals.tla (jar:file:/tmp/altruforge-tla2tools-v1.8.0.jar!/tla2sany/StandardModules/Naturals.tla)
+Parsing file /tmp/tlc-2312488640227193074/FiniteSets.tla (jar:file:/tmp/altruforge-tla2tools-v1.8.0.jar!/tla2sany/StandardModules/FiniteSets.tla)
+Parsing file /tmp/tlc-2312488640227193074/TLC.tla (jar:file:/tmp/altruforge-tla2tools-v1.8.0.jar!/tla2sany/StandardModules/TLC.tla)
+Parsing file /tmp/tlc-2312488640227193074/_TLCTrace.tla (jar:file:/tmp/altruforge-tla2tools-v1.8.0.jar!/tla2sany/StandardModules/_TLCTrace.tla)
+Parsing file /tmp/tlc-2312488640227193074/Sequences.tla (jar:file:/tmp/altruforge-tla2tools-v1.8.0.jar!/tla2sany/StandardModules/Sequences.tla)
+Parsing file /tmp/tlc-2312488640227193074/TLCExt.tla (jar:file:/tmp/altruforge-tla2tools-v1.8.0.jar!/tla2sany/StandardModules/TLCExt.tla)
+Parsing file /tmp/tlc-2312488640227193074/Integers.tla (jar:file:/tmp/altruforge-tla2tools-v1.8.0.jar!/tla2sany/StandardModules/Integers.tla)
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Integers
+Semantic processing of module TLCExt
+Semantic processing of module _TLCTrace
+Semantic processing of module CandidatePublication
+Linting of module TLCExt
+Linting of module _TLCTrace
+Linting of module CandidatePublication
+Starting... (2026-11-26 06:11:11)
+Implied-temporal checking--satisfiability problem has 1 branches.
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-26 06:11:11.
+Error: Deadlock reached.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ remoteStatusSha = none
+/\ intentBase = none
+/\ intentHead = none
+/\ intentVerification = none
+/\ intentRun = none
+/\ observed = FALSE
+/\ remotePRBase = none
+/\ remotePRHead = none
+/\ remoteStatusVerification = none
+/\ phase = "idle"
+/\ remotePRRun = none
+/\ remoteHead = base
+
+State 2: <PersistIntent line 44, col 5 to line 51, col 72 of module CandidatePublication>
+/\ remoteStatusSha = none
+/\ intentBase = base
+/\ intentHead = candidate
+/\ intentVerification = verified
+/\ intentRun = run1
+/\ observed = FALSE
+/\ remotePRBase = none
+/\ remotePRHead = none
+/\ remoteStatusVerification = none
+/\ phase = "intent"
+/\ remotePRRun = none
+/\ remoteHead = base
+
+State 3: <ConcurrentDrift line 92, col 5 to line 99, col 62 of module CandidatePublication>
+/\ remoteStatusSha = none
+/\ intentBase = base
+/\ intentHead = candidate
+/\ intentVerification = verified
+/\ intentRun = run1
+/\ observed = FALSE
+/\ remotePRBase = none
+/\ remotePRHead = none
+/\ remoteStatusVerification = none
+/\ phase = "recovering"
+/\ remotePRRun = none
+/\ remoteHead = drift
+
+State 4: <ObserveConflict line 129, col 5 to line 135, col 62 of module CandidatePublication>
+/\ remoteStatusSha = none
+/\ intentBase = base
+/\ intentHead = candidate
+/\ intentVerification = verified
+/\ intentRun = run1
+/\ observed = TRUE
+/\ remotePRBase = none
+/\ remotePRHead = none
+/\ remoteStatusVerification = none
+/\ phase = "conflict"
+/\ remotePRRun = none
+/\ remoteHead = drift
+
+41 states generated, 24 distinct states found, 9 states left on queue.
+The depth of the complete state graph search is 5.
+Finished in 00s at (2026-11-26 06:11:11)
+Trace exploration spec path: research/nir-03/formal/CandidatePublication_TTrace_1795655471.tla

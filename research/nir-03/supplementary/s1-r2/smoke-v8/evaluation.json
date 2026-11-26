@@ -1,0 +1,162 @@
+{
+  "all_14_present": false,
+  "all_expected_present": true,
+  "assigned": 3,
+  "capture_errors": [],
+  "cells": [
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "after_first_remote_read",
+          "kill_confirmed": true,
+          "pid": 325121,
+          "time": "2026-11-26T02:37:07.633684+00:00",
+          "worker_event": {
+            "barrier": "after_first_remote_read",
+            "provider_response": {
+              "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+              "http_status": 200,
+              "method": "GET",
+              "response_body_bytes": 792,
+              "response_body_sha256": "018a38c5edd31ee687264e571719d51a894d15c752e3db2f0804ddbe550a1762",
+              "time": "2026-11-26T02:37:07.633609+00:00"
+            },
+            "time": "2026-11-26T02:37:07.633638+00:00"
+          },
+          "worker_exit": -9
+        },
+        {
+          "barrier": "after_first_missing_effect_dispatch",
+          "kill_confirmed": true,
+          "pid": 325127,
+          "time": "2026-11-26T02:37:07.774491+00:00",
+          "worker_event": {
+            "barrier": "after_first_missing_effect_dispatch",
+            "dispatch_response": {
+              "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls",
+              "http_status": 201,
+              "method": "POST",
+              "response_body_bytes": 6982,
+              "response_body_sha256": "6c10c6bc9c59c4754774a1d4531cfac177b3a5d65823e424863b75136ea37b67",
+              "time": "2026-11-26T02:37:07.774425+00:00"
+            },
+            "read_response": {
+              "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+              "http_status": 200,
+              "method": "GET",
+              "response_body_bytes": 3,
+              "response_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+              "time": "2026-11-26T02:37:07.774394+00:00"
+            },
+            "time": "2026-11-26T02:37:07.774443+00:00"
+          },
+          "worker_exit": -9
+        },
+        {
+          "barrier": "before_final_durable_classification",
+          "kill_confirmed": true,
+          "pid": 325204,
+          "time": "2026-11-26T02:37:07.881490+00:00",
+          "worker_event": {
+            "barrier": "before_final_durable_classification",
+            "recovery_reads": {
+              "branch_http": 200,
+              "branch_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+              "candidate_status_http": 200,
+              "exact_pr_count": 1,
+              "pulls_http": 200,
+              "status_count": 1
+            },
+            "time": "2026-11-26T02:37:07.881442+00:00"
+          },
+          "worker_exit": -9
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1r2-infra-smoke-R5-recovery",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "pulls",
+          "transport_error": null
+        }
+      ],
+      "policy": "candidate-reconciliation-infrastructure-only",
+      "runner_status": "smoke-passed",
+      "scenario": "R5-infrastructure-only",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "upstream_effect_committed_ack_dropped",
+          "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/pulls",
+          "status": 201,
+          "time": "2026-11-26T02:37:08.948573+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1r2-infra-smoke-R4-ambiguous",
+      "observation_failures": [],
+      "policy": "contract-aware-infrastructure-only",
+      "runner_status": "smoke-passed",
+      "scenario": "R4-infrastructure-only",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "59a12e0563e813965bdc9a09cb28f9ae6dbeb4fd",
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "branch_read_503_then_restored",
+          "time": "2026-11-26T02:37:10.077068+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1r2-infra-smoke-R1-no-effect",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "branch",
+          "transport_error": null
+        }
+      ],
+      "policy": "candidate-reconciliation-infrastructure-only",
+      "runner_status": "smoke-passed",
+      "scenario": "R1-infrastructure-only",
+      "terminal_classification_from_observation": "not_executed",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": "04156972abd3d3e283359a3902e473a542c12b3d",
+      "unknown_observation_seen": true
+    }
+  ],
+  "complete_without_exact_observations": [],
+  "duplicate_or_missing_prs": [],
+  "experiment_id": null,
+  "limitations": [
+    "Scoring identifies expected PR using exact head/base/SHA plus the run marker in title/body.",
+    "Only observer-returned API bodies count as remote evidence.",
+    "An unobserved cell remains unobserved; it is not inferred to be conflict or any other terminal classification.",
+    "--matrix-prefix selects the fixed 14-label map for a separately preregistered run.",
+    "--expected-label changes the denominator only for separate infrastructure smoke data; do not use it for registered S1/S1-R2 result files."
+  ],
+  "method": "observer captures only; runner classification claims ignored",
+  "missing": [],
+  "protocol_deviations": [],
+  "recorded": 3,
+  "schema": "nir03-s1-evaluation-v1",
+  "unexpected": [],
+  "unobserved_cells": []
+}

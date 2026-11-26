@@ -1,0 +1,1070 @@
+{
+  "archive_file": "nir03-s1-r2-raw-observer-captures.tar.gz",
+  "archive_sha256": "31954a6564acebcd3cb4161874e9404defd80bf1a73dc239c4bf984cafeafc10",
+  "capture_documents": 30,
+  "credential_scan": {
+    "credential_fields_found": 0,
+    "credential_patterns_found": 0,
+    "redactions": "none; records contain only synthetic repository, commit, account and generated fixture metadata",
+    "sensitive_headers_found": 0,
+    "sensitive_personal_data_found": 0
+  },
+  "file_count": 150,
+  "files": [
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-331335.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-331335.json",
+      "sha256": "eaf12b140ef016aebd20fa5a7016937327a91a4ea894a9fbafe03a6e7ce9509d",
+      "size_bytes": 3949
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-branch-0.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-branch-outage-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-331347.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-331347.json",
+      "sha256": "70d319414413c604d004bfec68b563a0705bb2e7560d82f1252dfe8231499a3d",
+      "size_bytes": 5094
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-branch-0.body",
+      "sha256": "c8f7034f3fdbc71fe17013f598db2aec1da49b8b10a03f7d38b24ca0997f8d6c",
+      "size_bytes": 758
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-candidate-reconciliation-terminal-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-branch-outage-331060.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-branch-outage-331060.json",
+      "sha256": "6e793039e500b7cba0b63375187205acc2c610690c35387829aea7b2dd6ae1fb",
+      "size_bytes": 3899
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-branch-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-branch-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-branch-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-branch-outage-branch-0.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-branch-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-branch-outage-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-branch-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-branch-outage-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-terminal-331072.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-terminal-331072.json",
+      "sha256": "e82b24523131db5fbf7ab06825ed75fbb1c6c69c214d60682bb8731865a7369c",
+      "size_bytes": 5044
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-terminal-branch-0.body",
+      "sha256": "fb1fbfe04914b7119d9ab2aa7e1b4e56053cdfbf5ab55a7aa8b7bb44ff6ce1a6",
+      "size_bytes": 758
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-terminal-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R1-contract-aware-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R1-contract-aware-terminal-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-332102.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-332102.json",
+      "sha256": "1c444bf9c163c11ddb4b1cabf42d4fa82006f9d3c2c83c223f29155128a2216f",
+      "size_bytes": 6921
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-branch-0.body",
+      "sha256": "66531341727d674dcff69b6c8f26ce8973659ab99364d287b27c6717b77aed84",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-candidate_status-2.body",
+      "sha256": "999192fcb69961915b83a6ec527a9f9c04e8e388f137ada9a1aa786a943b5acd",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-332129.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-332129.json",
+      "sha256": "74ccc00e4116a245f804f4db0b50d1441b3390f06d26f23b796684adaa935f5a",
+      "size_bytes": 18175
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-branch-0.body",
+      "sha256": "66531341727d674dcff69b6c8f26ce8973659ab99364d287b27c6717b77aed84",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-candidate_status-2.body",
+      "sha256": "999192fcb69961915b83a6ec527a9f9c04e8e388f137ada9a1aa786a943b5acd",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-candidate-reconciliation-terminal-pulls-1.body",
+      "sha256": "90d3f3ac2404a72280d5b76f385c5f8da834434cc8aea15573eae800cbdea5e5",
+      "size_bytes": 6907
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-pulls-outage-331706.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-pulls-outage-331706.json",
+      "sha256": "8ab187e294ad5f9d2e8de754a6f8d179789d4f15e9512543911a342d58fbded6",
+      "size_bytes": 6861
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-pulls-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-pulls-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-pulls-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-pulls-outage-branch-0.body",
+      "sha256": "bdbf8525ee6254351a274d4ef3043097367a31407c290ca849958d472a1e0794",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-pulls-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-pulls-outage-candidate_status-2.body",
+      "sha256": "e6a6a9cfae57983c39a7a45f5a08538a8ff099d90ae6b1e5a01e2cc950aba5d4",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-pulls-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-pulls-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-terminal-331734.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-terminal-331734.json",
+      "sha256": "2c9e6633851dd161402ab9d2fc5ea38b36e7b6ac7083d70af40957a820d92b6b",
+      "size_bytes": 18095
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-terminal-branch-0.body",
+      "sha256": "bdbf8525ee6254351a274d4ef3043097367a31407c290ca849958d472a1e0794",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-terminal-candidate_status-2.body",
+      "sha256": "e6a6a9cfae57983c39a7a45f5a08538a8ff099d90ae6b1e5a01e2cc950aba5d4",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R2-contract-aware-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R2-contract-aware-terminal-pulls-1.body",
+      "sha256": "9384ed5ebdc2ef86f3fc5b3304ae44d5f06ee57ad01cc002933c022c728830a0",
+      "size_bytes": 6887
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-332909.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-332909.json",
+      "sha256": "c659ad378b4c106d35dfacfdb2cbee209e14bef43e4bdac3b2bd9c014d0febea",
+      "size_bytes": 16678
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-branch-0.body",
+      "sha256": "fe1dea522af939e6e85edf78a73a4cc26dadd56daacbb059dd8ed87d37fc9d53",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-candidate_status-2.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-pulls-1.body",
+      "sha256": "3c8cad1d5a04fd475948328383309ec13c4295d5c94f75f4711433e5d63127f9",
+      "size_bytes": 6907
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-332945.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-332945.json",
+      "sha256": "647dc4ee3750762a8714f3cd2ee9ba632a81c76cc848b4cfa11c9c101ddc2fa9",
+      "size_bytes": 18175
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-branch-0.body",
+      "sha256": "fe1dea522af939e6e85edf78a73a4cc26dadd56daacbb059dd8ed87d37fc9d53",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-candidate_status-2.body",
+      "sha256": "491b07288ac3ae9fe0b959757848e254488d30380fd76aed246e99145d611cd5",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-candidate-reconciliation-terminal-pulls-1.body",
+      "sha256": "3c8cad1d5a04fd475948328383309ec13c4295d5c94f75f4711433e5d63127f9",
+      "size_bytes": 6907
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-332509.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-332509.json",
+      "sha256": "25ab6e9ef192aeddcd172a33219bb848cb20dd84064db2189f1b018f434ac9bb",
+      "size_bytes": 16598
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-branch-0.body",
+      "sha256": "340a10fd794606e134cd0fadbcebf89370618783f2060ccc675b662ab05b4843",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-candidate_status-2.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-candidate_status-outage-pulls-1.body",
+      "sha256": "7aae5017b3065c1878d4defaf71ee2133af1be04bf0fa243c6e1f183387796bc",
+      "size_bytes": 6887
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-terminal-332550.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-terminal-332550.json",
+      "sha256": "8bc97ec9c3b25485aa77c53725e9307bd4941efa4c71d19ac4077127da66d0cc",
+      "size_bytes": 18095
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-terminal-branch-0.body",
+      "sha256": "340a10fd794606e134cd0fadbcebf89370618783f2060ccc675b662ab05b4843",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-terminal-candidate_status-2.body",
+      "sha256": "1b0346b5f3176d800566fb3f5bdc2083b580323eb874c77d4f36bb754d72d70c",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R3-contract-aware-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R3-contract-aware-terminal-pulls-1.body",
+      "sha256": "7aae5017b3065c1878d4defaf71ee2133af1be04bf0fa243c6e1f183387796bc",
+      "size_bytes": 6887
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-333721.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-333721.json",
+      "sha256": "8e2621840397d6416af5070575afe756adce36481277f41abdb5e86960f723d2",
+      "size_bytes": 6921
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-branch-0.body",
+      "sha256": "eefb684a6ab355153de1d7f50197576f7d964c4825691267166211741a19896f",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-candidate_status-2.body",
+      "sha256": "f2c01b4ba5dbc82bb5eee26e4db274abea67a04f42b9da381d424e27579dca0e",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-333746.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-333746.json",
+      "sha256": "4b73cb3f30d3f4a99313d292c418885f9b34d654112b8761ae42e79ff3f7b014",
+      "size_bytes": 18175
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-branch-0.body",
+      "sha256": "eefb684a6ab355153de1d7f50197576f7d964c4825691267166211741a19896f",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-candidate_status-2.body",
+      "sha256": "f2c01b4ba5dbc82bb5eee26e4db274abea67a04f42b9da381d424e27579dca0e",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-pulls-1.body",
+      "sha256": "2f0565d6940a1ef5ad3590f05b55e6c11cdbcb824a321953c7252b237022ea1b",
+      "size_bytes": 6907
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-pulls-outage-333328.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-pulls-outage-333328.json",
+      "sha256": "2eae45f27d00ae5182c1696dfc85783c9968698360099ffc35e835e06b4264b2",
+      "size_bytes": 6861
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-pulls-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-pulls-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-pulls-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-pulls-outage-branch-0.body",
+      "sha256": "cf1c963802956c2b5585dbc0a032d14d9d7ceb86cbc25ea3cba4e5f9cbbffa67",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-pulls-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-pulls-outage-candidate_status-2.body",
+      "sha256": "d214c0d6aee04067e4e024f52e778e2154766788a5c0045de68fffc403dd14d4",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-pulls-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-pulls-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-terminal-333353.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-terminal-333353.json",
+      "sha256": "a9d907c046ed0187c7e98e4de4e956fe4a5272ce89437c75ffd2a18a5faeb102",
+      "size_bytes": 18095
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-terminal-branch-0.body",
+      "sha256": "cf1c963802956c2b5585dbc0a032d14d9d7ceb86cbc25ea3cba4e5f9cbbffa67",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-terminal-candidate_status-2.body",
+      "sha256": "d214c0d6aee04067e4e024f52e778e2154766788a5c0045de68fffc403dd14d4",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R4-contract-aware-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-terminal-pulls-1.body",
+      "sha256": "41bade7239d55c6d988ba46637c2e634a7ca1aabca2c7876ed56b3976ff9987e",
+      "size_bytes": 6887
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-334598.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-334598.json",
+      "sha256": "944f69c63126efc9819316c2c8b96e2276c0c61049503b42836a3390b538874d",
+      "size_bytes": 18179
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-branch-0.body",
+      "sha256": "52c21f5826805ceb1d508c6cc36e62f946bc2b3eab2efe3510119635b2358d06",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-candidate_status-2.body",
+      "sha256": "00e12caab45b388434980ab97f392747d268c283cfd8b442620a24d6995a36d4",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-candidate-reconciliation-terminal-pulls-1.body",
+      "sha256": "a894119c563f72f212bd8ad79c64ab32e94fe3ab49f6edc32d9a31f152aea9b1",
+      "size_bytes": 6911
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-contract-aware-terminal-334178.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-contract-aware-terminal-334178.json",
+      "sha256": "1cc5423e45d5721461ae6024f1f283ac794a363b2938e8f0814eaa8b2b22d468",
+      "size_bytes": 18095
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-contract-aware-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-contract-aware-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-contract-aware-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-contract-aware-terminal-branch-0.body",
+      "sha256": "29bab6b942ef22587d80d558099efdc55bce3146c6dd7ec602c3ecf3a0640a6a",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-contract-aware-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-contract-aware-terminal-candidate_status-2.body",
+      "sha256": "8db0b18e4d64e3531ce6dba7128392a0ec9bebd7b1c330aa3cb7ecb00376e59b",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R5-contract-aware-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R5-contract-aware-terminal-pulls-1.body",
+      "sha256": "4dbf05e0e6f824e22f22a0323c339d6119478695cfab2be2337b43d8ed3944e4",
+      "size_bytes": 6887
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-335199.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-335199.json",
+      "sha256": "5952cdc3613cffc1b8a544c92d1d078a88c65870299a1b230b4e05b859b5cbf0",
+      "size_bytes": 3949
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-branch-0.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-branch-outage-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-335211.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-335211.json",
+      "sha256": "d5d53fc82b79be0ba6be5549fd3be42234f0e5cfe37cf8a4dc1b8367b30cc7c4",
+      "size_bytes": 5138
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-branch-0.body",
+      "sha256": "6482c1248055f23db0d590f6308bb17c60e07799d259f76e83628b3ead3c3f49",
+      "size_bytes": 802
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-candidate-reconciliation-terminal-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-branch-outage-334907.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-branch-outage-334907.json",
+      "sha256": "afd8ce8cdafcf13b2c096f9bfee5492fa8aae3cc5679334140d0f8d2c1b9238c",
+      "size_bytes": 3899
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-branch-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-branch-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-branch-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-branch-outage-branch-0.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-branch-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-branch-outage-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-branch-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-branch-outage-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-terminal-334919.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-terminal-334919.json",
+      "sha256": "22212da2aaed3d3f5ae1c0076be003383b0da1fdec7ca56557dea5b84c01f178",
+      "size_bytes": 5078
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-terminal-branch-0.body",
+      "sha256": "3cee3e4ed0aeb5202b0df90854cd1c0aa8cd3ceadbd073e06c929889aa2a8f43",
+      "size_bytes": 792
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-terminal-candidate_status-2.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R6-contract-aware-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R6-contract-aware-terminal-pulls-1.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-335980.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-335980.json",
+      "sha256": "18a227a3225c0bb95629b4b47e8ac53515832fe6a6fabf96428ca1984fa2870c",
+      "size_bytes": 16998
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-branch-0.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-candidate_status-2.body",
+      "sha256": "8c1eedf07a3c0e8d46144de0cd0bf590a95ce4f3b3a930d9fb06554958d1cc51",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-branch-outage-pulls-1.body",
+      "sha256": "dfc97075b783bae7d588853cc1771d422efa1d0a8ef52936466502720c606854",
+      "size_bytes": 6912
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-336003.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-336003.json",
+      "sha256": "596453c9f366e4db4128f890c8f3ebad9ec3453588d81f12d41690e856fde1e8",
+      "size_bytes": 16683
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-branch-0.body",
+      "sha256": "7ae63415a51bfaaf7b1520574a46d6514ef7e6d5f990ad12ed82e901cd6aee2f",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-candidate_status-2.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-pulls-1.body",
+      "sha256": "dfc97075b783bae7d588853cc1771d422efa1d0a8ef52936466502720c606854",
+      "size_bytes": 6912
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-335994.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-335994.json",
+      "sha256": "c04ac9996e416145848b40d17f4699f9dfcf66e988060db1c20b346eb759f3ce",
+      "size_bytes": 6921
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-branch-0.body",
+      "sha256": "7ae63415a51bfaaf7b1520574a46d6514ef7e6d5f990ad12ed82e901cd6aee2f",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-candidate_status-2.body",
+      "sha256": "8c1eedf07a3c0e8d46144de0cd0bf590a95ce4f3b3a930d9fb06554958d1cc51",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-336044.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-336044.json",
+      "sha256": "4e6a041f2f247841e27ef50f279d4a43ff93318160c048eeedca6720e01391a2",
+      "size_bytes": 18180
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-branch-0.body",
+      "sha256": "7ae63415a51bfaaf7b1520574a46d6514ef7e6d5f990ad12ed82e901cd6aee2f",
+      "size_bytes": 795
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-candidate_status-2.body",
+      "sha256": "8c1eedf07a3c0e8d46144de0cd0bf590a95ce4f3b3a930d9fb06554958d1cc51",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-candidate-reconciliation-terminal-pulls-1.body",
+      "sha256": "dfc97075b783bae7d588853cc1771d422efa1d0a8ef52936466502720c606854",
+      "size_bytes": 6912
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-branch-outage-335557.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-branch-outage-335557.json",
+      "sha256": "24f239b463c874df321dbde8a9141a73ea310f2a999636c55657936b97d67f5a",
+      "size_bytes": 16927
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-branch-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-branch-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-branch-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-branch-outage-branch-0.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-branch-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-branch-outage-candidate_status-2.body",
+      "sha256": "74f2d01fc9d2d792e8bd7da00befc85c3b016fcd07af769668986d26d83205e0",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-branch-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-branch-outage-pulls-1.body",
+      "sha256": "68fc8ad86e0d71f6e83736284c6fbbbdc8617af618710056c8f833d1479a82d9",
+      "size_bytes": 6891
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-335582.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-335582.json",
+      "sha256": "891c97a8b211aaa1b4001fa47ef15b689ba6912f67762c1b6d3ba06548153ad5",
+      "size_bytes": 16602
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-branch-0.body",
+      "sha256": "5fa7d1e3ea0622a8157bbc77f28d5db4d8293fdeb379124dbeb3392acdc17381",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-candidate_status-2.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-candidate_status-outage-pulls-1.body",
+      "sha256": "68fc8ad86e0d71f6e83736284c6fbbbdc8617af618710056c8f833d1479a82d9",
+      "size_bytes": 6891
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-pulls-outage-335571.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-pulls-outage-335571.json",
+      "sha256": "3a31224d8d23b4facfce1d713551b847f7a29d1fc1a4cb1d9485d44215db96c9",
+      "size_bytes": 6861
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-pulls-outage-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-pulls-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-pulls-outage-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-pulls-outage-branch-0.body",
+      "sha256": "5fa7d1e3ea0622a8157bbc77f28d5db4d8293fdeb379124dbeb3392acdc17381",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-pulls-outage-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-pulls-outage-candidate_status-2.body",
+      "sha256": "74f2d01fc9d2d792e8bd7da00befc85c3b016fcd07af769668986d26d83205e0",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-pulls-outage-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-pulls-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "size_bytes": 41
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-terminal-335622.json",
+      "kind": "observer_capture_document",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-terminal-335622.json",
+      "sha256": "6cf2cccebbba9d81207991e6b6c9a3ee51ccd746fe23e2f5338fc0517fc901a3",
+      "size_bytes": 18099
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-terminal-base_status-3.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-terminal-branch-0.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-terminal-branch-0.body",
+      "sha256": "5fa7d1e3ea0622a8157bbc77f28d5db4d8293fdeb379124dbeb3392acdc17381",
+      "size_bytes": 785
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-terminal-candidate_status-2.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-terminal-candidate_status-2.body",
+      "sha256": "74f2d01fc9d2d792e8bd7da00befc85c3b016fcd07af769668986d26d83205e0",
+      "size_bytes": 972
+    },
+    {
+      "archive_member": "raw-captures/nir03-s1-r2-R7-contract-aware-terminal-pulls-1.body",
+      "kind": "raw_response_body",
+      "original_path": "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R7-contract-aware-terminal-pulls-1.body",
+      "sha256": "68fc8ad86e0d71f6e83736284c6fbbbdc8617af618710056c8f833d1479a82d9",
+      "size_bytes": 6891
+    }
+  ],
+  "raw_response_bodies": 120,
+  "schema": "nir03-s1-r2-raw-archive-manifest-v1",
+  "source_capture_index": "../raw-capture-index.json",
+  "source_capture_index_sha256": "dd647497fea0d39372c11fb653f4f1ca62827339f65ac8b2cf1e73aa1eb54820",
+  "verified_against_existing_index": true
+}

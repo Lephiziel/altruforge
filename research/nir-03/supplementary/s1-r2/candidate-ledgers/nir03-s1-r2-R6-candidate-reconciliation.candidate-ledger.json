@@ -1,0 +1,14 @@
+{
+  "candidate_sha": "2775acf76aff5b27b9afc961a60adaf62b245fee",
+  "classification": "conflict",
+  "expected_effects": {
+    "pull_request": "observed_absent",
+    "ref": "observed_competing",
+    "status": "observed_absent"
+  },
+  "reason": "classification persisted after recovery reads",
+  "run_id": "nir03-s1-r2-R6-candidate-reconciliation",
+  "schema": "nir03-s1-ledger-v1",
+  "updated_at": "2026-11-26T02:45:10.948951+00:00",
+  "verification_id": "bc68327012487bf1b8c98f4e4ebf1af2494c981049e8e39ded29810cd70f58b5"
+}
