@@ -1,0 +1,331 @@
+{
+  "all_14_present": true,
+  "assigned": 14,
+  "capture_errors": [],
+  "cells": [
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R1-contract-aware",
+      "observation_failures": [],
+      "policy": "contract-aware",
+      "runner_status": "blocked",
+      "scenario": "R1",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R1-candidate-reconciliation",
+      "observation_failures": [],
+      "policy": "candidate-reconciliation",
+      "runner_status": "blocked",
+      "scenario": "R1",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R2-contract-aware",
+      "observation_failures": [],
+      "policy": "contract-aware",
+      "runner_status": "blocked",
+      "scenario": "R2",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R2-candidate-reconciliation",
+      "observation_failures": [],
+      "policy": "candidate-reconciliation",
+      "runner_status": "blocked",
+      "scenario": "R2",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R3-contract-aware",
+      "observation_failures": [],
+      "policy": "contract-aware",
+      "runner_status": "blocked",
+      "scenario": "R3",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R3-candidate-reconciliation",
+      "observation_failures": [],
+      "policy": "candidate-reconciliation",
+      "runner_status": "blocked",
+      "scenario": "R3",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R4-contract-aware",
+      "observation_failures": [],
+      "policy": "contract-aware",
+      "runner_status": "blocked",
+      "scenario": "R4",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R4-candidate-reconciliation",
+      "observation_failures": [],
+      "policy": "candidate-reconciliation",
+      "runner_status": "blocked",
+      "scenario": "R4",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R5-contract-aware",
+      "observation_failures": [],
+      "policy": "contract-aware",
+      "runner_status": "blocked",
+      "scenario": "R5",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R5-candidate-reconciliation",
+      "observation_failures": [],
+      "policy": "candidate-reconciliation",
+      "runner_status": "blocked",
+      "scenario": "R5",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R6-contract-aware",
+      "observation_failures": [],
+      "policy": "contract-aware",
+      "runner_status": "blocked",
+      "scenario": "R6",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R6-candidate-reconciliation",
+      "observation_failures": [],
+      "policy": "candidate-reconciliation",
+      "runner_status": "blocked",
+      "scenario": "R6",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R7-contract-aware",
+      "observation_failures": [],
+      "policy": "contract-aware",
+      "runner_status": "blocked",
+      "scenario": "R7",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-R7-candidate-reconciliation",
+      "observation_failures": [],
+      "policy": "candidate-reconciliation",
+      "runner_status": "blocked",
+      "scenario": "R7",
+      "terminal_classification_from_observation": "unobserved",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": null,
+      "unknown_observation_seen": false
+    }
+  ],
+  "complete_without_exact_observations": [],
+  "duplicate_or_missing_prs": [],
+  "limitations": [
+    "Scoring identifies expected PR using exact head/base/SHA plus the run marker in title/body.",
+    "Only observer-returned API bodies count as remote evidence.",
+    "An unobserved cell remains unobserved; it is not inferred to be conflict or any other terminal classification."
+  ],
+  "method": "observer captures only; runner classification claims ignored",
+  "missing": [],
+  "protocol_deviations": [
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R1-contract-aware"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R1-candidate-reconciliation"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R2-contract-aware"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R2-candidate-reconciliation"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R3-contract-aware"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R3-candidate-reconciliation"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R4-contract-aware"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R4-candidate-reconciliation"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R5-contract-aware"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R5-candidate-reconciliation"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R6-contract-aware"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R6-candidate-reconciliation"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R7-contract-aware"
+    },
+    {
+      "items": [
+        "terminal observer failed: UnboundLocalError"
+      ],
+      "label": "nir03-s1-R7-candidate-reconciliation"
+    }
+  ],
+  "recorded": 14,
+  "schema": "nir03-s1-evaluation-v1",
+  "unexpected": [],
+  "unobserved_cells": [
+    "nir03-s1-R1-contract-aware",
+    "nir03-s1-R1-candidate-reconciliation",
+    "nir03-s1-R2-contract-aware",
+    "nir03-s1-R2-candidate-reconciliation",
+    "nir03-s1-R3-contract-aware",
+    "nir03-s1-R3-candidate-reconciliation",
+    "nir03-s1-R4-contract-aware",
+    "nir03-s1-R4-candidate-reconciliation",
+    "nir03-s1-R5-contract-aware",
+    "nir03-s1-R5-candidate-reconciliation",
+    "nir03-s1-R6-contract-aware",
+    "nir03-s1-R6-candidate-reconciliation",
+    "nir03-s1-R7-contract-aware",
+    "nir03-s1-R7-candidate-reconciliation"
+  ]
+}
