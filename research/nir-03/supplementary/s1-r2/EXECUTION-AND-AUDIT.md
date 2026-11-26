@@ -4,7 +4,7 @@
 **Runner source commit recorded in results:** `3faf482563ade1c473aa83d0b8b33c3678c31d74`  
 **Provider:** Forgejo `17.0.2+gitea-1.22.0`, disposable SQLite state under `/tmp/nir03-s1-r2-forgejo`, loopback port `30310`.  
 **Run timestamp:** 2026-11-26 UTC.  
-**Private run directory:** `/tmp/nir03-s1-r2-run-20261126/`; raw observer data is retained there and is not copied into the Git tree.
+**Run directory:** `/tmp/nir03-s1-r2-run-20261126/`; raw observer captures are archived durably under `archive/` as described below.
 
 ## Environment and exact execution
 
@@ -34,7 +34,7 @@ python3 research/nir-03/supplementary/evaluation.py \
   --output /tmp/nir03-s1-r2-run-20261126/evaluation.json
 ```
 
-The checked-in `results.json` and `evaluation.json` are these output files. `raw-capture-index.json` indexes 150 observer capture documents and each raw response body by filename, endpoint, HTTP status, timestamp, byte length, and SHA-256. Raw bodies remain in the private `/tmp` capture directory. The index contains no credential material. All 14 immutable intent snapshots and 7 candidate-policy ledger snapshots are also retained under `intents/` and `candidate-ledgers/`, with hashes in `durable-state-index.json`; the original S1 `unknown` ledger records are not rewritten.
+The checked-in `results.json` and `evaluation.json` are these output files. `raw-capture-index.json` indexes **150 files: 30 observer capture documents and 120 raw response bodies**, recording filename, endpoint, HTTP status, timestamp, byte length, and SHA-256. All 150 files were verified against that index before archival. The archive is [`archive/nir03-s1-r2-raw-observer-captures.tar.gz`](archive/nir03-s1-r2-raw-observer-captures.tar.gz); its SHA-256 is `31954a6564acebcd3cb4161874e9404defd80bf1a73dc239c4bf984cafeafc10`. The source index SHA-256 is recorded in [`archive/ARCHIVE-MANIFEST.json`](archive/ARCHIVE-MANIFEST.json). An automated credential scan found no authorization/cookie fields, credential fields, bearer/JWT patterns, or sensitive personal data. Email-like values are limited to synthetic test identities (`nir03-s1@example.invalid`, `researcher@localhost`, and `researcher@noreply.127.0.0.1`). No redactions were made. For access, clone/checkout this research branch, run `sha256sum -c` using the digest in the archive manifest, and extract with `tar -xzf nir03-s1-r2-raw-observer-captures.tar.gz -C <private-directory>`; see [`archive/ARCHIVE-README.md`](archive/ARCHIVE-README.md) for the manifest mapping from unchanged capture JSON to archived body files. All 14 immutable intent snapshots and 7 candidate-policy ledger snapshots are retained under `intents/` and `candidate-ledgers/`, with hashes in `durable-state-index.json`; original S1 `unknown` ledger records are not rewritten.
 
 ## Observed outcomes
 
@@ -50,9 +50,9 @@ The evaluator independently derived its classifications from the saved observer 
 | R6 | `conflict` | `conflict` | Branch GET HTTP 503 was captured; restored read observed the competing SHA, and no PR/status was present. |
 | R7 | `complete` | `complete` | Branch, PR-list, and candidate-status HTTP 503 responses were separately captured; restored terminal reads found exactly one PR and status. |
 
-Totals: **14 assigned, 14 recorded, 0 missing, 0 unexpected; 10 `complete`, 2 `not_executed`, 2 `conflict`; 0 capture errors; 0 recorded protocol deviations.** Every cell's final `complete` classification had exactly one matching PR and exact status in observer data. No cell had a duplicate exact PR. The R1/R6 terminal evaluation notes that earlier outage evidence exists, even though later successful observations resolved the terminal result; the driver records `unknown` at each required failed-read boundary before its later terminal disposition. R7 records `unknown` after each failed required read before final completion.
+Totals: **14 assigned, 14 recorded, 0 missing, 0 unexpected; 10 `complete`, 2 `not_executed`, 2 `conflict`; 0 capture errors; 0 recorded action/fault-schedule deviations.** Every cell's final `complete` classification had exactly one matching PR and exact status in observer data. No cell had a duplicate exact PR. The R1/R6 terminal evaluation notes that earlier outage evidence exists, even though later successful observations resolved the terminal result; the driver record includes `unknown` at each required failed-read boundary before its later terminal disposition. R7 records `unknown` after each failed required read before final completion.
 
-S1-R2 also records driver/provider mutation metadata, endpoint identities, timestamps, status codes, response digests, worker barriers, and observer capture references. Captured observer bodies confirm the injected failures and later reads. The raw capture index allows body-level digest verification without storing those bodies in the repository.
+S1-R2 also records driver/provider mutation metadata, endpoint identities, timestamps, status codes, response digests, worker barriers, and observer capture references. Captured observer bodies confirm the injected failures and later reads. The R4 aggregate-barrier issue was audited in [`r4-barrier-audit.json`](r4-barrier-audit.json): each R4 row has three identical aggregate copies, while its underlying proxy event log has exactly one HTTP 201 create whose acknowledgement was dropped. The original results are retained unchanged.
 
 ## Acceptance audit
 
@@ -63,10 +63,12 @@ S1-R2 also records driver/provider mutation metadata, endpoint identities, times
 | Amendment committed before outcome collection | Pass | Commit `3faf482...` is recorded by the results source commit; it precedes the runner start. |
 | Original 14 blocked S1 records preserved | Pass | `PREREGISTRATION.md`, S1 `results.json`, and S1 `evaluation.json` are unchanged from the pre-replication base. |
 | Execute all 14 once and preserve outcomes | Pass | `results.json` has exactly the fixed 14-label matrix; no reruns or replacements. |
-| Independent read-only observer and raw evidence | Pass | Separate non-admin token scopes `read:repository,read:user`; 150 captures indexed in `raw-capture-index.json`. |
+| Independent read-only observer and raw evidence | Pass | Separate non-admin token scopes `read:repository,read:user`; 30 capture documents and 120 raw response bodies indexed and archived. |
 | Independent evaluation | Pass | `evaluation.json`, derived from observer captures and fixed assignment map. |
+| Final independent scientific/technical review | Pass with disclosed limits | [`FINAL_REVIEW.md`](../../FINAL_REVIEW.md) records the bounded model limits, intermediate-ledger snapshot gap, evaluator HTTP-404 edge case, and R4 aggregate-log duplication. |
+| Durable raw response preservation | Pass | Archive and extraction/checksum procedure in [`archive/ARCHIVE-README.md`](archive/ARCHIVE-README.md); separate infrastructure smoke history v1–v8 in [`smoke-attempts/`](smoke-attempts/README.md). |
 | Keep P0.1 and formal artifacts unchanged | Pass | Checked against `7b7dd1408a8fbddea3fb1d0ec9db7e699e420ede`; protected artifact check passed. |
-| Update PR #29 without merge | Pending network | Local branch includes this record; push was attempted but failed because `github.com` DNS resolution was unavailable. No merge was attempted. |
+| Update PR #29 without merge | Pass | `d24e3a4` was pushed to PR #29's branch; PR #29 is open for owner acceptance. No merge was attempted. |
 
 ## Scientific limits and deviations
 
@@ -74,6 +76,8 @@ No action or fault-schedule protocol deviations were recorded during the 14 assi
 
 The replication is descriptive, with one assignment per scenario-policy cell. Outcomes do not support a statistical superiority, equivalence, general efficacy, novelty, or universal exactly-once claim. Both policies produced the same independent terminal classifications in this run; this sample does not establish equivalence. The experiment covers only the specified API schedules and Forgejo build. It does not assess production readiness or other providers.
 
-The evaluator's `terminal_observation_complete` flag is false for R1 and R6 because the corresponding indexed capture set intentionally includes the preregistered failed observation. This is not missing terminal data: successful post-restoration terminal captures are present, and the independent terminal classifications are based on their exact observed state. Raw body files are held outside Git, so reproducing the exact observer parsing requires retaining `/tmp/nir03-s1-r2-run-20261126/captures/` alongside this indexed record.
+The evaluator's `terminal_observation_complete` flag is false for R1 and R6 because the corresponding indexed capture set intentionally includes the preregistered failed observation. This is not missing terminal data: successful post-restoration terminal captures are present, and the independent terminal classifications are based on their exact observed state. The byte-preserving archive now retains the raw bodies required to reproduce parsing and verify response digests.
 
-`PREREGISTRATION.md`, P0.1 result files, and formal model-checking artifacts remain unchanged. PR #29 is not merged. The branch still must be pushed when network access to GitHub is available.
+Two further analysis limits were confirmed by the independent review. First, the runner writes an intermediate candidate-ledger classification of `unknown` after a failed required read, then atomically replaces that file with the terminal ledger. Only the terminal ledger snapshots were checked in; the intermediate on-disk contents were not separately snapshotted, so their durable persistence is supported by source flow and run telemetry but lacks a preserved file-level checkpoint. Second, the frozen evaluator permits a branch GET HTTP 404 in its `not_executed` condition when PR/status lists are empty. A missing branch does not prove the ref stayed at the base. In these recorded R1 cells, independent post-restoration observations show HTTP 200 and the exact base SHA, so that edge case did not affect the R1 classifications. The evaluator and results were left unchanged to preserve the frozen scoring record.
+
+`PREREGISTRATION.md`, P0.1 result files, and formal model-checking artifacts remain unchanged. PR #29 is open and awaits final owner acceptance.

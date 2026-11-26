@@ -1,0 +1,57 @@
+{
+  "cells": [
+    {
+      "aggregate_ack_drop_entries": 3,
+      "aggregate_entries_identical": true,
+      "capture_names": [
+        "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-pulls-outage-333328.json",
+        "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-contract-aware-terminal-333353.json"
+      ],
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "independent_terminal_classification": "complete",
+      "label": "nir03-s1-r2-R4-contract-aware",
+      "proxy_events": [
+        {
+          "ack_dropped": true,
+          "fault": "R4-forward-drop-create",
+          "method": "POST",
+          "path": "/api/v1/repos/researcher/nir03-s1-r2-r4-con/pulls",
+          "time": "2026-11-26T02:45:02.866190+00:00",
+          "upstream_body_sha256": "8cf8bb3c7a4f037fddced97f09397f4e6a84dd4dcc2bda51195e6455c1e3760c",
+          "upstream_response_bytes": 6884,
+          "upstream_status": 201
+        }
+      ],
+      "proxy_upstream_ack_drop_events": 1
+    },
+    {
+      "aggregate_ack_drop_entries": 3,
+      "aggregate_entries_identical": true,
+      "capture_names": [
+        "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-333721.json",
+        "/tmp/nir03-s1-r2-run-20261126/captures/nir03-s1-r2-R4-candidate-reconciliation-terminal-333746.json"
+      ],
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "independent_terminal_classification": "complete",
+      "label": "nir03-s1-r2-R4-candidate-reconciliation",
+      "proxy_events": [
+        {
+          "ack_dropped": true,
+          "fault": "R4-forward-drop-create",
+          "method": "POST",
+          "path": "/api/v1/repos/researcher/nir03-s1-r2-r4-can/pulls",
+          "time": "2026-11-26T02:45:04.456664+00:00",
+          "upstream_body_sha256": "95d1e0034ec1a487cc1ec09fe7b648eae74961265168c952a9667139d6fbedd1",
+          "upstream_response_bytes": 6904,
+          "upstream_status": 201
+        }
+      ],
+      "proxy_upstream_ack_drop_events": 1
+    }
+  ],
+  "conclusion": "Each R4 cell contains three identical aggregate copies of one dropped-ack event. The raw proxy event stream contains one matching upstream POST with HTTP 201 and acknowledgement dropped. Observer evidence reports exactly one matching PR and status. Original results.json is preserved byte-for-byte; no aggregate entries were removed.",
+  "method": "compared unchanged aggregate assignment barrier records against proxy_events, then cross-checked observer-only terminal evaluation",
+  "schema": "nir03-s1-r2-r4-barrier-audit-v1"
+}
