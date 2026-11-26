@@ -321,7 +321,109 @@ def main():
         "proxy_transport_error": transport_error,
         "created_at": utc(),
     }
-    runner.atomic(out / "results.json", {"assignments": [result, result2]})
+
+    # Smoke-only R1 checks no publication effects with the feature ref at base.
+    repo3 = "nir03-s1r2-infra-smoke-no-effect"
+    label3 = "nir03-s1r2-infra-smoke-R1-no-effect"
+    status, _ = runner.api(
+        direct,
+        owner_token,
+        "POST",
+        "/user/repos",
+        {"name": repo3, "private": True, "auto_init": False, "default_branch": "main"},
+    )
+    if status not in (200, 201):
+        raise RuntimeError(f"no-effect smoke repository creation failed: HTTP {status}")
+    grant3, _ = runner.api(
+        direct,
+        owner_token,
+        "PUT",
+        f"/repos/researcher/{repo3}/collaborators/s1-observer",
+        {"permission": "read"},
+    )
+    if grant3 not in (200, 201, 204):
+        raise RuntimeError(f"no-effect smoke read grant failed: HTTP {grant3}")
+    identity3 = {}
+
+    def predispatch3(base_id, candidate_id, competitor_id, fmt):
+        verification = hashlib.sha256(
+            f"NIR03-S1-VERIFIED\n{label3}\n{candidate_id}\n".encode()
+        ).hexdigest()
+        intent3 = {
+            "schema": "nir03-s1-infra-smoke-intent-v1",
+            "label": label3,
+            "repository": repo3,
+            "base_sha": base_id,
+            "candidate_sha": candidate_id,
+            "verification_id": verification,
+            "object_format": fmt,
+            "expected_effects": ["feature ref at candidate", "exact PR", "exact status"],
+            "created_at": utc(),
+        }
+        runner.atomic(out / "no-effect-intent.json", intent3)
+        identity3.update(intent3)
+
+    base3, candidate3, _, _, visibility3 = runner.make_fixture_and_push(
+        direct,
+        owner_token,
+        a.owner_token_file,
+        repo3,
+        label3,
+        "R1",
+        predispatch=predispatch3,
+    )
+    rules.append(
+        {
+            "name": "smoke-no-effect-branch-503",
+            "method": "GET",
+            "match": "/branches/feature",
+            "mode": "503",
+            "active": True,
+            "once": True,
+        }
+    )
+    no_effect_outage = runner.observe(
+        proxy_url, a.observer_token_file, repo3, candidate3, base3, captures, label3 + "-outage"
+    )
+    rules.clear()
+    no_effect_terminal_capture = runner.observe(
+        proxy_url, a.observer_token_file, repo3, candidate3, base3, captures, label3 + "-terminal"
+    )
+    no_effect_terminal = runner.derive_terminal(
+        proxy_url, owner_token, repo3, candidate3, label3, identity3["verification_id"], base3
+    )
+    if no_effect_terminal["classification"] != "not_executed":
+        raise RuntimeError(f"no-effect recovery did not resolve to not_executed: {no_effect_terminal}")
+    no_effect_doc = json.loads(pathlib.Path(no_effect_outage).read_text())
+    capture_docs.append(no_effect_doc)
+    capture_docs.append(json.loads(pathlib.Path(no_effect_terminal_capture).read_text()))
+    for doc in capture_docs:
+        for observation in doc["observations"]:
+            body = pathlib.Path(observation["raw_body_file"]).read_bytes()
+            if hashlib.sha256(body).hexdigest() != observation["raw_body_sha256"]:
+                raise RuntimeError("raw response digest mismatch in smoke captures")
+    if next(x for x in no_effect_doc["observations"] if x["name"] == "branch")["http_status"] != 503:
+        raise RuntimeError("no-effect observer outage was not captured")
+    result3 = {
+        "schema": "nir03-s1-infrastructure-smoke-v1",
+        "label": label3,
+        "scenario": "R1-infrastructure-only",
+        "policy": "candidate-reconciliation-infrastructure-only",
+        "run_id": label3,
+        "status": "smoke-passed",
+        "separate_from_registered_dataset": True,
+        "repository": repo3,
+        "base_sha": base3,
+        "candidate_sha": candidate3,
+        "verification_id": identity3["verification_id"],
+        "object_format": identity3["object_format"],
+        "fixture_branch_visibility": visibility3,
+        "observer_captures": [no_effect_outage, no_effect_terminal_capture],
+        "terminal_recovery_observations": no_effect_terminal,
+        "barriers": [{"barrier": "branch_read_503_then_restored", "time": utc()}],
+        "created_at": utc(),
+    }
+    runner.atomic(out / "results.json", {"assignments": [result, result2, result3]})
     evaluation = subprocess.run(
         [
             sys.executable,
@@ -331,6 +433,8 @@ def main():
             label,
             "--expected-label",
             label2,
+            "--expected-label",
+            label3,
             "--output",
             str(out / "evaluation.json"),
         ],
@@ -340,7 +444,11 @@ def main():
         check=True,
     )
     eval_doc = json.loads((out / "evaluation.json").read_text())
-    if not eval_doc["all_expected_present"] or any(c["terminal_classification_from_observation"] != "complete" for c in eval_doc["cells"]):
+    expected_classifications = {label: "complete", label2: "complete", label3: "not_executed"}
+    if not eval_doc["all_expected_present"] or any(
+        c["terminal_classification_from_observation"] != expected_classifications[c["label"]]
+        for c in eval_doc["cells"]
+    ):
         raise RuntimeError("independent smoke evaluation did not derive complete from observer evidence")
     result["independent_evaluation"] = eval_doc
     runner.atomic(out / "smoke-summary.json", result)
