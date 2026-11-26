@@ -27,7 +27,7 @@ def main():
     capture={'schema':'nir03-s1-observer-v1','label':a.label,'observer_process_pid':os.getpid(),'started_at':utc(),'endpoint_origin':a.base_url.rstrip('/'),'observations':[]}
     for name,path in specs:
         endpoint=a.base_url.rstrip('/')+'/api/v1'+path
-        entry={'name':name,'method':'GET','endpoint':endpoint,'started_at':utc()}
+        entry={'name':name,'method':'GET','endpoint':endpoint,'requested_sha':path.rsplit('/',1)[-1] if name.endswith('status') else None,'started_at':utc()}
         req=urllib.request.Request(endpoint,headers={'Authorization':'token '+token,'Accept':'application/json'},method='GET')
         try:
             with urllib.request.urlopen(req,timeout=8) as response:
@@ -59,6 +59,6 @@ def main():
 def identity(name,d):
     if name=='branch' and isinstance(d,dict): return {'ref':d.get('name'),'sha':(d.get('commit') or {}).get('id')}
     if name=='pulls' and isinstance(d,list): return [{'number':x.get('number'),'state':x.get('state'),'head_ref':(x.get('head') or {}).get('ref'),'head_sha':(x.get('head') or {}).get('sha'),'base_ref':(x.get('base') or {}).get('ref'),'merged':x.get('merged')} for x in d]
-    if name.endswith('status') and isinstance(d,list): return [{'sha':x.get('sha'),'context':x.get('context'),'state':x.get('state'),'description':x.get('description')} for x in d]
+    if name.endswith('status') and isinstance(d,list): return [{'context':x.get('context'),'state':x.get('status',x.get('state')),'description':x.get('description')} for x in d]
     return d
 if __name__=='__main__': main()

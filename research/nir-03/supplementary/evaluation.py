@@ -4,7 +4,9 @@ from __future__ import annotations
 import argparse,hashlib,json,pathlib,sys
 EXPECTED={f'nir03-s1-R{i}-{p}' for i in range(1,8) for p in ('contract-aware','candidate-reconciliation')}
 def main():
- p=argparse.ArgumentParser(); p.add_argument('results'); p.add_argument('--output'); a=p.parse_args(); r=json.loads(pathlib.Path(a.results).read_text())
+ p=argparse.ArgumentParser(); p.add_argument('results'); p.add_argument('--output'); p.add_argument('--matrix-prefix',default='nir03-s1',help='Assignment prefix for S1 or the preregistered S1-R2 replication'); p.add_argument('--expected-label',action='append',help='Override the assignment map only for separately labeled infrastructure smoke records'); a=p.parse_args(); r=json.loads(pathlib.Path(a.results).read_text())
+ matrix_expected={f'{a.matrix_prefix}-R{i}-{policy}' for i in range(1,8) for policy in ('contract-aware','candidate-reconciliation')}
+ expected=set(a.expected_label) if a.expected_label else matrix_expected
  seen={x['label'] for x in r.get('assignments',[])}; cells=[]; errs=[]
  for x in r.get('assignments',[]):
   obs=[]
@@ -35,12 +37,24 @@ def main():
   branch=data('branch'); pulls=data('pulls'); statuses=data('candidate_status')
   candidate=x.get('candidate_sha'); verify=x.get('verification_id'); run=x.get('run_id')
   exact_pr=[q for q in (pulls or []) if (q.get('head') or {}).get('ref')=='feature' and (q.get('head') or {}).get('sha')==candidate and (q.get('base') or {}).get('ref')=='main' and run in (q.get('title','')+' '+q.get('body',''))]
-  exact_status=[s for s in (statuses or []) if s.get('sha')==candidate and s.get('state')=='success' and s.get('context')=='nir03/s1/'+(verify or '')[:16] and verify in (s.get('description') or '')]
+  status_observation=term.get('candidate_status',{})
+  exact_status=[s for s in (statuses or []) if status_observation.get('requested_sha',status_observation.get('endpoint','').rsplit('/',1)[-1])==candidate and s.get('status',s.get('state'))=='success' and s.get('context')=='nir03/s1/'+(verify or '')[:16] and verify in (s.get('description') or '')]
   unknown_during_failure=any(o.get('http_status') in (None,503) for o in obs)
   all_seen=(branch is not None and branch.get('commit',{}).get('id')==candidate and len(exact_pr)==1 and len(exact_status)>=1)
-  result='unobserved' if not term else ('unknown' if any(o.get('http_status')!=200 for o in term.values()) else ('complete' if all_seen else ('not_executed' if branch is not None and not pulls and not statuses else 'conflict')))
+  branch_status=term.get('branch',{}).get('http_status')
+  pulls_status=term.get('pulls',{}).get('http_status')
+  status_status=term.get('candidate_status',{}).get('http_status')
+  valid_reads=branch_status in (200,404) and pulls_status==200 and status_status==200
+  branch_sha=(branch or {}).get('commit',{}).get('id') if isinstance(branch,dict) else None
+  no_effects=not pulls and not statuses
+  if not term: result='unobserved'
+  elif not valid_reads: result='unknown'
+  elif all_seen: result='complete'
+  elif no_effects and (branch_status==404 or branch_sha==x.get('base_sha')): result='not_executed'
+  elif branch_sha and branch_sha not in (x.get('candidate_sha'),x.get('base_sha')): result='conflict'
+  else: result='unknown'
   cells.append({'label':x.get('label'),'scenario':x.get('scenario'),'policy':x.get('policy'),'runner_status':x.get('status'),'terminal_classification_from_observation':result,'unknown_observation_seen':unknown_during_failure,'terminal_ref_sha':(branch or {}).get('commit',{}).get('id') if isinstance(branch,dict) else None,'exact_pr_count':len(exact_pr),'exact_status_count':len(exact_status),'terminal_observation_complete':all_seen,'observation_failures':[{'name':o.get('name'),'http_status':o.get('http_status'),'transport_error':o.get('transport_error'),'digest':o.get('raw_body_sha256')} for o in failed],'driver_labels_ignored':True,'barrier_evidence':x.get('barriers',[])})
- summary={'schema':'nir03-s1-evaluation-v1','method':'observer captures only; runner classification claims ignored','assigned':len(EXPECTED),'recorded':len(seen),'missing':sorted(EXPECTED-seen),'unexpected':sorted(seen-EXPECTED),'all_14_present':EXPECTED==seen and len(r.get('assignments',[]))==14,'cells':cells,'capture_errors':errs,'unobserved_cells':[c['label'] for c in cells if c['terminal_classification_from_observation']=='unobserved'],'complete_without_exact_observations':[c['label'] for c in cells if c['terminal_classification_from_observation']=='complete' and not c['terminal_observation_complete']],'duplicate_or_missing_prs':[{'label':c['label'],'count':c['exact_pr_count']} for c in cells if c['terminal_classification_from_observation']=='complete' and c['exact_pr_count']!=1],'protocol_deviations':[{'label':x.get('label'),'items':x.get('protocol_deviations',[])} for x in r.get('assignments',[]) if x.get('protocol_deviations')],'limitations':['Scoring identifies expected PR using exact head/base/SHA plus the run marker in title/body.','Only observer-returned API bodies count as remote evidence.','An unobserved cell remains unobserved; it is not inferred to be conflict or any other terminal classification.']}
+ summary={'schema':'nir03-s1-evaluation-v1','experiment_id':r.get('experiment_id'),'method':'observer captures only; runner classification claims ignored','assigned':len(expected),'recorded':len(seen),'missing':sorted(expected-seen),'unexpected':sorted(seen-expected),'all_expected_present':expected==seen and len(r.get('assignments',[]))==len(expected),'all_14_present':expected==EXPECTED and expected==seen and len(r.get('assignments',[]))==14,'cells':cells,'capture_errors':errs,'unobserved_cells':[c['label'] for c in cells if c['terminal_classification_from_observation']=='unobserved'],'complete_without_exact_observations':[c['label'] for c in cells if c['terminal_classification_from_observation']=='complete' and not c['terminal_observation_complete']],'duplicate_or_missing_prs':[{'label':c['label'],'count':c['exact_pr_count']} for c in cells if c['terminal_classification_from_observation']=='complete' and c['exact_pr_count']!=1],'protocol_deviations':[{'label':x.get('label'),'items':x.get('protocol_deviations',[])} for x in r.get('assignments',[]) if x.get('protocol_deviations')],'limitations':['Scoring identifies expected PR using exact head/base/SHA plus the run marker in title/body.','Only observer-returned API bodies count as remote evidence.','An unobserved cell remains unobserved; it is not inferred to be conflict or any other terminal classification.','--matrix-prefix selects the fixed 14-label map for a separately preregistered run.','--expected-label changes the denominator only for separate infrastructure smoke data; do not use it for registered S1/S1-R2 result files.']}
  out=json.dumps(summary,indent=2,sort_keys=True)+'\n'; print(out,end='')
  if a.output: pathlib.Path(a.output).write_text(out)
 if __name__=='__main__':main()
