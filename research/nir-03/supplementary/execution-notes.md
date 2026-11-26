@@ -5,6 +5,8 @@
 **Assigned run ID:** `nir03-s1-run-8a5d27c`  
 **Result:** all 14 assignments are retained as setup-blocked; no S1 fault treatment ran.
 
+The artifacts were pushed to the existing `research/nir-03-p01` PR branch at commit `9ce2fec79381507e8476c08fc15450425cc56c7d`. The push succeeded. A separate GitHub PR metadata query was unavailable due a network connection error; no merge operation was issued.
+
 ## Environment and exact execution
 
 The experiment used a fresh SQLite Forgejo `17.0.2+gitea-1.22.0` instance, created with `research/nir-03/prepare_forgejo.sh`, bound to `127.0.0.1:30301`. The active older disposable P0.1 instance already occupied port 30300 and was left untouched. The instance has a separate non-admin `s1-observer` account with a `read:repository,read:user` token. The driver token is separate. Both tokens and instance state remain outside the checkout under `/tmp/nir03-s1-forgejo-30301`; their values are not part of these artifacts.
@@ -70,6 +72,6 @@ The run made no merge, enabled no auto-merge, and touched no production Harness 
 | Preserve failures, blocked and unknown outcomes | Pass: all 14 cells preserved as blocked; no unknown trial classification is fabricated |
 | Protocol deviations, commands, reproducibility, limitations documented | Pass |
 | P0.1 matrix and formal artifacts unchanged | Pass: no edits made to retained artifacts |
-| Update PR #29, do not merge | Publish this audit and artifact commit to PR #29; do not merge |
+| Update PR #29, do not merge | Pass: artifacts pushed to its existing branch; no merge operation issued |
 
 **Overall:** NIR-03 S1 acceptance does not pass. The experiment stopped at the preregistered setup-failure boundary; a fresh successful rerun would be a separately identified amended run, not a replacement for these 14 blocked assignments.
