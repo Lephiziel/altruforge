@@ -1,0 +1,772 @@
+{
+  "barriers": [
+    {
+      "barrier": "after_first_remote_read",
+      "kill_confirmed": true,
+      "pid": 325121,
+      "time": "2026-11-26T02:37:07.633684+00:00",
+      "worker_event": {
+        "barrier": "after_first_remote_read",
+        "provider_response": {
+          "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+          "http_status": 200,
+          "method": "GET",
+          "response_body_bytes": 792,
+          "response_body_sha256": "018a38c5edd31ee687264e571719d51a894d15c752e3db2f0804ddbe550a1762",
+          "time": "2026-11-26T02:37:07.633609+00:00"
+        },
+        "time": "2026-11-26T02:37:07.633638+00:00"
+      },
+      "worker_exit": -9
+    },
+    {
+      "barrier": "after_first_missing_effect_dispatch",
+      "kill_confirmed": true,
+      "pid": 325127,
+      "time": "2026-11-26T02:37:07.774491+00:00",
+      "worker_event": {
+        "barrier": "after_first_missing_effect_dispatch",
+        "dispatch_response": {
+          "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls",
+          "http_status": 201,
+          "method": "POST",
+          "response_body_bytes": 6982,
+          "response_body_sha256": "6c10c6bc9c59c4754774a1d4531cfac177b3a5d65823e424863b75136ea37b67",
+          "time": "2026-11-26T02:37:07.774425+00:00"
+        },
+        "read_response": {
+          "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+          "http_status": 200,
+          "method": "GET",
+          "response_body_bytes": 3,
+          "response_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "time": "2026-11-26T02:37:07.774394+00:00"
+        },
+        "time": "2026-11-26T02:37:07.774443+00:00"
+      },
+      "worker_exit": -9
+    },
+    {
+      "barrier": "before_final_durable_classification",
+      "kill_confirmed": true,
+      "pid": 325204,
+      "time": "2026-11-26T02:37:07.881490+00:00",
+      "worker_event": {
+        "barrier": "before_final_durable_classification",
+        "recovery_reads": {
+          "branch_http": 200,
+          "branch_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+          "candidate_status_http": 200,
+          "exact_pr_count": 1,
+          "pulls_http": 200,
+          "status_count": 1
+        },
+        "time": "2026-11-26T02:37:07.881442+00:00"
+      },
+      "worker_exit": -9
+    }
+  ],
+  "base_sha": "04156972abd3d3e283359a3902e473a542c12b3d",
+  "branch_visibility_poll_evidence": [
+    {
+      "http_status": 404,
+      "sha": null,
+      "time": "2026-11-26T02:37:06.956479+00:00"
+    },
+    {
+      "http_status": 404,
+      "sha": null,
+      "time": "2026-11-26T02:37:07.214840+00:00"
+    },
+    {
+      "http_status": 200,
+      "sha": "c448b98a858351087575e5526a9386727bd1ff03",
+      "time": "2026-11-26T02:37:07.515799+00:00"
+    }
+  ],
+  "candidate_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+  "created_at": "2026-11-26T02:37:08.206457+00:00",
+  "fault_proxy_barriers": [
+    {
+      "barrier": "upstream_effect_committed_ack_dropped",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/pulls",
+      "status": 201,
+      "time": "2026-11-26T02:37:08.948573+00:00"
+    }
+  ],
+  "fault_proxy_events": [
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+      "time": "2026-11-26T02:37:07.621531+00:00",
+      "upstream_body_sha256": "018a38c5edd31ee687264e571719d51a894d15c752e3db2f0804ddbe550a1762",
+      "upstream_response_bytes": 792,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:07.702231+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "POST",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls",
+      "time": "2026-11-26T02:37:07.711666+00:00",
+      "upstream_body_sha256": "6c10c6bc9c59c4754774a1d4531cfac177b3a5d65823e424863b75136ea37b67",
+      "upstream_response_bytes": 6982,
+      "upstream_status": 201
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+      "time": "2026-11-26T02:37:07.842025+00:00",
+      "upstream_body_sha256": "018a38c5edd31ee687264e571719d51a894d15c752e3db2f0804ddbe550a1762",
+      "upstream_response_bytes": 792,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:07.855133+00:00",
+      "upstream_body_sha256": "4a5a4d78fe94f2c33e8cda94d41ba8886ea9e47667aea7a6bbe88424edaa8fb3",
+      "upstream_response_bytes": 6984,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/statuses/c448b98a858351087575e5526a9386727bd1ff03",
+      "time": "2026-11-26T02:37:07.872848+00:00",
+      "upstream_body_sha256": "67f9165bca40bbb40d427ef4744bb2b5f6acdb573fc600aa884a4c511802a62d",
+      "upstream_response_bytes": 976,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+      "time": "2026-11-26T02:37:07.882926+00:00",
+      "upstream_body_sha256": "018a38c5edd31ee687264e571719d51a894d15c752e3db2f0804ddbe550a1762",
+      "upstream_response_bytes": 792,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:07.894920+00:00",
+      "upstream_body_sha256": "4a5a4d78fe94f2c33e8cda94d41ba8886ea9e47667aea7a6bbe88424edaa8fb3",
+      "upstream_response_bytes": 6984,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/statuses/c448b98a858351087575e5526a9386727bd1ff03",
+      "time": "2026-11-26T02:37:07.912322+00:00",
+      "upstream_body_sha256": "67f9165bca40bbb40d427ef4744bb2b5f6acdb573fc600aa884a4c511802a62d",
+      "upstream_response_bytes": 976,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+      "time": "2026-11-26T02:37:07.979124+00:00",
+      "upstream_body_sha256": "63d12ac214d9a65a090dfcedcd91e9cad020ada8195aead110a6d7201120e819",
+      "upstream_response_bytes": 794,
+      "upstream_status": 200
+    },
+    {
+      "fault": "smoke-pulls-503",
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+      "response_body_sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "response_bytes": 41,
+      "response_status": 503,
+      "time": "2026-11-26T02:37:07.992802+00:00"
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/statuses/c448b98a858351087575e5526a9386727bd1ff03",
+      "time": "2026-11-26T02:37:07.993384+00:00",
+      "upstream_body_sha256": "67f9165bca40bbb40d427ef4744bb2b5f6acdb573fc600aa884a4c511802a62d",
+      "upstream_response_bytes": 976,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/statuses/04156972abd3d3e283359a3902e473a542c12b3d",
+      "time": "2026-11-26T02:37:08.002577+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+      "time": "2026-11-26T02:37:08.081355+00:00",
+      "upstream_body_sha256": "63d12ac214d9a65a090dfcedcd91e9cad020ada8195aead110a6d7201120e819",
+      "upstream_response_bytes": 794,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:08.095084+00:00",
+      "upstream_body_sha256": "343ab5ce5ceb977020229d5e73276882d8e247e41bf143c867a944855ee00955",
+      "upstream_response_bytes": 6985,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/statuses/c448b98a858351087575e5526a9386727bd1ff03",
+      "time": "2026-11-26T02:37:08.113080+00:00",
+      "upstream_body_sha256": "67f9165bca40bbb40d427ef4744bb2b5f6acdb573fc600aa884a4c511802a62d",
+      "upstream_response_bytes": 976,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/statuses/04156972abd3d3e283359a3902e473a542c12b3d",
+      "time": "2026-11-26T02:37:08.122136+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+      "time": "2026-11-26T02:37:08.139676+00:00",
+      "upstream_body_sha256": "018a38c5edd31ee687264e571719d51a894d15c752e3db2f0804ddbe550a1762",
+      "upstream_response_bytes": 792,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:08.151790+00:00",
+      "upstream_body_sha256": "4a5a4d78fe94f2c33e8cda94d41ba8886ea9e47667aea7a6bbe88424edaa8fb3",
+      "upstream_response_bytes": 6984,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/statuses/c448b98a858351087575e5526a9386727bd1ff03",
+      "time": "2026-11-26T02:37:08.170492+00:00",
+      "upstream_body_sha256": "67f9165bca40bbb40d427ef4744bb2b5f6acdb573fc600aa884a4c511802a62d",
+      "upstream_response_bytes": 976,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:08.179599+00:00",
+      "upstream_body_sha256": "4a5a4d78fe94f2c33e8cda94d41ba8886ea9e47667aea7a6bbe88424edaa8fb3",
+      "upstream_response_bytes": 6984,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke/statuses/c448b98a858351087575e5526a9386727bd1ff03",
+      "time": "2026-11-26T02:37:08.197499+00:00",
+      "upstream_body_sha256": "67f9165bca40bbb40d427ef4744bb2b5f6acdb573fc600aa884a4c511802a62d",
+      "upstream_response_bytes": 976,
+      "upstream_status": 200
+    },
+    {
+      "ack_dropped": true,
+      "fault": "smoke-forward-and-drop-create-ack",
+      "method": "POST",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/pulls",
+      "time": "2026-11-26T02:37:08.887890+00:00",
+      "upstream_body_sha256": "bebdb435b0589e5c6f655ae23a25118dfef02704d82d681af56f372518329944",
+      "upstream_response_bytes": 7204,
+      "upstream_status": 201
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/branches/feature",
+      "time": "2026-11-26T02:37:09.006031+00:00",
+      "upstream_body_sha256": "e29ed309714c0840fba566623b8dfb0252acef7bf0e88feb7645fe1313b71a7f",
+      "upstream_response_bytes": 805,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:09.018960+00:00",
+      "upstream_body_sha256": "23229d4d95c42a42effb51409e9efd9e46c5a2be8f64b19d183fdbf142467000",
+      "upstream_response_bytes": 7207,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/statuses/59a12e0563e813965bdc9a09cb28f9ae6dbeb4fd",
+      "time": "2026-11-26T02:37:09.036979+00:00",
+      "upstream_body_sha256": "b316d1b2ffd5879ea7a9846c9ec4b9cdf3493f8d833200263ae9aa5c51fc3680",
+      "upstream_response_bytes": 986,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/statuses/04156972abd3d3e283359a3902e473a542c12b3d",
+      "time": "2026-11-26T02:37:09.046064+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/branches/feature",
+      "time": "2026-11-26T02:37:09.063835+00:00",
+      "upstream_body_sha256": "256d4907c1437135b584a686822022c48d6bd011c323e653e91bfcc6f0cbd9ae",
+      "upstream_response_bytes": 803,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:09.076204+00:00",
+      "upstream_body_sha256": "1281b0b8dd9b0abee447c58ffc7ea1c2835ec55b4f797965494127b59e8a2cd6",
+      "upstream_response_bytes": 7206,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/statuses/59a12e0563e813965bdc9a09cb28f9ae6dbeb4fd",
+      "time": "2026-11-26T02:37:09.093753+00:00",
+      "upstream_body_sha256": "b316d1b2ffd5879ea7a9846c9ec4b9cdf3493f8d833200263ae9aa5c51fc3680",
+      "upstream_response_bytes": 986,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:09.102549+00:00",
+      "upstream_body_sha256": "1281b0b8dd9b0abee447c58ffc7ea1c2835ec55b4f797965494127b59e8a2cd6",
+      "upstream_response_bytes": 7206,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/statuses/59a12e0563e813965bdc9a09cb28f9ae6dbeb4fd",
+      "time": "2026-11-26T02:37:09.119598+00:00",
+      "upstream_body_sha256": "b316d1b2ffd5879ea7a9846c9ec4b9cdf3493f8d833200263ae9aa5c51fc3680",
+      "upstream_response_bytes": 986,
+      "upstream_status": 200
+    },
+    {
+      "fault": "smoke-no-effect-branch-503",
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/branches/feature",
+      "response_body_sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+      "response_bytes": 41,
+      "response_status": 503,
+      "time": "2026-11-26T02:37:09.888023+00:00"
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:09.888714+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/statuses/45534e0fc75a22a24d9aace06d9f80e95855aa83",
+      "time": "2026-11-26T02:37:09.898081+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/statuses/04156972abd3d3e283359a3902e473a542c12b3d",
+      "time": "2026-11-26T02:37:09.906690+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/branches/feature",
+      "time": "2026-11-26T02:37:09.982000+00:00",
+      "upstream_body_sha256": "37c01cc58866c9bf03cf9aec6debdd8fddd961da37de76041664f012e456f5a4",
+      "upstream_response_bytes": 772,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:09.995123+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/statuses/45534e0fc75a22a24d9aace06d9f80e95855aa83",
+      "time": "2026-11-26T02:37:10.004270+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/statuses/04156972abd3d3e283359a3902e473a542c12b3d",
+      "time": "2026-11-26T02:37:10.012848+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/branches/feature",
+      "time": "2026-11-26T02:37:10.030586+00:00",
+      "upstream_body_sha256": "609637bb892c9de3206ca65efaa21b38a395be0f682a4b4d34919be726d3a681",
+      "upstream_response_bytes": 770,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:10.042837+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/statuses/45534e0fc75a22a24d9aace06d9f80e95855aa83",
+      "time": "2026-11-26T02:37:10.051415+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/pulls?state=all&head=feature&base=main",
+      "time": "2026-11-26T02:37:10.059749+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    },
+    {
+      "fault": null,
+      "method": "GET",
+      "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-no-effect/statuses/45534e0fc75a22a24d9aace06d9f80e95855aa83",
+      "time": "2026-11-26T02:37:10.068325+00:00",
+      "upstream_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "upstream_response_bytes": 3,
+      "upstream_status": 200
+    }
+  ],
+  "independent_evaluation": {
+    "all_14_present": false,
+    "all_expected_present": true,
+    "assigned": 3,
+    "capture_errors": [],
+    "cells": [
+      {
+        "barrier_evidence": [
+          {
+            "barrier": "after_first_remote_read",
+            "kill_confirmed": true,
+            "pid": 325121,
+            "time": "2026-11-26T02:37:07.633684+00:00",
+            "worker_event": {
+              "barrier": "after_first_remote_read",
+              "provider_response": {
+                "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+                "http_status": 200,
+                "method": "GET",
+                "response_body_bytes": 792,
+                "response_body_sha256": "018a38c5edd31ee687264e571719d51a894d15c752e3db2f0804ddbe550a1762",
+                "time": "2026-11-26T02:37:07.633609+00:00"
+              },
+              "time": "2026-11-26T02:37:07.633638+00:00"
+            },
+            "worker_exit": -9
+          },
+          {
+            "barrier": "after_first_missing_effect_dispatch",
+            "kill_confirmed": true,
+            "pid": 325127,
+            "time": "2026-11-26T02:37:07.774491+00:00",
+            "worker_event": {
+              "barrier": "after_first_missing_effect_dispatch",
+              "dispatch_response": {
+                "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls",
+                "http_status": 201,
+                "method": "POST",
+                "response_body_bytes": 6982,
+                "response_body_sha256": "6c10c6bc9c59c4754774a1d4531cfac177b3a5d65823e424863b75136ea37b67",
+                "time": "2026-11-26T02:37:07.774425+00:00"
+              },
+              "read_response": {
+                "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+                "http_status": 200,
+                "method": "GET",
+                "response_body_bytes": 3,
+                "response_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+                "time": "2026-11-26T02:37:07.774394+00:00"
+              },
+              "time": "2026-11-26T02:37:07.774443+00:00"
+            },
+            "worker_exit": -9
+          },
+          {
+            "barrier": "before_final_durable_classification",
+            "kill_confirmed": true,
+            "pid": 325204,
+            "time": "2026-11-26T02:37:07.881490+00:00",
+            "worker_event": {
+              "barrier": "before_final_durable_classification",
+              "recovery_reads": {
+                "branch_http": 200,
+                "branch_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+                "candidate_status_http": 200,
+                "exact_pr_count": 1,
+                "pulls_http": 200,
+                "status_count": 1
+              },
+              "time": "2026-11-26T02:37:07.881442+00:00"
+            },
+            "worker_exit": -9
+          }
+        ],
+        "driver_labels_ignored": true,
+        "exact_pr_count": 1,
+        "exact_status_count": 1,
+        "label": "nir03-s1r2-infra-smoke-R5-recovery",
+        "observation_failures": [
+          {
+            "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+            "http_status": 503,
+            "name": "pulls",
+            "transport_error": null
+          }
+        ],
+        "policy": "candidate-reconciliation-infrastructure-only",
+        "runner_status": "smoke-passed",
+        "scenario": "R5-infrastructure-only",
+        "terminal_classification_from_observation": "complete",
+        "terminal_observation_complete": true,
+        "terminal_ref_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+        "unknown_observation_seen": true
+      },
+      {
+        "barrier_evidence": [
+          {
+            "barrier": "upstream_effect_committed_ack_dropped",
+            "path": "/api/v1/repos/researcher/nir03-s1r2-infra-smoke-ambiguous/pulls",
+            "status": 201,
+            "time": "2026-11-26T02:37:08.948573+00:00"
+          }
+        ],
+        "driver_labels_ignored": true,
+        "exact_pr_count": 1,
+        "exact_status_count": 1,
+        "label": "nir03-s1r2-infra-smoke-R4-ambiguous",
+        "observation_failures": [],
+        "policy": "contract-aware-infrastructure-only",
+        "runner_status": "smoke-passed",
+        "scenario": "R4-infrastructure-only",
+        "terminal_classification_from_observation": "complete",
+        "terminal_observation_complete": true,
+        "terminal_ref_sha": "59a12e0563e813965bdc9a09cb28f9ae6dbeb4fd",
+        "unknown_observation_seen": false
+      },
+      {
+        "barrier_evidence": [
+          {
+            "barrier": "branch_read_503_then_restored",
+            "time": "2026-11-26T02:37:10.077068+00:00"
+          }
+        ],
+        "driver_labels_ignored": true,
+        "exact_pr_count": 0,
+        "exact_status_count": 0,
+        "label": "nir03-s1r2-infra-smoke-R1-no-effect",
+        "observation_failures": [
+          {
+            "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+            "http_status": 503,
+            "name": "branch",
+            "transport_error": null
+          }
+        ],
+        "policy": "candidate-reconciliation-infrastructure-only",
+        "runner_status": "smoke-passed",
+        "scenario": "R1-infrastructure-only",
+        "terminal_classification_from_observation": "not_executed",
+        "terminal_observation_complete": false,
+        "terminal_ref_sha": "04156972abd3d3e283359a3902e473a542c12b3d",
+        "unknown_observation_seen": true
+      }
+    ],
+    "complete_without_exact_observations": [],
+    "duplicate_or_missing_prs": [],
+    "experiment_id": null,
+    "limitations": [
+      "Scoring identifies expected PR using exact head/base/SHA plus the run marker in title/body.",
+      "Only observer-returned API bodies count as remote evidence.",
+      "An unobserved cell remains unobserved; it is not inferred to be conflict or any other terminal classification.",
+      "--matrix-prefix selects the fixed 14-label map for a separately preregistered run.",
+      "--expected-label changes the denominator only for separate infrastructure smoke data; do not use it for registered S1/S1-R2 result files."
+    ],
+    "method": "observer captures only; runner classification claims ignored",
+    "missing": [],
+    "protocol_deviations": [],
+    "recorded": 3,
+    "schema": "nir03-s1-evaluation-v1",
+    "unexpected": [],
+    "unobserved_cells": []
+  },
+  "label": "nir03-s1r2-infra-smoke-R5-recovery",
+  "object_format": "sha1",
+  "observer_captures": [
+    "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-outage-325237.json",
+    "/tmp/nir03-s1r2-infrastructure-smoke-v8/output/captures/nir03-s1r2-infra-smoke-R5-recovery-terminal-325248.json"
+  ],
+  "observer_read_only_grant_http": 204,
+  "policy": "candidate-reconciliation-infrastructure-only",
+  "repository": "nir03-s1r2-infra-smoke",
+  "run_id": "nir03-s1r2-infra-smoke-R5-recovery",
+  "scenario": "R5-infrastructure-only",
+  "schema": "nir03-s1-infrastructure-smoke-v1",
+  "separate_from_registered_dataset": true,
+  "status": "smoke-passed",
+  "terminal_recovery": {
+    "classification": "complete",
+    "effects": {
+      "pull_request": "observed_exact",
+      "ref": "observed_candidate",
+      "status": "observed_exact"
+    },
+    "exact_pr_count": 1,
+    "exact_status_count": 1,
+    "pull_http": 200,
+    "recovery_reads": {
+      "branch_http": 200,
+      "branch_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+      "candidate_status_http": 200,
+      "exact_pr_count": 1,
+      "pulls_http": 200,
+      "status_count": 1
+    },
+    "ref_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+    "status_http": 200
+  },
+  "verification_id": "c9a9ac9ff29e08dcf31529289cb51ed03a28f61c732de0edd45e0ec7b1da7252",
+  "worker_barriers": [
+    {
+      "barrier": "after_first_remote_read",
+      "kill_confirmed": true,
+      "pid": 325121,
+      "time": "2026-11-26T02:37:07.633684+00:00",
+      "worker_event": {
+        "barrier": "after_first_remote_read",
+        "provider_response": {
+          "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/branches/feature",
+          "http_status": 200,
+          "method": "GET",
+          "response_body_bytes": 792,
+          "response_body_sha256": "018a38c5edd31ee687264e571719d51a894d15c752e3db2f0804ddbe550a1762",
+          "time": "2026-11-26T02:37:07.633609+00:00"
+        },
+        "time": "2026-11-26T02:37:07.633638+00:00"
+      },
+      "worker_exit": -9
+    },
+    {
+      "barrier": "after_first_missing_effect_dispatch",
+      "kill_confirmed": true,
+      "pid": 325127,
+      "time": "2026-11-26T02:37:07.774491+00:00",
+      "worker_event": {
+        "barrier": "after_first_missing_effect_dispatch",
+        "dispatch_response": {
+          "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls",
+          "http_status": 201,
+          "method": "POST",
+          "response_body_bytes": 6982,
+          "response_body_sha256": "6c10c6bc9c59c4754774a1d4531cfac177b3a5d65823e424863b75136ea37b67",
+          "time": "2026-11-26T02:37:07.774425+00:00"
+        },
+        "read_response": {
+          "endpoint": "http://127.0.0.1:34489/api/v1/repos/researcher/nir03-s1r2-infra-smoke/pulls?state=all&head=feature&base=main",
+          "http_status": 200,
+          "method": "GET",
+          "response_body_bytes": 3,
+          "response_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "time": "2026-11-26T02:37:07.774394+00:00"
+        },
+        "time": "2026-11-26T02:37:07.774443+00:00"
+      },
+      "worker_exit": -9
+    },
+    {
+      "barrier": "before_final_durable_classification",
+      "kill_confirmed": true,
+      "pid": 325204,
+      "time": "2026-11-26T02:37:07.881490+00:00",
+      "worker_event": {
+        "barrier": "before_final_durable_classification",
+        "recovery_reads": {
+          "branch_http": 200,
+          "branch_sha": "c448b98a858351087575e5526a9386727bd1ff03",
+          "candidate_status_http": 200,
+          "exact_pr_count": 1,
+          "pulls_http": 200,
+          "status_count": 1
+        },
+        "time": "2026-11-26T02:37:07.881442+00:00"
+      },
+      "worker_exit": -9
+    }
+  ],
+  "worker_deviations": [],
+  "worker_process_terminations_confirmed": true
+}

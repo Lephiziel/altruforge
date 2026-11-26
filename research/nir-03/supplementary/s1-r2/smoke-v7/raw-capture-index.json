@@ -1,0 +1,81 @@
+{
+  "captures": [
+    {
+      "bytes": 18603,
+      "file": "nir03-s1r2-infra-smoke-R4-ambiguous-terminal-321811.json",
+      "sha256": "49414cb33522f17dd782862999705f0bfefd8d3e2c7cfcf4be98a5787386eada"
+    },
+    {
+      "bytes": 3,
+      "file": "nir03-s1r2-infra-smoke-R4-ambiguous-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "bytes": 805,
+      "file": "nir03-s1r2-infra-smoke-R4-ambiguous-terminal-branch-0.body",
+      "sha256": "7b815f8f1cb4812b97a74767cc6745a4e90d9f265d58f95ee75ee9df0455ee75"
+    },
+    {
+      "bytes": 986,
+      "file": "nir03-s1r2-infra-smoke-R4-ambiguous-terminal-candidate_status-2.body",
+      "sha256": "52496a221e8a7a5c74715096784fe3f5df84ffdc1cb7e729a45c112051cda471"
+    },
+    {
+      "bytes": 7207,
+      "file": "nir03-s1r2-infra-smoke-R4-ambiguous-terminal-pulls-1.body",
+      "sha256": "e2391d551afc4e98c8dc7ae6f36bc846117943b9570faebda7fa7259ccf0ec52"
+    },
+    {
+      "bytes": 6953,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-outage-321423.json",
+      "sha256": "7e8fd3e5fd3011bb65a85ae8e34c5728ff956992bb45617cd1e8b67dfde40975"
+    },
+    {
+      "bytes": 3,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-outage-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "bytes": 794,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-outage-branch-0.body",
+      "sha256": "6ca2d53f3aea89b0d5e019406577b8b6c02e58758348bc5546e28b95c89a1624"
+    },
+    {
+      "bytes": 976,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-outage-candidate_status-2.body",
+      "sha256": "766b0e2d82447e3d1e776fda75e3571bcedd4505aa5ad8703553454b1febd0bf"
+    },
+    {
+      "bytes": 41,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-outage-pulls-1.body",
+      "sha256": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627"
+    },
+    {
+      "bytes": 18315,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-terminal-321432.json",
+      "sha256": "db274eb92191991f139fec84043f03d2c41f4130998b0025f5136d71eccf0a20"
+    },
+    {
+      "bytes": 3,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-terminal-base_status-3.body",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "bytes": 794,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-terminal-branch-0.body",
+      "sha256": "6ca2d53f3aea89b0d5e019406577b8b6c02e58758348bc5546e28b95c89a1624"
+    },
+    {
+      "bytes": 976,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-terminal-candidate_status-2.body",
+      "sha256": "766b0e2d82447e3d1e776fda75e3571bcedd4505aa5ad8703553454b1febd0bf"
+    },
+    {
+      "bytes": 6985,
+      "file": "nir03-s1r2-infra-smoke-R5-recovery-terminal-pulls-1.body",
+      "sha256": "93841c28084b14828a7cbcf04fef8160bb2153532d449911aafdc89448f91956"
+    }
+  ],
+  "private_directory": "/tmp/nir03-s1r2-infrastructure-smoke-v7/output/captures",
+  "schema": "nir03-s1r2-smoke-raw-capture-index-v1"
+}
