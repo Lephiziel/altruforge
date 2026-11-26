@@ -12,9 +12,9 @@ Trust boundary: candidate bytes and verification identity are inputs from a prio
 
 ## Immutable identities and effect identity
 
-One run is represented by the constant `RunId`. Its candidate is `CandidateSha`, based on immutable `BaseSha`, and its verification receipt is `VerificationDigest`. `PersistIntent` durably records all four before any modeled external effect. No later transition changes the recorded intent tuple.
+The model instantiates one task and one repository; these are fixed by the model instance rather than represented as changing variables. Within that scope, a run is represented by the unique constant `RunId`. Its candidate is `CandidateSha`, based on immutable `BaseSha`, and its verification receipt is `VerificationDigest`. `PersistIntent` durably records the run key and all three evidence identities before any modeled external effect. No later transition changes the recorded intent tuple.
 
-The modeled PR identity is the tuple `(RunId, BaseSha, CandidateSha)`. The modeled status identity is `(CandidateSha, VerificationDigest)`. A status for another commit or verification receipt cannot satisfy the completion predicate. The feature ref is the candidate SHA. This abstraction contains one PR identity slot; it does not represent arbitrary PR multiplicity or full provider payloads.
+The modeled PR identity is the tuple `(fixed repository identity, RunId, BaseSha, CandidateSha)`. The repository is fixed by this model instance rather than a changing variable. The modeled status identity is `(CandidateSha, VerificationDigest)`. A status for another commit or verification receipt cannot satisfy the completion predicate. The feature ref is the candidate SHA. This abstraction contains one task, one repository, and one PR identity slot; it does not represent arbitrary PR multiplicity, cross-repository collision, or full provider payloads.
 
 ## States and transitions
 

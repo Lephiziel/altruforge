@@ -8,6 +8,8 @@ The retained protocol-v2 Forgejo matrix is complete as an exploratory run. It do
 
 `evaluate_pilot.py` independently grades the observer fields in `pilot-results.json`; it does not import or execute the experiment runner. It recomputes completion from exact candidate PR count, observed ref SHA, candidate-SHA status attribution, and the separate conflict condition.
 
+This means scoring is separately implemented, but the oracle capture is not an independent process: the P0.1 runner itself performed the Forgejo API reads using its orchestration credential. The evaluator cannot detect fabricated serialized observer fields. See the [oracle independence audit](ORACLE_AUDIT.md); no stronger observer-independence claim is made.
+
 - Assignments: 25/25; five scenarios by five policies.
 - Setup errors: 0; duplicate or missing cells: 0.
 - Recomputed outcomes: 13 complete, 5 conflict, 7 unknown.
