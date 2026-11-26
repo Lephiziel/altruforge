@@ -1,0 +1,15 @@
+{
+  "base_sha": "04156972abd3d3e283359a3902e473a542c12b3d",
+  "candidate_sha": "11f249b250765d8b0a6a7d2829d972448a33a725",
+  "created_at": "2026-11-26T02:44:58.701709+00:00",
+  "expected_effects": [
+    "feature ref at candidate",
+    "one exact PR",
+    "exact status receipt"
+  ],
+  "label": "nir03-s1-r2-R3-contract-aware",
+  "object_format": "sha1",
+  "repository": "nir03-s1-r2-r3-con",
+  "schema": "nir03-s1-intent-v1",
+  "verification_id": "a47e330597d9aef31d688f4c6f3dfe1d880dce8078e3fbc634ca7214a8072f15"
+}

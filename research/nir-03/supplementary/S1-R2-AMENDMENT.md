@@ -26,6 +26,19 @@ GIT_CONFIG_KEY_0=http.extraheader
 GIT_CONFIG_VALUE_0=Authorization: token <temporary owner token>
 ```
 
+The full reviewed correction diff is the durable Git change `c418e8f` (parent `7b7dd1408a8fbddea3fb1d0ec9db7e699e420ede`); reproduce it with `git show --format=fuller --find-renames c418e8fd9f8b44839fcf72e5925fa7dcbcd9fa19`. The central replacement is:
+
+```diff
+-env = os.environ.copy(); env.update({...})
++env = build_git_environment(token=token, token_file=tokenfile,
++                            askpass=ask, home=root)
+...
+-env['GIT_CONFIG_COUNT']='2'; env['GIT_CONFIG_KEY_0']='http.extraheader'; ...
++# exactly one complete indexed pair is constructed by git_env.py
+```
+
+`git_env.py` also explicitly sets `GIT_CONFIG_COUNT` from one complete key/value pair and excludes inherited Git controls. The commit adds regression tests and the separate smoke harness; the smoke harness itself is not part of the registered dataset.
+
 It also fixes and audits two related fixture/observation defects found during the smoke sequence:
 
 1. After the candidate commit, local `main` points at the candidate. The old push command therefore could publish that moving local ref as provider `main`. The corrected runner pushes the captured `base_sha` directly to `refs/heads/main`, and puts the candidate on `feature` (the base on `feature` for R1, and the competing SHA for R6).

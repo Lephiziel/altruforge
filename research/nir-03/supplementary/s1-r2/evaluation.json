@@ -1,0 +1,619 @@
+{
+  "all_14_present": true,
+  "all_expected_present": true,
+  "assigned": 14,
+  "capture_errors": [],
+  "cells": [
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R1-contract-aware-branch-outage-331060.json",
+          "endpoint_class": "branch",
+          "time": "2026-11-26T02:44:53.763778+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-r2-R1-contract-aware",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "branch",
+          "transport_error": null
+        }
+      ],
+      "policy": "contract-aware",
+      "runner_status": "executed",
+      "scenario": "R1",
+      "terminal_classification_from_observation": "not_executed",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": "04156972abd3d3e283359a3902e473a542c12b3d",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R1-candidate-reconciliation-branch-outage-331335.json",
+          "endpoint_class": "branch",
+          "time": "2026-11-26T02:44:55.238167+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-r2-R1-candidate-reconciliation",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "branch",
+          "transport_error": null
+        }
+      ],
+      "policy": "candidate-reconciliation",
+      "runner_status": "executed",
+      "scenario": "R1",
+      "terminal_classification_from_observation": "not_executed",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": "04156972abd3d3e283359a3902e473a542c12b3d",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R2-contract-aware-pulls-outage-331706.json",
+          "endpoint_class": "pulls",
+          "time": "2026-11-26T02:44:56.812375+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R2-contract-aware",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "pulls",
+          "transport_error": null
+        }
+      ],
+      "policy": "contract-aware",
+      "runner_status": "executed",
+      "scenario": "R2",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "33a248ad1591a2748c7ef0069b53187cfae8b580",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R2-candidate-reconciliation-pulls-outage-332102.json",
+          "endpoint_class": "pulls",
+          "time": "2026-11-26T02:44:58.450231+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R2-candidate-reconciliation",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "pulls",
+          "transport_error": null
+        }
+      ],
+      "policy": "candidate-reconciliation",
+      "runner_status": "executed",
+      "scenario": "R2",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "33fd8306a954f2526788cbfbc684bd64ac243d76",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R3-contract-aware-candidate_status-outage-332509.json",
+          "endpoint_class": "candidate_status",
+          "time": "2026-11-26T02:45:00.090969+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R3-contract-aware",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "candidate_status",
+          "transport_error": null
+        }
+      ],
+      "policy": "contract-aware",
+      "runner_status": "executed",
+      "scenario": "R3",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "11f249b250765d8b0a6a7d2829d972448a33a725",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R3-candidate-reconciliation-candidate_status-outage-332909.json",
+          "endpoint_class": "candidate_status",
+          "time": "2026-11-26T02:45:01.421589+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R3-candidate-reconciliation",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "candidate_status",
+          "transport_error": null
+        }
+      ],
+      "policy": "candidate-reconciliation",
+      "runner_status": "executed",
+      "scenario": "R3",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "705aa23167f67185a29a977038e1f4822f7e1939",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "upstream_effect_committed_ack_dropped",
+          "path": "/api/v1/repos/researcher/nir03-s1-r2-r4-con/pulls",
+          "status": 201,
+          "time": "2026-11-26T02:45:02.929645+00:00"
+        },
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R4-contract-aware-pulls-outage-333328.json",
+          "endpoint_class": "pulls",
+          "time": "2026-11-26T02:45:03.025878+00:00"
+        },
+        {
+          "barrier": "upstream_effect_committed_ack_dropped",
+          "path": "/api/v1/repos/researcher/nir03-s1-r2-r4-con/pulls",
+          "status": 201,
+          "time": "2026-11-26T02:45:02.929645+00:00"
+        },
+        {
+          "barrier": "upstream_effect_committed_ack_dropped",
+          "path": "/api/v1/repos/researcher/nir03-s1-r2-r4-con/pulls",
+          "status": 201,
+          "time": "2026-11-26T02:45:02.929645+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R4-contract-aware",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "pulls",
+          "transport_error": null
+        }
+      ],
+      "policy": "contract-aware",
+      "runner_status": "executed",
+      "scenario": "R4",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "fbbcdffc3f07e5ebd0cc3c43b5172fc44be43fd8",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "upstream_effect_committed_ack_dropped",
+          "path": "/api/v1/repos/researcher/nir03-s1-r2-r4-can/pulls",
+          "status": 201,
+          "time": "2026-11-26T02:45:04.516917+00:00"
+        },
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R4-candidate-reconciliation-pulls-outage-333721.json",
+          "endpoint_class": "pulls",
+          "time": "2026-11-26T02:45:04.615534+00:00"
+        },
+        {
+          "barrier": "upstream_effect_committed_ack_dropped",
+          "path": "/api/v1/repos/researcher/nir03-s1-r2-r4-can/pulls",
+          "status": 201,
+          "time": "2026-11-26T02:45:04.516917+00:00"
+        },
+        {
+          "barrier": "upstream_effect_committed_ack_dropped",
+          "path": "/api/v1/repos/researcher/nir03-s1-r2-r4-can/pulls",
+          "status": 201,
+          "time": "2026-11-26T02:45:04.516917+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R4-candidate-reconciliation",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "pulls",
+          "transport_error": null
+        }
+      ],
+      "policy": "candidate-reconciliation",
+      "runner_status": "executed",
+      "scenario": "R4",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "19f4411e2fd50419ec6f65846a923193cb412705",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "after_first_remote_read",
+          "kill_confirmed": true,
+          "pid": 334059,
+          "time": "2026-11-26T02:45:06.189122+00:00",
+          "worker_event": {
+            "barrier": "after_first_remote_read",
+            "provider_response": {
+              "endpoint": "http://127.0.0.1:39059/api/v1/repos/researcher/nir03-s1-r2-r5-con/branches/feature",
+              "http_status": 200,
+              "method": "GET",
+              "response_body_bytes": 783,
+              "response_body_sha256": "761cfa21565e90465aafd541711f6eb237aa16c3501708f23ae46f531734dadd",
+              "time": "2026-11-26T02:45:06.189047+00:00"
+            },
+            "time": "2026-11-26T02:45:06.189077+00:00"
+          },
+          "worker_exit": -9
+        },
+        {
+          "barrier": "after_first_missing_effect_dispatch",
+          "kill_confirmed": true,
+          "pid": 334065,
+          "time": "2026-11-26T02:45:06.331530+00:00",
+          "worker_event": {
+            "barrier": "after_first_missing_effect_dispatch",
+            "dispatch_response": {
+              "endpoint": "http://127.0.0.1:39059/api/v1/repos/researcher/nir03-s1-r2-r5-con/pulls",
+              "http_status": 201,
+              "method": "POST",
+              "response_body_bytes": 6884,
+              "response_body_sha256": "3307e6a92657bf34dcdfadcfb34d47b4e5fc57c63e880ca4e9335b0796a69ccf",
+              "time": "2026-11-26T02:45:06.331459+00:00"
+            },
+            "read_response": {
+              "endpoint": "http://127.0.0.1:39059/api/v1/repos/researcher/nir03-s1-r2-r5-con/pulls?state=all&head=feature&base=main",
+              "http_status": 200,
+              "method": "GET",
+              "response_body_bytes": 3,
+              "response_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+              "time": "2026-11-26T02:45:06.331428+00:00"
+            },
+            "time": "2026-11-26T02:45:06.331477+00:00"
+          },
+          "worker_exit": -9
+        },
+        {
+          "barrier": "before_final_durable_classification",
+          "kill_confirmed": true,
+          "pid": 334143,
+          "time": "2026-11-26T02:45:06.438803+00:00",
+          "worker_event": {
+            "barrier": "before_final_durable_classification",
+            "recovery_reads": {
+              "branch_http": 200,
+              "branch_sha": "84cc0e79cdd9327c1bfd2b98e5ac2f687f876509",
+              "candidate_status_http": 200,
+              "exact_pr_count": 1,
+              "pulls_http": 200,
+              "status_count": 1
+            },
+            "time": "2026-11-26T02:45:06.438756+00:00"
+          },
+          "worker_exit": -9
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R5-contract-aware",
+      "observation_failures": [],
+      "policy": "contract-aware",
+      "runner_status": "executed",
+      "scenario": "R5",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "84cc0e79cdd9327c1bfd2b98e5ac2f687f876509",
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "after_first_remote_read",
+          "kill_confirmed": true,
+          "pid": 334487,
+          "time": "2026-11-26T02:45:07.723997+00:00",
+          "worker_event": {
+            "barrier": "after_first_remote_read",
+            "provider_response": {
+              "endpoint": "http://127.0.0.1:39059/api/v1/repos/researcher/nir03-s1-r2-r5-can/branches/feature",
+              "http_status": 200,
+              "method": "GET",
+              "response_body_bytes": 793,
+              "response_body_sha256": "fc56521b3dc23cc7aaba40e89122cc8d87d794796e9bb574c8413bdb525ae06a",
+              "time": "2026-11-26T02:45:07.723894+00:00"
+            },
+            "time": "2026-11-26T02:45:07.723925+00:00"
+          },
+          "worker_exit": -9
+        },
+        {
+          "barrier": "after_first_missing_effect_dispatch",
+          "kill_confirmed": true,
+          "pid": 334493,
+          "time": "2026-11-26T02:45:07.864213+00:00",
+          "worker_event": {
+            "barrier": "after_first_missing_effect_dispatch",
+            "dispatch_response": {
+              "endpoint": "http://127.0.0.1:39059/api/v1/repos/researcher/nir03-s1-r2-r5-can/pulls",
+              "http_status": 201,
+              "method": "POST",
+              "response_body_bytes": 6908,
+              "response_body_sha256": "ebd87d5fff54bfad050512780bb588d53e4d2f48a0f81ed765e82165d7bf97f1",
+              "time": "2026-11-26T02:45:07.864148+00:00"
+            },
+            "read_response": {
+              "endpoint": "http://127.0.0.1:39059/api/v1/repos/researcher/nir03-s1-r2-r5-can/pulls?state=all&head=feature&base=main",
+              "http_status": 200,
+              "method": "GET",
+              "response_body_bytes": 3,
+              "response_body_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+              "time": "2026-11-26T02:45:07.864117+00:00"
+            },
+            "time": "2026-11-26T02:45:07.864166+00:00"
+          },
+          "worker_exit": -9
+        },
+        {
+          "barrier": "before_final_durable_classification",
+          "kill_confirmed": true,
+          "pid": 334564,
+          "time": "2026-11-26T02:45:07.971455+00:00",
+          "worker_event": {
+            "barrier": "before_final_durable_classification",
+            "recovery_reads": {
+              "branch_http": 200,
+              "branch_sha": "cccb20612a2bd29603d4fdba0e7d4bbeae189e70",
+              "candidate_status_http": 200,
+              "exact_pr_count": 1,
+              "pulls_http": 200,
+              "status_count": 1
+            },
+            "time": "2026-11-26T02:45:07.971411+00:00"
+          },
+          "worker_exit": -9
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R5-candidate-reconciliation",
+      "observation_failures": [],
+      "policy": "candidate-reconciliation",
+      "runner_status": "executed",
+      "scenario": "R5",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "cccb20612a2bd29603d4fdba0e7d4bbeae189e70",
+      "unknown_observation_seen": false
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R6-contract-aware-branch-outage-334907.json",
+          "endpoint_class": "branch",
+          "time": "2026-11-26T02:45:09.252813+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-r2-R6-contract-aware",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "branch",
+          "transport_error": null
+        }
+      ],
+      "policy": "contract-aware",
+      "runner_status": "executed",
+      "scenario": "R6",
+      "terminal_classification_from_observation": "conflict",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": "8f3713144514fb2fd012bc941ee7ff257ac99aee",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R6-candidate-reconciliation-branch-outage-335199.json",
+          "endpoint_class": "branch",
+          "time": "2026-11-26T02:45:10.766803+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 0,
+      "exact_status_count": 0,
+      "label": "nir03-s1-r2-R6-candidate-reconciliation",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "branch",
+          "transport_error": null
+        }
+      ],
+      "policy": "candidate-reconciliation",
+      "runner_status": "executed",
+      "scenario": "R6",
+      "terminal_classification_from_observation": "conflict",
+      "terminal_observation_complete": false,
+      "terminal_ref_sha": "b4778b998db76f4b85965f11661567affbc2d848",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R7-contract-aware-branch-outage-335557.json",
+          "endpoint_class": "branch",
+          "time": "2026-11-26T02:45:12.355459+00:00"
+        },
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R7-contract-aware-pulls-outage-335571.json",
+          "endpoint_class": "pulls",
+          "time": "2026-11-26T02:45:12.451989+00:00"
+        },
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R7-contract-aware-candidate_status-outage-335582.json",
+          "endpoint_class": "candidate_status",
+          "time": "2026-11-26T02:45:12.559110+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R7-contract-aware",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "branch",
+          "transport_error": null
+        },
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "pulls",
+          "transport_error": null
+        },
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "candidate_status",
+          "transport_error": null
+        }
+      ],
+      "policy": "contract-aware",
+      "runner_status": "executed",
+      "scenario": "R7",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "62c61780598809e974da2446f6a6b1c9981380e4",
+      "unknown_observation_seen": true
+    },
+    {
+      "barrier_evidence": [
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R7-candidate-reconciliation-branch-outage-335980.json",
+          "endpoint_class": "branch",
+          "time": "2026-11-26T02:45:13.894318+00:00"
+        },
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R7-candidate-reconciliation-pulls-outage-335994.json",
+          "endpoint_class": "pulls",
+          "time": "2026-11-26T02:45:13.992220+00:00"
+        },
+        {
+          "barrier": "fault_503_observed_by_independent_process",
+          "capture": "nir03-s1-r2-R7-candidate-reconciliation-candidate_status-outage-336003.json",
+          "endpoint_class": "candidate_status",
+          "time": "2026-11-26T02:45:14.101603+00:00"
+        }
+      ],
+      "driver_labels_ignored": true,
+      "exact_pr_count": 1,
+      "exact_status_count": 1,
+      "label": "nir03-s1-r2-R7-candidate-reconciliation",
+      "observation_failures": [
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "branch",
+          "transport_error": null
+        },
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "pulls",
+          "transport_error": null
+        },
+        {
+          "digest": "0ff83d229a69f6b1ab3097da3a00dd168b395dd759c944d54bff385b24782627",
+          "http_status": 503,
+          "name": "candidate_status",
+          "transport_error": null
+        }
+      ],
+      "policy": "candidate-reconciliation",
+      "runner_status": "executed",
+      "scenario": "R7",
+      "terminal_classification_from_observation": "complete",
+      "terminal_observation_complete": true,
+      "terminal_ref_sha": "5008e7636a287a99283c9106f5fea4dffd63b7da",
+      "unknown_observation_seen": true
+    }
+  ],
+  "complete_without_exact_observations": [],
+  "duplicate_or_missing_prs": [],
+  "experiment_id": "S1-R2",
+  "limitations": [
+    "Scoring identifies expected PR using exact head/base/SHA plus the run marker in title/body.",
+    "Only observer-returned API bodies count as remote evidence.",
+    "An unobserved cell remains unobserved; it is not inferred to be conflict or any other terminal classification.",
+    "--matrix-prefix selects the fixed 14-label map for a separately preregistered run.",
+    "--expected-label changes the denominator only for separate infrastructure smoke data; do not use it for registered S1/S1-R2 result files."
+  ],
+  "method": "observer captures only; runner classification claims ignored",
+  "missing": [],
+  "protocol_deviations": [],
+  "recorded": 14,
+  "schema": "nir03-s1-evaluation-v1",
+  "unexpected": [],
+  "unobserved_cells": []
+}
