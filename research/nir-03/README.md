@@ -31,7 +31,7 @@ Forgejo 17.0.2's local `swagger.v1.json` defines `CreatePullRequestOption` witho
 
 ## Frozen pilot design (protocol v2)
 
-The independent observer records forge state after every trial. Each policy receives the same generated repository state and fault assignment. There are five scenarios and five policies, one trial per cell (25 total):
+The P0.1 runner performs provider-backed readback after every trial. Those reads call Forgejo directly, but the readback runs in the same process and with the same credential as the driver; see the [oracle audit](ORACLE_AUDIT.md). Each policy receives the same generated repository state and fault assignment. There are five scenarios and five policies, one trial per cell (25 total):
 
 | Scenario | Injection point | Eligibility |
 | --- | --- | --- |
@@ -82,3 +82,15 @@ The token file must remain outside Git, mode `0600`, and must not be printed. Th
 ## Results and limitations
 
 See [protocol-v2 pilot results](pilot-results.json), [protocol-v1 contract-discovery run](pilot-results-contract-discovery.json), [provider contract evidence](provider-contracts.json), [independent outcome evaluation](evaluation.md), and [execution notes](execution-notes.md). The retained matrix found no resolution advantage over the strong contract-aware baseline (4/4 versus 4/4 eligible cases). It is a negative exploratory result, not a statistical efficacy claim. The explicit candidate-ledger `unknown` class was not observed and remains a follow-up gap. One Forgejo version, Linux host, generated tasks, and one observation per cell limit generalization. The pilot does not exercise GitHub, CI jobs, process crash recovery inside a product runtime, agent verification quality, protected branch administration, or multiple Forge implementations. Any claim about those surfaces remains unverified.
+
+## Formal specification, model check, and scientific audit
+
+The system state and trust boundaries, immutable identities, transition semantics, crash/recovery behavior, safety invariants, conditional liveness, provider assumptions, and impossibility boundaries are in [the formal specification](formal/SPECIFICATION.md). The initial finite TLA+ model and separate safety/liveness TLC configurations are in [formal artifacts](formal/README.md). TLC was available after obtaining the official v1.8.0 JAR; the retained safety run explored 26 distinct states and the conditional liveness run explored 16, with no error. Both initial failed runs and counterexample traces are also preserved. This is bounded model checking of this abstraction, not a proof of production behavior.
+
+The [P0.1 oracle audit](ORACLE_AUDIT.md) confirms final ref, PR, and status fields originate in direct Forgejo API read responses and the evaluator recomputes outcomes from those fields. It also records that the P0.1 observer and driver share a process/credential, so capture was not independently isolated. The separate [S1 supplementary protocol](supplementary/PREREGISTRATION.md) requires an independent observer process and covers repeated recovery interruption, explicit candidate-ledger `unknown`, read failures, and ambiguous effects. S1 is preregistered but not executed; its protocol/results are separate from the unchanged 25-trial P0.1 matrix.
+
+[Fresh-checkout reproducibility instructions](REPRODUCIBILITY.md) pin the Forgejo release, verify its official signature and key fingerprint, create a loopback-only disposable instance and scoped temporary token, run the exact pilot/evaluation commands, and clean up temporary state. The setup helper was smoke-tested separately; this did not rerun or alter P0.1 results.
+
+## Remaining limitations
+
+P0.1 remains one trial per cell on Forgejo 17.0.2. It does not test stale or unavailable reads, repeated recovery crashes, multiple providers, GitHub, CI execution, or a product runtime. The model also abstracts one run and one PR slot, assumes accurate available reads and a durable local ledger, and excludes failures after terminal completion. Forgejo 17.0.2 does not support draft creation through its PR create API; observed PRs were synthetic, private, and unmerged. None of these artifacts establish novelty, superiority, equivalence, universal exactly-once delivery, or production readiness. No runtime feature or MVP acceptance requirement changed.

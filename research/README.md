@@ -5,4 +5,4 @@ Altruforge research records include study questions, experiment scripts, and obs
 | Study | Scope | Status |
 | --- | --- | --- |
 | [NIR-02](nir-02/README.md) | Crash-consistent delivery of verified commits | Literature review and local Git pilot |
-| [NIR-03](nir-03/README.md) | Forge-backed crash recovery for immutable candidate delivery | P0.1 exploratory Forgejo pilot complete; no advantage over strong baseline; follow-up needed |
+| [NIR-03](nir-03/README.md) | Forge-backed crash recovery for immutable candidate delivery | P0.1 exploratory pilot complete; formal model checked; oracle/reproducibility audit added; S1 preregistered only |
