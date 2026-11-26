@@ -6,7 +6,7 @@ NIR-04 studies the safety and conditional liveness boundary of autonomous public
 
 ## Current disposition
 
-- NIR-03 archive and historical-file integrity passed an independent local audit. Live PR #29 state, remote head and CI could not be verified because GitHub was unreachable. See [P0-REVIEW.md](P0-REVIEW.md); owner acceptance is conditional on live checks.
+- NIR-03 archive and historical-file integrity passed an independent local audit. PR #29 is open at the requested head with all reported CI checks green; its raw archive was fetched remotely and matched the local SHA-256 and size. See [P0-REVIEW.md](P0-REVIEW.md). PR #29 remains open for owner acceptance.
 - Literature review findings support established mechanisms and assumptions, not a novelty claim. Search coverage is documented in [LITERATURE-SEARCH-PROTOCOL.md](LITERATURE-SEARCH-PROTOCOL.md).
 - Formal work is in [`formal/`](formal/). TLC availability was checked; see [REPRODUCIBILITY.md](REPRODUCIBILITY.md). No primary trial has been executed.
 - The future experiment remains a proposal; its final sample size and frozen endpoint contracts must be reviewed before any primary trial.
