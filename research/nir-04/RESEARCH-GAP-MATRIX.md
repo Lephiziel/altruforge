@@ -3,7 +3,7 @@
 “Candidate gap” denotes a question this scoped review did not resolve for the specific forge-publication setting. It is not evidence of novelty. Each item must survive broader literature review and reviewer challenge.
 
 | Dimension | Established knowledge | AltruForge-specific adaptation | Candidate open question | Possible contribution, contingent on prior-art review |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Retry ambiguity | RPC failures can leave invocation outcome unknown; idempotence can make retries observationally transparent. | A forge create/update can settle after timeout and become visible later. | How long can a recovery decision safely classify absence, and what provider contract changes that boundary? | Endpoint-contract model plus schedule-based comparison of classification soundness. |
 | Durable intent | Olive and transactional systems use durable intent/logging under explicit storage and code assumptions. | Intent spans local verifier receipt and several independent forge endpoints. | Which subset of intent fields/protocol steps is sufficient when remote effect and local commit are not atomic? | A bounded model and operational contract mapping, not a claim that intents are new. |
 | Concurrent publishers | Linearizability, CAS, transactions, locks and fencing are established tools. | Forge branch/ref mutation, PR creation and status APIs may have different atomicity and visibility contracts. | What combination of provider-side CAS/fencing and resource validation preserves publication safety? | Endpoint-specific assumption matrix and counterexample set. |
