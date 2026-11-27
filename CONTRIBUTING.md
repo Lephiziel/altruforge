@@ -1,6 +1,6 @@
 # Contributing to Altruforge
 
-Altruforge is being prepared for its first MVP. The current checkout contains documentation, draft schemas, examples, and repository configuration. Runtime implementation starts with the [ordered backlog](docs/tasks/README.md).
+Altruforge already includes a Go CLI bootstrap, alongside documentation, draft schemas, examples, and repository configuration. See the [development guide](docs/development.md) for development commands and current implementation status.
 
 ## Choose work
 
