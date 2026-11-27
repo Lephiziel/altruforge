@@ -1,6 +1,6 @@
 # Contributing to Altruforge
 
-Altruforge already includes a Go CLI bootstrap alongside documentation, draft schemas, examples, and repository configuration. See the [development guide](docs/development.md) for local development instructions and the [ordered backlog](docs/tasks/README.md) for upcoming work.
+Altruforge already has an implemented Go CLI bootstrap, along with documentation, draft schemas, examples, and repository configuration. Follow the [development guide](docs/development.md) for local development instructions and consult the [ordered backlog](docs/tasks/README.md) for upcoming work.
 
 ## Choose work
 
