@@ -31,6 +31,12 @@ Check formatting with `gofmt -l cmd internal`: output means failure. Apply forma
 
 ## Behavior and regression checks
 
+### MVP-03 project manifest
+
+`internal/manifest.Load` performs strict YAML parsing and runtime validation, reads instruction contents from the caller's pinned checkout, and returns an effective policy with a SHA-256 digest and base commit reference. Policy fields treated as sets are sorted before hashing. Path allow rules require a match, deny rules override them, and protected policy/runtime paths cannot be granted. A disabled manifest remains inspectable but `CanStartContribution` returns false. This package does not resolve a commit or launch a run; callers must supply the checkout corresponding to the immutable base identifier.
+
+The offline rejection suite covers duplicate keys, aliases, merge keys, custom tags, unknown fields, unsupported schema versions, duplicate check IDs, incompatible network policy, multiple documents, byte/depth limits, and symlink escape. Run it with `go test ./internal/manifest -count=1`.
+
 The command supports root help, `--help`, and `-h`. Unsupported commands are rejected. Because Cobra's help callback cannot return an error, `Execute` joins the underlying help-output error with the command execution error.
 
 `TestRootHelpPropagatesWriteError` checks the underlying writer-error identity on all supported help paths. In a disposable regression experiment, the normal test passed, changing `return errors.Join(root.Execute(), helpErr)` to `return root.Execute()` failed as expected, and restoring byte-identical source passed again. The targeted command is:
