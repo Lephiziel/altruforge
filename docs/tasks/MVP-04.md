@@ -1,6 +1,6 @@
 # MVP-04 Implement durable run state and crash recovery
 
-Status: implemented; Linux/macOS/Windows and documentation CI passed on [PR #37](https://github.com/Lephiziel/altruforge/pull/37); awaiting maintainer review.
+Status: implementation complete in [PR #37](https://github.com/Lephiziel/altruforge/pull/37); latest cross-platform CI is rerunning after the final attempt-limit enforcement update.
 Dependencies: [MVP-02](MVP-02.md)
 
 ## Outcome
@@ -44,8 +44,8 @@ The `internal/store` package provides SQLite-backed run identity, lifecycle tran
 
 ### Changes
 
-- `internal/store/store.go`: schema migration, transactional run/event/checkpoint writes, transition validation, recovery, side-effect reconciliation API, monotonic interval accounting, and sensitive-key rejection.
-- `internal/store/store_test.go`: state/outcome paths, attempts and event ordering/replay, intent/checkpoint persistence, actual subprocess termination/reopen, migration/corruption failures, and privacy checks.
+- `internal/store/store.go`: schema migration, transactional run/event/checkpoint writes, transition and attempt-limit validation, recovery, side-effect reconciliation API, monotonic interval accounting, and sensitive-key rejection.
+- `internal/store/store_test.go`: state/outcome paths, attempt-limit and event ordering/replay, intent/checkpoint persistence, actual subprocess termination/reopen, migration/corruption failures, and privacy checks.
 - `docs/storage.md`: orchestration-facing storage and recovery contract.
 
 ### Validation
@@ -58,14 +58,12 @@ The `internal/store` package provides SQLite-backed run identity, lifecycle tran
 | `go test -race ./...` | Linux amd64, Go 1.27.4-X:nodwarf5 | PASS |
 | `CGO_ENABLED=0 go build ./cmd/altruforge` | Linux amd64, Go 1.27.4-X:nodwarf5 | PASS |
 | Forced child-process exit after committed state/event, then reopen and recover | Linux amd64 | PASS; committed preflight state and sequence survive, recovery changes it to paused |
-| [Go application PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46092986364) | Ubuntu, macOS, Windows; PR head `79e12d53031557f6d89ffb9d87f4e82b1ac919ef` | PASS on all three operating systems |
-| [Documentation/contracts PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46092986305) | PR head `79e12d53031557f6d89ffb9d87f4e82b1ac919ef` | PASS |
 | `git diff --check` | Linux checkout | PASS |
-| Windows/macOS local execution | Not run locally | Native GitHub Actions evidence above covers the application checks |
+| Windows/macOS local execution | Not run locally | Latest PR CI rerun pending after the attempt-limit update |
 
 ### Boundaries
 
-The store is not wired into CLI orchestration; provider/session/workspace recovery is not implemented. In-process elapsed intervals use Go's monotonic clock and are persisted when stopped. Exact monotonic duration between the last persistence point and an abrupt process death cannot be reconstructed portably; orchestration must conservatively enforce remaining limits for that uncertainty. Sensitive field-name rejection is defense in depth, not value-based secret detection; callers must redact payload values. The three-OS results cover Go application checks, not full product end-to-end scenarios or live providers.
+The store is not wired into CLI orchestration; provider/session/workspace recovery is not implemented. In-process elapsed intervals use Go's monotonic clock and are persisted when stopped. Exact monotonic duration between the last persistence point and an abrupt process death cannot be reconstructed portably; orchestration must conservatively enforce remaining limits for that uncertainty. Sensitive field-name rejection is defense in depth, not value-based secret detection; callers must redact payload values. Three-OS CI covers Go application checks, not full product end-to-end scenarios or live providers.
 
 ### Dependency handoff
 

@@ -41,6 +41,7 @@ type Run struct {
 	ID             string
 	State          State
 	Attempts       int
+	MaxAttempts    int
 	Elapsed        time.Duration
 	RequestedLimit time.Duration
 	Checkpoint     json.RawMessage
@@ -111,7 +112,7 @@ func (s *Store) migrate(ctx context.Context) error {
 		return fmt.Errorf("no migration path from run store schema version %d", version)
 	}
 	statements := []string{
-		`CREATE TABLE runs (id TEXT PRIMARY KEY, state TEXT NOT NULL, attempts INTEGER NOT NULL DEFAULT 0 CHECK(attempts >= 0), elapsed_ns INTEGER NOT NULL DEFAULT 0 CHECK(elapsed_ns >= 0), requested_limit_ns INTEGER NOT NULL CHECK(requested_limit_ns > 0), checkpoint_json BLOB NOT NULL DEFAULT '{}', created_at TEXT NOT NULL, updated_at TEXT NOT NULL)`,
+		`CREATE TABLE runs (id TEXT PRIMARY KEY, state TEXT NOT NULL, attempts INTEGER NOT NULL DEFAULT 0 CHECK(attempts >= 0), max_attempts INTEGER NOT NULL CHECK(max_attempts > 0), elapsed_ns INTEGER NOT NULL DEFAULT 0 CHECK(elapsed_ns >= 0), requested_limit_ns INTEGER NOT NULL CHECK(requested_limit_ns > 0), checkpoint_json BLOB NOT NULL DEFAULT '{}', created_at TEXT NOT NULL, updated_at TEXT NOT NULL)`,
 		`CREATE TABLE events (run_id TEXT NOT NULL REFERENCES runs(id) ON DELETE CASCADE, sequence INTEGER NOT NULL CHECK(sequence > 0), event_id TEXT NOT NULL, timestamp TEXT NOT NULL, type TEXT NOT NULL, data_json BLOB NOT NULL, PRIMARY KEY(run_id, sequence), UNIQUE(run_id, event_id))`,
 		`CREATE TABLE side_effects (run_id TEXT NOT NULL REFERENCES runs(id) ON DELETE CASCADE, effect_id TEXT NOT NULL, kind TEXT NOT NULL, status TEXT NOT NULL CHECK(status IN ('intent','observed','complete')), payload_json BLOB NOT NULL, updated_at TEXT NOT NULL, PRIMARY KEY(run_id, effect_id))`,
 		`PRAGMA user_version = 1`,
@@ -148,11 +149,20 @@ func (s *Store) validateSchema(ctx context.Context) error {
 func NewID() string { return "run_" + strings.ReplaceAll(uuid.NewString(), "-", "") }
 
 func (s *Store) Create(ctx context.Context, id string, limit time.Duration) (Run, error) {
+	return s.CreateWithLimits(ctx, id, limit, 2)
+}
+
+// CreateWithLimits stores already-resolved effective limits; callers combine project and
+// contributor constraints before calling it. Create uses the MVP default of two attempts.
+func (s *Store) CreateWithLimits(ctx context.Context, id string, limit time.Duration, maxAttempts int) (Run, error) {
 	if !runIDPattern.MatchString(id) {
 		return Run{}, errors.New("invalid run ID")
 	}
 	if limit <= 0 {
 		return Run{}, errors.New("requested time limit must be positive")
+	}
+	if maxAttempts <= 0 {
+		return Run{}, errors.New("maximum attempts must be positive")
 	}
 	now := time.Now().UTC()
 	tx, err := s.db.BeginTx(ctx, nil)
@@ -160,7 +170,7 @@ func (s *Store) Create(ctx context.Context, id string, limit time.Duration) (Run
 		return Run{}, err
 	}
 	defer tx.Rollback()
-	if _, err = tx.ExecContext(ctx, `INSERT INTO runs(id,state,requested_limit_ns,created_at,updated_at) VALUES(?,?,?,?,?)`, id, Created, int64(limit), stamp(now), stamp(now)); err != nil {
+	if _, err = tx.ExecContext(ctx, `INSERT INTO runs(id,state,max_attempts,requested_limit_ns,created_at,updated_at) VALUES(?,?,?,?,?,?)`, id, Created, maxAttempts, int64(limit), stamp(now), stamp(now)); err != nil {
 		return Run{}, fmt.Errorf("create run: %w", err)
 	}
 	if err = appendEvent(ctx, tx, id, "run.created", "run.state_changed", json.RawMessage(`{"state":"created"}`), now); err != nil {
@@ -177,7 +187,7 @@ func (s *Store) Get(ctx context.Context, id string) (Run, error) {
 	var checkpoint []byte
 	var created, updated string
 	var elapsed, limit int64
-	err := s.db.QueryRowContext(ctx, `SELECT id,state,attempts,elapsed_ns,requested_limit_ns,checkpoint_json,created_at,updated_at FROM runs WHERE id=?`, id).Scan(&r.ID, &r.State, &r.Attempts, &elapsed, &limit, &checkpoint, &created, &updated)
+	err := s.db.QueryRowContext(ctx, `SELECT id,state,attempts,max_attempts,elapsed_ns,requested_limit_ns,checkpoint_json,created_at,updated_at FROM runs WHERE id=?`, id).Scan(&r.ID, &r.State, &r.Attempts, &r.MaxAttempts, &elapsed, &limit, &checkpoint, &created, &updated)
 	if err != nil {
 		return Run{}, err
 	}
@@ -227,6 +237,9 @@ func (s *Store) Transition(ctx context.Context, id string, to State, eventID, ev
 	}
 	if !canTransition(r.State, to) {
 		return Run{}, fmt.Errorf("invalid run transition %s -> %s", r.State, to)
+	}
+	if to == Implementing && r.State != Implementing && r.Attempts >= r.MaxAttempts {
+		return Run{}, fmt.Errorf("implementation attempt limit reached (%d)", r.MaxAttempts)
 	}
 	now := time.Now().UTC()
 	if to == Implementing && r.State != Implementing {
@@ -459,9 +472,6 @@ func appendEvent(ctx context.Context, tx *sql.Tx, id, eventID, eventType string,
 	}
 	_, err := tx.ExecContext(ctx, `INSERT INTO events(run_id,sequence,event_id,timestamp,type,data_json) VALUES(?,?,?,?,?,?)`, id, seq, eventID, stamp(now), eventType, []byte(data))
 	if err != nil {
-		if isUnique(err) {
-			return nil
-		}
 		return fmt.Errorf("append event: %w", err)
 	}
 	return nil
@@ -472,7 +482,7 @@ func getTx(ctx context.Context, tx *sql.Tx, id string) (Run, error) {
 	var elapsed, limit int64
 	var b []byte
 	var c, u string
-	err := tx.QueryRowContext(ctx, `SELECT id,state,attempts,elapsed_ns,requested_limit_ns,checkpoint_json,created_at,updated_at FROM runs WHERE id=?`, id).Scan(&r.ID, &r.State, &r.Attempts, &elapsed, &limit, &b, &c, &u)
+	err := tx.QueryRowContext(ctx, `SELECT id,state,attempts,max_attempts,elapsed_ns,requested_limit_ns,checkpoint_json,created_at,updated_at FROM runs WHERE id=?`, id).Scan(&r.ID, &r.State, &r.Attempts, &r.MaxAttempts, &elapsed, &limit, &b, &c, &u)
 	if err != nil {
 		return Run{}, err
 	}
@@ -527,19 +537,6 @@ func canTransition(from, to State) bool {
 		return to == Implementing || to == Publishing
 	case Publishing:
 		return to == AwaitingReview
-	}
-	return false
-}
-
-// SQLite reports unique conflicts consistently for the pinned modernc driver.
-func isUnique(err error) bool {
-	return err != nil && (contains(err.Error(), "UNIQUE constraint failed") || contains(err.Error(), "unique constraint"))
-}
-func contains(s, sub string) bool {
-	for i := 0; i+len(sub) <= len(s); i++ {
-		if s[i:i+len(sub)] == sub {
-			return true
-		}
 	}
 	return false
 }

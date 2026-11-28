@@ -94,6 +94,39 @@ func TestSpecialOutcomesAndPauseResume(t *testing.T) {
 	}
 }
 
+func TestEffectiveAttemptLimitIsDurableAndEnforced(t *testing.T) {
+	ctx := context.Background()
+	path := filepath.Join(t.TempDir(), "attempt-limit.sqlite")
+	s := openTestStore(t, path)
+	id := NewID()
+	r, err := s.CreateWithLimits(ctx, id, time.Minute, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if r.MaxAttempts != 1 {
+		t.Fatalf("max attempts=%d; want 1", r.MaxAttempts)
+	}
+	for i, to := range []State{Preflighting, Selecting, Claiming, Preparing, Implementing, Verifying} {
+		if _, err := s.Transition(ctx, id, to, "first-"+string(rune('a'+i)), "run.state_changed", json.RawMessage(`{"state":"`+string(to)+`"}`)); err != nil {
+			t.Fatalf("transition to %s: %v", to, err)
+		}
+	}
+	if _, err := s.Transition(ctx, id, Implementing, "over-budget", "run.state_changed", json.RawMessage(`{"state":"implementing"}`)); err == nil {
+		t.Fatal("expected attempt-limit rejection")
+	}
+	if err := s.Close(); err != nil {
+		t.Fatal(err)
+	}
+	s = openTestStore(t, path)
+	r, err = s.Get(ctx, id)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if r.State != Verifying || r.Attempts != 1 || r.MaxAttempts != 1 {
+		t.Fatalf("run after rejected attempt: %+v", r)
+	}
+}
+
 func TestCheckpointAndSideEffectIntentAreDurableAndIdempotent(t *testing.T) {
 	ctx := context.Background()
 	path := filepath.Join(t.TempDir(), "state.sqlite")
