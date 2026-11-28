@@ -1,6 +1,6 @@
 # MVP-03 Implement strict project manifest loading and policy validation
 
-Status: implemented in [Draft PR](https://github.com/Lephiziel/altruforge/pulls) pending review and merge.
+Status: implemented in [Draft PR #36](https://github.com/Lephiziel/altruforge/pull/36) pending review and merge.
 Dependencies: [MVP-02](MVP-02.md)
 
 ## Outcome

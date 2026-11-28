@@ -14,6 +14,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 
 	"gopkg.in/yaml.v3"
@@ -400,15 +401,40 @@ func validateHost(h string) error {
 		return errors.New("wildcards are not allowed")
 	}
 	host := h
-	if strings.Contains(h, ":") {
+	if strings.HasPrefix(h, "[") {
 		var err error
 		host, _, err = net.SplitHostPort(h)
+		if err != nil || net.ParseIP(host) == nil {
+			return errors.New("invalid bracketed IP host:port")
+		}
+	} else if strings.Count(h, ":") == 1 {
+		var err error
+		var port string
+		host, port, err = net.SplitHostPort(h)
 		if err != nil {
 			return errors.New("invalid host:port")
 		}
+		n, err := strconv.Atoi(port)
+		if err != nil || n < 1 || n > 65535 {
+			return errors.New("invalid host port")
+		}
+	} else if strings.Contains(h, ":") && net.ParseIP(h) == nil {
+		return errors.New("invalid host")
 	}
-	if net.ParseIP(host) == nil && (strings.Trim(host, ".") == "" || strings.Contains(host, "..")) {
-		return errors.New("invalid hostname")
+	if ip := net.ParseIP(host); ip == nil {
+		if len(host) > 253 || host == "" {
+			return errors.New("invalid hostname")
+		}
+		for _, label := range strings.Split(host, ".") {
+			if len(label) == 0 || len(label) > 63 || label[0] == '-' || label[len(label)-1] == '-' {
+				return errors.New("invalid hostname")
+			}
+			for _, r := range label {
+				if !(r >= 'a' && r <= 'z' || r >= 'A' && r <= 'Z' || r >= '0' && r <= '9' || r == '-') {
+					return errors.New("invalid hostname")
+				}
+			}
+		}
 	}
 	return nil
 }

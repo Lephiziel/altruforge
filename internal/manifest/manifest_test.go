@@ -47,6 +47,7 @@ func TestLoadRejectsStrictYAMLAndRuntimeViolations(t *testing.T) {
 		{"unsupported version", strings.Replace(base, "schema_version: '0.1'", "schema_version: '9'", 1)},
 		{"duplicate check id", strings.Replace(base, "- id: vet", "- id: tests", 1)},
 		{"invalid network", strings.Replace(base, "mode: allowlist", "mode: deny", 1)},
+		{"invalid network hostname", strings.Replace(base, "proxy.golang.org", "bad@host", 1)},
 		{"absolute instruction", strings.Replace(base, "- AGENTS.md", "- /etc/passwd", 1)},
 		{"traversal instruction", strings.Replace(base, "- AGENTS.md", "- ../AGENTS.md", 1)},
 	}
