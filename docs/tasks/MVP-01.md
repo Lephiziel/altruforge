@@ -41,7 +41,7 @@ See [MVP-01 boundary evidence](../evidence/MVP-01-boundary.md). Linux evidence n
 
 - Issue: [#3](https://github.com/Lephiziel/altruforge/issues/3).
 - Branch: `research/mvp-01-boundary-evidence`.
-- Revision: PR head; the evidence scenario used Codex CLI `0.171.0` on the environment recorded in [the evidence report](../evidence/MVP-01-boundary.md).
+- Evidence commit: `034258f`; the evidence scenario used Codex CLI `0.171.0` on the environment recorded in [the evidence report](../evidence/MVP-01-boundary.md). This handoff update follows that evidence commit.
 
 ### Resulting behavior and changes
 
