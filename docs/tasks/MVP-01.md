@@ -1,6 +1,6 @@
 # MVP-01 Prove supported authentication and execution boundaries
 
-Status: blocked — Linux prototype evidence recorded; Windows/macOS and runtime integration gates remain unmet.
+Status: blocked — Linux prototype evidence recorded; Windows/macOS execution and production runtime gates remain unmet.
 Dependencies: None.
 
 ## Outcome
@@ -18,7 +18,7 @@ Establish a supported Codex account/execution route for Windows, macOS, and Linu
 
 - [x] Record exact versions for the evaluated Linux environment and distinguish observations from Windows/macOS documentation review.
 - [x] Demonstrate supported ChatGPT login and non-interactive Codex CLI/app-server sessions on Linux without copying credentials into the sandbox.
-- [ ] Demonstrate the sentinel boundary across the required host routes. Linux passed with the documented custom profile; Windows and macOS remain untested.
+- [ ] Demonstrate the sentinel boundary across the required host routes. Linux passed with the documented custom profile; the Windows VM was available only as metadata with no authenticated execution route, and macOS remains unavailable.
 - [x] Demonstrate full-job interruption and recoverable checkpoint in a temporary Linux app-server supervisor prototype; a fresh app-server resumed the stored thread. This is not the Altruforge production run state machine.
 - [x] Document Windows/macOS/Linux routes and gaps; leave Windows/macOS and full-runtime gates incomplete.
 - [x] Amend ADR 0003 with the Linux evidence and a supported Codex permission-profile candidate; final acceptance remains evidence-gated.
@@ -35,7 +35,7 @@ Use [the handoff template](../agents/HANDOFF.md). All changes and reports must b
 
 ## Current handoff (2026-11-28)
 
-See [MVP-01 boundary evidence](../evidence/MVP-01-boundary.md). Linux evidence now includes a successful supported login, non-interactive CLI and app-server v2 turns, sentinel-denial and environment-filtering tests under a documented Codex permission profile, and a temporary app-server supervisor prototype that persisted a checkpoint before work, interrupted the full tool job, stopped its child, and resumed the thread/checkpoint from a fresh server process. It does not implement the Altruforge runtime. Windows and macOS were unavailable. ADR 0003 remains evidence-gated; MVP-01 and dependent execution-boundary claims remain blocked.
+See [MVP-01 boundary evidence](../evidence/MVP-01-boundary.md). Linux evidence now includes a successful supported login, non-interactive CLI and app-server v2 turns, sentinel-denial and environment-filtering tests under a documented Codex permission profile, and a temporary app-server supervisor prototype that persisted a checkpoint before work, interrupted the full tool job, stopped its child, and resumed the thread/checkpoint from a fresh server process. It does not implement the Altruforge runtime. A Windows 11 VM exists but has no authenticated Guest Control/network route, so only metadata was observed; macOS is unavailable. ADR 0003 remains evidence-gated; MVP-01 and dependent execution-boundary claims remain blocked.
 
 ### Task and revision
 
