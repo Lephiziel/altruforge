@@ -12,7 +12,7 @@
 | Host | Provider/client | Executor | Observation |
 | --- | --- | --- | --- |
 | Arch Linux rolling, kernel `7.3.5-arch1-1`, x86_64 (`linux/amd64`) | Codex CLI `0.171.0`; CLI JSONL; app-server JSON-RPC schema v2 generated and exercised | Codex native `workspace-only` permission profile; bubblewrap `0.13.1`; Docker Engine client/server `29.10.0`, API `1.57`, containerd `v2.4.2`, runc `1.5.3` | Login, CLI and app-server turns, profile-enforced sentinel denial, environment filtering, app-server interruption/checkpoint/resume, and CLI-session resume observed. This is not an Altruforge runtime or MVP-supported OS certification. |
-| Windows 11 Pro VM, build `26200`, AMD64 | Codex CLI `0.171.0`; ChatGPT device login confirmed by `codex login status`; app-server JSON-RPC schema v2 probe | VirtualBox `7.2.22`; dedicated `CODEX_HOME`; Codex elevated sandbox setup completed | Authenticated app-server test was attempted on a Unicode (`Ω`) and spaced workspace path. The unelevated sandbox rejected the strict `:root = deny` profile before tools ran. Elevated setup succeeded for the dedicated `CODEX_HOME`, but `thread/start` then failed because the elevated helper requires effective `:root` read access. No fallback or permission weakening was used; the canary tool, cancellation, and recovery scenarios did not run. |
+| Windows 11 Pro VM, build `26200`, AMD64 | Codex CLI `0.171.0`; ChatGPT device login confirmed by `codex login status`; app-server JSON-RPC schema v2 probe | VirtualBox `7.2.22`; dedicated `CODEX_HOME`; Codex elevated sandbox setup completed | Authenticated app-server test was attempted on a Unicode (`Ω`) and spaced workspace path. The unelevated sandbox rejected the strict `:root = deny` profile before tools ran. Elevated setup succeeded for the dedicated `CODEX_HOME`, but `thread/start` then failed because the elevated helper requires effective `:root` read access. WSL2 was not available as an alternate route in this VM: VirtualBox reports nested VT-x/AMD-V disabled, and `wsl.exe --version` timed out after 15 seconds. No fallback or permission weakening was used; the canary tool, cancellation, and recovery scenarios did not run. |
 | macOS arm64/amd64 | Not exercised; OpenAI Codex sandbox documentation reviewed | Not exercised | Blocked; no macOS host available. |
 
 Python `3.14.10` ran the temporary probe scripts on both Linux and Windows; the Windows embeddable package was downloaded from python.org and its published SHA-256 verified. Go `1.27.4-X:nodwarf5 linux/amd64` was present but is not an input to this provider-boundary evaluation. Codex CLI `0.171.0` generated the app-server JSON Schema v2 bundle, and a temporary Linux client completed `initialize`, `thread/start`, and `turn/start` over stdio using the documented JSON-RPC wire format. A real Linux tool call ran the canary probe under the configured permission profile. The CLI labels `codex app-server` experimental; no semver protocol identifier beyond the generated schema v2 was exposed. Docker image digest and guest OS are recorded for the supplementary container check below; no production guest image was evaluated.
@@ -54,6 +54,26 @@ docker context show
 # default
 ```
 
+Windows VM commands and observations (paths are parameterized; no authorization files were inspected):
+
+```text
+codex --version
+# codex-cli 0.171.0
+codex login status
+# Logged in using ChatGPT
+codex sandbox setup --elevated --user <current-Windows-identity> --codex-home <dedicated-test-CODEX_HOME>
+# exit 0; dedicated config selected sandbox = "elevated"
+python.exe mvp01-appserver-probe.py --prompt-file <test-prompt-file> --timeout 180
+# AppServer invoked <native-codex.exe> app-server --listen stdio://; initialize=OK;
+# thread/start failed: elevated Windows sandbox requires effective :root read access
+wsl.exe --version
+# timed out after 15 seconds
+VBoxManage showvminfo windows11 --details
+# Nested VT-x/AMD-V: disabled
+```
+
+An earlier `codex sandbox setup --elevated --current-user` invocation also set `sandbox = "elevated"` in the normal `%USERPROFILE%\.codex\config.toml`. This setup-created change is disclosed; the original setting was not recorded, so it was not guessed or overwritten. The dedicated test `CODEX_HOME` was configured separately afterward.
+
 The supported CLI login status and real non-interactive CLI and app-server turns were observed without inspecting or copying credential contents. For the disposable test `CODEX_HOME`, the trusted Codex client was pointed at the existing auth file via a symlink; the credential file itself was not copied or mounted into the command sandbox. The app-server protocol exercise used a temporary client and did not constitute an Altruforge adapter.
 
 OpenAI documentation reviewed on 2026-11-28: [Codex permission profiles](https://developers.openai.com/codex/permissions), [Codex sandboxing](https://developers.openai.com/codex/sandboxing), [non-interactive mode](https://developers.openai.com/codex/non-interactive-mode), and [app-server](https://developers.openai.com/codex/app-server). Documentation review is not platform execution evidence. The documented permission profiles are beta and the documentation describes platform-specific native enforcement.
@@ -93,7 +113,7 @@ The committed probe [`scripts/mvp01-boundary-probe.py`](../../scripts/mvp01-boun
 | Environment inheritance controlled | Pass on Linux with `shell_environment_policy.inherit = "core"` | A temporary `MVP01_SENTINEL` variable was absent in both the project command and its child under the custom profile. The initial default `workspace-write` test observed the variable in both processes. |
 | Full app-server job interruption and recoverable state | Pass in temporary Linux prototype; product runtime not certified | `scripts/mvp01-appserver-probe.py` atomically persisted a supervisor test record outside the workspace before `turn/start`, observed `checkpoint.txt`, persisted `interrupt_requested`, sent `turn/interrupt`, and observed turn status `interrupted`. `scripts/mvp01-long-job-probe.py`'s child process disappeared; the marker remained. The app-server process exited; a fresh process resumed the recorded thread with `thread/resume` and advanced the external checkpoint to `resumed`. |
 | Supplementary Docker worker isolation | Pass on Linux, not Codex-integrated | Ran a child process in `alpine@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc` with no network, read-only rootfs, no capabilities, no-new-privileges, 128 MiB, 1 CPU, UID/GID 65534, and only a read-only project mount. Host canaries, child reads, inherited sentinel, and Docker socket were absent/denied; rootfs and project writes failed. This does not establish that Codex tools are routed through Docker. |
-| Windows route and complete boundary | Attempted; boundary not established | Codex ChatGPT login succeeded in the VM. The strict unelevated profile failed closed with `windows unelevated restricted-token sandbox cannot enforce split filesystem read restrictions directly; refusing to run unsandboxed`. After official elevated setup was provisioned for the dedicated `CODEX_HOME` (config selected `sandbox = "elevated"`), app-server `thread/start` failed closed with `elevated Windows sandbox requires effective :root read access`. The profile's root-read denial was not relaxed. No project tool ran, so Windows canary, environment, cancellation, and recovery results are unavailable. The Unicode/spaced workspace path was prepared, but this does not count as boundary evidence. |
+| Windows route and complete boundary | Attempted; boundary not established | Codex ChatGPT login succeeded in the VM. The strict unelevated profile failed closed with `windows unelevated restricted-token sandbox cannot enforce split filesystem read restrictions directly; refusing to run unsandboxed`. After official elevated setup was provisioned for the dedicated `CODEX_HOME` (config selected `sandbox = "elevated"`), app-server `thread/start` failed closed with `elevated Windows sandbox requires effective :root read access`. The profile's root-read denial was not relaxed. WSL2 was unavailable in this VM: nested VT-x/AMD-V is disabled in VirtualBox and `wsl.exe --version` timed out after 15 seconds. No project tool ran, so Windows canary, environment, cancellation, and recovery results are unavailable. The Unicode/spaced workspace path was prepared, but this does not count as boundary evidence. |
 | macOS route and complete boundary | Blocked | macOS host unavailable; Docker Desktop/VM route not exercised. |
 | Linux route and complete boundary | Partial; MVP gate blocked | Temporary app-server v2 and supervisor-probe code exercised tool isolation, cancellation, an external durable test checkpoint, process-tree termination, and fresh-process thread resume. The Altruforge runtime/adapter is not implemented, and Windows/macOS remain untested. |
 
