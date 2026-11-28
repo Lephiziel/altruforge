@@ -1,6 +1,6 @@
 # MVP-04 Implement durable run state and crash recovery
 
-Status: implemented in the MVP-04 PR; awaiting CI and maintainer review.
+Status: implemented; Linux/macOS/Windows and documentation CI passed on [PR #37](https://github.com/Lephiziel/altruforge/pull/37); awaiting maintainer review.
 Dependencies: [MVP-02](MVP-02.md)
 
 ## Outcome
