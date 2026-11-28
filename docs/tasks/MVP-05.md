@@ -1,6 +1,6 @@
 # MVP-05 Implement GitHub identity and isolated Git workspaces
 
-Status: implemented in [PR #39](https://github.com/Lephiziel/altruforge/pull/39); awaiting maintainer review and merge. Implementation tests pass on Linux; native Windows/macOS evidence is pending PR CI.
+Status: implemented in [PR #39](https://github.com/Lephiziel/altruforge/pull/39); awaiting maintainer review and merge. The PR's Go application and documentation workflows passed on Linux, Windows, and macOS/Ubuntu respectively.
 Dependencies: [MVP-02](MVP-02.md)
 
 ## Outcome
@@ -52,11 +52,12 @@ Custom browser-session extraction, organization-wide access changes, and private
 | `go test ./internal/forge/github ./internal/workspace` | Linux, Go 1.27.4, local fixtures | PASS |
 | `gh auth status --hostname github.com` and `gh api user --jq .login` | Contributor's existing GitHub CLI session | PASS; only account identity checked, no token output |
 | Live public repository metadata read | GitHub API, public Altruforge repository | PASS; no fork or write operation performed |
-| Windows/macOS application CI | GitHub Actions | Pending PR workflow; not claimed here |
+| [Go application PR run 46120091802](https://github.com/Lephiziel/altruforge/actions/runs/46120091802) | GitHub Actions, Ubuntu, Windows, macOS | PASS on all three OS jobs (Go tests, race tests, vet, build) |
+| [Documentation/contracts PR run 46120091746](https://github.com/Lephiziel/altruforge/actions/runs/46120091746) | GitHub Actions, Ubuntu | PASS |
 
 ### Boundaries
 
-This adapter does not take ownership of or implement removal of the user's global `gh` session. No live fork was created; fork creation and existing-fork behavior are fixture-covered. Full project-manifest validation remains the responsibility of the manifest task/runtime; this adapter enforces the enabled flag, repository identity, duplicate-key rejection and trusted-base location. Native Windows/macOS execution remains pending CI, and MVP-01's separate credential/execution isolation gate remains unproven.
+This adapter does not take ownership of or implement removal of the user's global `gh` session. No live fork was created; fork creation and existing-fork behavior are fixture-covered. Full project-manifest validation remains the responsibility of the manifest task/runtime; this adapter enforces the enabled flag, repository identity, duplicate-key rejection and trusted-base location. MVP-01's separate credential/execution isolation gate remains unproven.
 
 ### Dependency handoff
 
