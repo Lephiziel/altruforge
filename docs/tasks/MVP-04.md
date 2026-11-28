@@ -58,12 +58,14 @@ The `internal/store` package provides SQLite-backed run identity, lifecycle tran
 | `go test -race ./...` | Linux amd64, Go 1.27.4-X:nodwarf5 | PASS |
 | `CGO_ENABLED=0 go build ./cmd/altruforge` | Linux amd64, Go 1.27.4-X:nodwarf5 | PASS |
 | Forced child-process exit after committed state/event, then reopen and recover | Linux amd64 | PASS; committed preflight state and sequence survive, recovery changes it to paused |
+| [Go application PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46092986364) | Ubuntu, macOS, Windows; PR head `79e12d53031557f6d89ffb9d87f4e82b1ac919ef` | PASS on all three operating systems |
+| [Documentation/contracts PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46092986305) | PR head `79e12d53031557f6d89ffb9d87f4e82b1ac919ef` | PASS |
 | `git diff --check` | Linux checkout | PASS |
-| Windows/macOS execution | Not run locally | Pending PR CI |
+| Windows/macOS local execution | Not run locally | Native GitHub Actions evidence above covers the application checks |
 
 ### Boundaries
 
-The store is not wired into CLI orchestration; provider/session/workspace recovery is not implemented. In-process elapsed intervals use Go's monotonic clock and are persisted when stopped. Exact monotonic duration between the last persistence point and an abrupt process death cannot be reconstructed portably; orchestration must conservatively enforce remaining limits for that uncertainty. Sensitive field-name rejection is defense in depth, not value-based secret detection; callers must redact payload values. No live provider or three-OS evidence is claimed.
+The store is not wired into CLI orchestration; provider/session/workspace recovery is not implemented. In-process elapsed intervals use Go's monotonic clock and are persisted when stopped. Exact monotonic duration between the last persistence point and an abrupt process death cannot be reconstructed portably; orchestration must conservatively enforce remaining limits for that uncertainty. Sensitive field-name rejection is defense in depth, not value-based secret detection; callers must redact payload values. The three-OS results cover Go application checks, not full product end-to-end scenarios or live providers.
 
 ### Dependency handoff
 

@@ -28,10 +28,12 @@
 | Child process exits after committing `preflighting`, with an uncommitted update to `awaiting_review`; parent reopens SQLite | PASS; committed state/event survive, uncommitted apparent success does not |
 | Run transitions and special outcomes, attempts, event replay/sequence, checkpoint persistence, side-effect intent/status, elapsed accumulation, sensitive fields | PASS in `internal/store` tests |
 | Newer schema, incomplete versioned schema, and corrupt database open | PASS; each is rejected with an error |
+| [Go application PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46092986364), PR head `79e12d53031557f6d89ffb9d87f4e82b1ac919ef` | PASS on Ubuntu, macOS, and Windows (format, vet, tests, race, CGO-free build) |
+| [Documentation/contracts PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46092986305), same PR head | PASS |
 
 ## Limitations
 
-- Windows and macOS test execution is pending PR CI; only Linux execution is recorded here.
+- Windows and macOS evidence is GitHub Actions application CI, not a local run or full product end-to-end scenario.
 - No provider, workspace, CLI-orchestration, or end-to-end recovery scenario was run.
 - Monotonic time between the last persisted interval and abrupt process death cannot be measured portably after restart; orchestration must conservatively enforce the remaining run budget.
 - Caller payload values still require explicit secret redaction; the store rejects sensitive field names as defense in depth.
