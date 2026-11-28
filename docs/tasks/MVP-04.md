@@ -36,7 +36,7 @@ Use [the handoff template](../agents/HANDOFF.md). All changes and reports must b
 
 ### Task and revision
 
-MVP-04, [Issue #6](https://github.com/Lephiziel/altruforge/issues/6), branch `implementation/mvp-04-durable-run`; PR link pending.
+MVP-04, [Issue #6](https://github.com/Lephiziel/altruforge/issues/6), branch `implementation/mvp-04-durable-run`, [Draft PR #37](https://github.com/Lephiziel/altruforge/pull/37).
 
 ### Resulting behavior
 
