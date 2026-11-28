@@ -1,6 +1,6 @@
 # Evidence index
 
-The repository bootstrap has no runtime or cross-platform end-to-end evidence.
+The repository has local run-storage implementation evidence but no integrated runtime or cross-platform end-to-end evidence.
 
 Add evidence records when a task actually runs. A document describing a scenario is not a record that it passed.
 
