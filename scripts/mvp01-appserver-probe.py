@@ -42,8 +42,9 @@ def persist_checkpoint(path: Path, state: dict[str, Any]) -> None:
 
 class AppServer:
     def __init__(self, cwd: Path) -> None:
+        codex_executable = os.environ.get("MVP01_CODEX_EXECUTABLE", "codex")
         self.process = subprocess.Popen(
-            ["codex", "app-server", "--listen", "stdio://"],
+            [codex_executable, "app-server", "--listen", "stdio://"],
             cwd=cwd,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
@@ -97,7 +98,9 @@ class AppServer:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--cwd", type=Path)
-    parser.add_argument("--prompt")
+    prompt_group = parser.add_mutually_exclusive_group()
+    prompt_group.add_argument("--prompt")
+    prompt_group.add_argument("--prompt-file", type=Path)
     parser.add_argument(
         "--interrupt-on",
         type=Path,
@@ -117,7 +120,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.resume_checkpoint:
-        if args.prompt or args.interrupt_on or args.checkpoint:
+        if args.prompt or args.prompt_file or args.interrupt_on or args.checkpoint:
             parser.error("--resume-checkpoint cannot be combined with a new turn")
         args.resume_checkpoint = args.resume_checkpoint.resolve()
         state = json.loads(args.resume_checkpoint.read_text(encoding="utf-8"))
@@ -146,8 +149,15 @@ def main() -> int:
         finally:
             server.stop()
 
-    if args.cwd is None or args.prompt is None:
-        parser.error("--cwd and --prompt are required unless resuming a checkpoint")
+    if args.prompt is None and args.prompt_file is None:
+        parser.error("--prompt or --prompt-file is required unless resuming a checkpoint")
+    if args.cwd is None:
+        workspace_env = os.environ.get("MVP01_WORKSPACE")
+        if not workspace_env:
+            parser.error("--cwd or MVP01_WORKSPACE is required unless resuming a checkpoint")
+        args.cwd = Path(workspace_env)
+    if args.prompt_file:
+        args.prompt = args.prompt_file.read_text(encoding="utf-8")
     if args.interrupt_on and not args.checkpoint:
         parser.error("--interrupt-on requires --checkpoint")
 

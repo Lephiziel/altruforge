@@ -1,6 +1,6 @@
 # MVP-01 Prove supported authentication and execution boundaries
 
-Status: blocked — Linux prototype evidence recorded; Windows/macOS execution and production runtime gates remain unmet.
+Status: blocked — Linux prototype evidence recorded; Windows strict sandbox did not initialize, macOS is unavailable, and the production runtime gates remain unmet.
 Dependencies: None.
 
 ## Outcome
@@ -18,7 +18,7 @@ Establish a supported Codex account/execution route for Windows, macOS, and Linu
 
 - [x] Record exact versions for the evaluated Linux environment and distinguish observations from Windows/macOS documentation review.
 - [x] Demonstrate supported ChatGPT login and non-interactive Codex CLI/app-server sessions on Linux without copying credentials into the sandbox.
-- [ ] Demonstrate the sentinel boundary across the required host routes. Linux passed with the documented custom profile; the Windows VM was available only as metadata with no authenticated execution route, and macOS remains unavailable.
+- [ ] Demonstrate the sentinel boundary across the required host routes. Linux passed with the documented custom profile. Windows ChatGPT login and app-server startup were attempted, but the strict profile failed closed before project tools ran (unelevated filesystem restriction failure; elevated helper requires effective `:root` read access). macOS remains unavailable.
 - [x] Demonstrate full-job interruption and recoverable checkpoint in a temporary Linux app-server supervisor prototype; a fresh app-server resumed the stored thread. This is not the Altruforge production run state machine.
 - [x] Document Windows/macOS/Linux routes and gaps; leave Windows/macOS and full-runtime gates incomplete.
 - [x] Amend ADR 0003 with the Linux evidence and a supported Codex permission-profile candidate; final acceptance remains evidence-gated.
@@ -35,7 +35,7 @@ Use [the handoff template](../agents/HANDOFF.md). All changes and reports must b
 
 ## Current handoff (2026-11-28)
 
-See [MVP-01 boundary evidence](../evidence/MVP-01-boundary.md). Linux evidence now includes a successful supported login, non-interactive CLI and app-server v2 turns, sentinel-denial and environment-filtering tests under a documented Codex permission profile, and a temporary app-server supervisor prototype that persisted a checkpoint before work, interrupted the full tool job, stopped its child, and resumed the thread/checkpoint from a fresh server process. It does not implement the Altruforge runtime. A Windows 11 VM exists but has no authenticated Guest Control/network route, so only metadata was observed; macOS is unavailable. ADR 0003 remains evidence-gated; MVP-01 and dependent execution-boundary claims remain blocked.
+See [MVP-01 boundary evidence](../evidence/MVP-01-boundary.md). Linux evidence includes a successful supported login, non-interactive CLI and app-server v2 turns, sentinel-denial and environment-filtering tests under a documented Codex permission profile, and a temporary app-server supervisor prototype that persisted a checkpoint before work, interrupted the full tool job, stopped its child, and resumed the thread/checkpoint from a fresh server process. Windows ChatGPT login succeeded and the app-server was invoked on Windows 11 Pro build 26200/AMD64 using a prepared Unicode/spaced path, but the strict root-read-denial profile failed closed before project tools ran; Windows canary, cancellation, and recovery are not evidenced. This does not implement the Altruforge runtime. macOS is unavailable. ADR 0003 remains evidence-gated; MVP-01 and dependent execution-boundary claims remain blocked.
 
 ### Task and revision
 
@@ -57,12 +57,13 @@ This change records actual Linux provider, app-server v2, native sandbox, Docker
 | Temporary app-server cancellation and fresh-process recovery | Arch Linux, Codex CLI 0.171.0, JSON-RPC v2, Python 3.14.10 | PASS; outside-workspace checkpoint persisted before work, `turn/interrupt` stopped the child, and fresh app-server `thread/resume` restored the conversation/checkpoint. Probe scripts require Python 3.10+. Not an Altruforge runtime. |
 | Independent Codex CLI process-group interruption | Arch Linux, Codex CLI 0.171.0 | `SIGINT` stopped the observed child host process; temporary marker persisted; `codex exec resume` succeeded. |
 | Restricted Docker container canaries | Docker Engine 29.10.0, Linux/amd64 | Host canaries, Docker socket, network, and writes inaccessible under the recorded limits. Not connected to Codex tools. |
+| Windows ChatGPT login and app-server strict-profile attempt | Windows 11 Pro build 26200/AMD64, Codex CLI 0.171.0, Python 3.14.10 | Login passed. Unelevated sandbox refused the `:root = deny` profile; after elevated setup in the dedicated `CODEX_HOME`, app-server `thread/start` failed because the helper requires effective `:root` read access. No project tool ran; permission profile was not weakened. |
 | `npx --yes markdownlint-cli2 '**/*.md'` (markdownlint-cli2 0.24.2) | Linux | PASS, 61 files, zero issues. |
 | Documentation workflow's pinned `check-jsonschema==0.39.0` schema/fixture commands | Python 3.13 container on Linux | PASS for all schemas and project, report, event, and lease fixtures. |
 
 ### Boundaries and dependency handoff
 
-Acceptance criteria for the live provider session, Linux-native sandbox, and Linux interruption/checkpoint prototype are met for the tested host only. The Altruforge runtime is not implemented, and Windows/macOS sentinel boundaries remain unverified. Keep MVP-01 and dependent execution-boundary work blocked until the cross-platform boundary scenarios have evidence. See the evidence report for limitations.
+Acceptance criteria for the live provider session, Linux-native sandbox, and Linux interruption/checkpoint prototype are met for the tested host only. Windows provider login is evidenced, but the required strict boundary is not: both Windows sandbox paths stopped before project tools, and no canary, cancellation, or recovery result was obtained. The Altruforge runtime is not implemented, and macOS remains untested. Keep MVP-01 and dependent execution-boundary work blocked until the cross-platform boundary scenarios have evidence. See the evidence report for limitations.
 
 ### Review notes
 
