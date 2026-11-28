@@ -15,7 +15,7 @@
 | Windows 11 amd64 | Not exercised; OpenAI Codex sandbox documentation reviewed | Not exercised | Blocked; no Windows host available. |
 | macOS arm64/amd64 | Not exercised; OpenAI Codex sandbox documentation reviewed | Not exercised | Blocked; no macOS host available. |
 
-Go `1.27.4-X:nodwarf5 linux/amd64` was present but is not an input to this provider-boundary evaluation. Codex CLI `0.171.0` generated the app-server JSON Schema v2 bundle, and a temporary client completed `initialize`, `thread/start`, and `turn/start` over stdio using the documented JSON-RPC wire format. A real tool call ran the canary probe under the configured permission profile. The CLI labels `codex app-server` experimental; no semver protocol identifier beyond the generated schema v2 was exposed. Docker image digest and guest OS are recorded for the supplementary container check below; no production guest image was evaluated.
+Python `3.14.10 linux/amd64` ran the temporary probe scripts; they require Python 3.10 or newer. Go `1.27.4-X:nodwarf5 linux/amd64` was present but is not an input to this provider-boundary evaluation. Codex CLI `0.171.0` generated the app-server JSON Schema v2 bundle, and a temporary client completed `initialize`, `thread/start`, and `turn/start` over stdio using the documented JSON-RPC wire format. A real tool call ran the canary probe under the configured permission profile. The CLI labels `codex app-server` experimental; no semver protocol identifier beyond the generated schema v2 was exposed. Docker image digest and guest OS are recorded for the supplementary container check below; no production guest image was evaluated.
 
 ## Observations
 
