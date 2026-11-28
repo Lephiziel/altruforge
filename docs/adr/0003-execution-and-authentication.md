@@ -1,6 +1,6 @@
 # ADR 0003 Authentication and execution boundary
 
-Status: evidence-gated.
+Status: evidence-gated (MVP-01 partial observations recorded; candidate revised, decision not accepted).
 Date: 2026-11-13.
 
 ## Context
@@ -24,5 +24,13 @@ The prototype must record provider and executor versions, exact configuration, o
 ## If the candidate fails
 
 Produce a concrete ADR amendment with a supported alternative and its tradeoffs. Do not silently disable isolation, copy subscriber sessions, introduce API billing, or narrow the required OS scope.
+
+## Evidence outcome and candidate amendment (2026-11-28)
+
+The Linux observations in [MVP-01 evidence](../evidence/MVP-01-boundary.md) used Codex CLI `0.171.0` on Arch Linux x86_64. A real ChatGPT login and non-interactive CLI turn succeeded. Codex's default `workspace-write` mode did not meet the credential boundary: temporary host files and a sentinel environment variable were readable by command and child processes.
+
+The candidate is amended to prefer a Codex-documented `workspace-only` permission profile: extend `:workspace`, deny reads at `:root`, grant `:minimal` runtime reads, and allow writes only in the workspace. Set `shell_environment_policy.inherit = "core"` and `ignore_default_excludes = false`. This profile denied host canary reads and filtered a sentinel environment value from commands and children on the tested Linux host. Codex permission profiles are documented as beta and the app-server integration was not tested. The original Docker candidate passed an independent Linux container check but was not connected to Codex tools. These are candidate mechanisms, not acceptance of the product boundary.
+
+Windows and macOS were not exercised; cancellation/recovery was demonstrated only for a temporary Codex CLI prototype, not a supervisor-owned Altruforge checkpoint. Keep this ADR evidence-gated until the actual adapter and recovery path pass on every required host. The documented native Codex permission profile is the proposed supported alternative to unrestricted host execution; if app-server cannot preserve that boundary, do not ship the adapter and return with a supported provider/executor design rather than weakening the profile.
 
 This gate prevents unsupported architecture from being treated as implemented. It does not require maintainer approval for routine implementation choices.

@@ -1,0 +1,117 @@
+# MVP-01 authentication and execution-boundary evidence
+
+## Task and revision
+
+- Task: [MVP-01](../tasks/MVP-01.md), issue [#3](https://github.com/Lephiziel/altruforge/issues/3).
+- Evidence collection date: 2026-11-28.
+- Repository revision inspected: `a5f2354` (`origin/main`). This record is a partial local observation, not a completed acceptance run.
+- Review: not independently reviewed.
+
+## Environment and version matrix
+
+| Host | Provider/client | Executor | Observation |
+| --- | --- | --- | --- |
+| Arch Linux rolling, kernel `7.3.5-arch1-1`, x86_64 (`linux/amd64`) | Codex CLI `0.171.0`; CLI JSONL (`codex exec --json`); app-server protocol not exercised | Codex native `workspace-only` permission profile; bubblewrap `0.13.1`; Docker Engine client/server `29.10.0`, API `1.57`, containerd `v2.4.2`, runc `1.5.3` | Login, non-interactive turn, profile-enforced sentinel denial, environment filtering, interruption, and CLI-session resume observed. This is not an Altruforge runtime or MVP-supported OS certification. |
+| Windows 11 amd64 | Not exercised; OpenAI Codex sandbox documentation reviewed | Not exercised | Blocked; no Windows host available. |
+| macOS arm64/amd64 | Not exercised; OpenAI Codex sandbox documentation reviewed | Not exercised | Blocked; no macOS host available. |
+
+Go `1.27.4-X:nodwarf5 linux/amd64` was present but is not an input to this provider-boundary evaluation. No Codex app-server protocol version was established: the installed CLI labels `codex app-server` experimental and its app-server protocol was not exercised. The observed non-interactive interface was the CLI JSONL interface from Codex CLI `0.171.0`. Docker image digest and guest OS are recorded for the supplementary container check below; no production guest image was evaluated.
+
+## Observations
+
+Commands run on the Linux host:
+
+```text
+uname -a
+# Linux ... 7.3.5-arch1-1 ... x86_64 GNU/Linux
+cat /etc/os-release
+# Arch Linux rolling
+uname -m
+# x86_64
+go version
+# go version go1.27.4-X:nodwarf5 linux/amd64
+docker version
+# client/server 29.10.0; API 1.57; Linux/amd64 server
+codex --version
+# codex-cli 0.171.0
+codex login status
+# Logged in using ChatGPT
+codex exec --cd <trusted-git-worktree> --sandbox read-only --json --color never 'Reply with exactly SESSION_OK and do not call tools.'
+# JSONL thread/turn events; agent_message SESSION_OK; turn.completed
+codex app-server --help
+# app-server command is marked [experimental]
+codex sandbox --help
+# Linux sandbox command supports -P/--permission-profile
+codex sandbox -P workspace-only -C <workspace> -- <sentinel-check>
+# See the results below; profile configuration is listed under "Effective test profile".
+docker info --format '{{.ServerVersion}} {{.OSType}}/{{.Architecture}}'
+# 29.10.0 linux/x86_64
+docker context show
+# default
+```
+
+The supported CLI login status and a real non-interactive JSONL turn were observed without inspecting or copying credential contents. For the disposable test `CODEX_HOME`, the trusted Codex client was pointed at the existing auth file via a symlink; the credential file itself was not copied or mounted into the command sandbox. No app-server session was started.
+
+OpenAI documentation reviewed on 2026-11-28: [Codex permission profiles](https://developers.openai.com/codex/permissions), [Codex sandboxing](https://developers.openai.com/codex/sandboxing), [non-interactive mode](https://developers.openai.com/codex/non-interactive-mode), and [app-server](https://developers.openai.com/codex/app-server). Documentation review is not platform execution evidence. The documented permission profiles are beta and the documentation describes platform-specific native enforcement.
+
+### Effective test profile
+
+This disposable profile was loaded by the trusted Codex client from a temporary `CODEX_HOME/config.toml`; it did not alter the user's normal Codex config:
+
+```toml
+default_permissions = "workspace-only"
+
+[permissions.workspace-only]
+extends = ":workspace"
+
+[permissions.workspace-only.filesystem]
+":root" = "deny"
+":minimal" = "read"
+
+[permissions.workspace-only.filesystem.":workspace_roots"]
+"." = "write"
+
+[shell_environment_policy]
+inherit = "core"
+ignore_default_excludes = false
+```
+
+The profile gives sandboxed commands workspace writes and minimal runtime reads, denies other host filesystem reads, and uses the documented `core` environment inheritance baseline with automatic secret-name exclusions. The test did not claim that arbitrary inherited environment is safe under the default `workspace-write` profile.
+
+The committed probe [`scripts/mvp01-boundary-probe.py`](../../scripts/mvp01-boundary-probe.py) checks two synthetic files (`credential.txt` and `personal.txt`) by reading at most one byte and reports only access status. It checks `MVP01_SENTINEL` presence in the command and a child process without printing the value. The synthetic canary directory was created under the host home with mode `0700`; its files used mode `0600`. The directory and files were removed after the test.
+
+## Acceptance scenario results
+
+| Scenario | Result | Evidence / limitation |
+| --- | --- | --- |
+| Supported account login and non-interactive session | Observed on Linux | `codex login status` reported ChatGPT login; a `codex exec --json` request returned `SESSION_OK`. No credentials were inspected or copied to the command sandbox. App-server login/session integration remains untested. |
+| Sentinel host credentials/personal files denied to project commands and child processes | Pass on Linux with `workspace-only` profile | Temporary canary files under a private directory in the host home were unreadable by the sandboxed Python process and its shell child. The profile's explicit `:root = deny` was necessary; the initial `workspace-write` profile could read files outside the workspace. |
+| Environment inheritance controlled | Pass on Linux with `shell_environment_policy.inherit = "core"` | A temporary `MVP01_SENTINEL` variable was absent in both the project command and its child under the custom profile. The initial default `workspace-write` test observed the variable in both processes. |
+| Full Codex CLI job interruption and recoverable state | Partial Linux prototype pass | Ran `timeout --signal=INT --kill-after=3 40s env CODEX_HOME=<temporary-test-home> codex exec --cd <workspace> --json ...`; exit 124 was expected. A running sandboxed command wrote a temporary checkpoint marker and spawned `sleep 120`. Interrupting the Codex job stopped the child; the marker remained. `codex exec resume --json <thread-id> ...` returned the expected response. This is not an Altruforge supervisor checkpoint or full runtime recovery test. |
+| Supplementary Docker worker isolation | Pass on Linux, not Codex-integrated | Ran a child process in `alpine@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc` with no network, read-only rootfs, no capabilities, no-new-privileges, 128 MiB, 1 CPU, UID/GID 65534, and only a read-only project mount. Host canaries, child reads, inherited sentinel, and Docker socket were absent/denied; rootfs and project writes failed. This does not establish that Codex tools are routed through Docker. |
+| Windows route and complete boundary | Blocked | Windows host unavailable; Docker Desktop route not exercised. |
+| macOS route and complete boundary | Blocked | macOS host unavailable; Docker Desktop/VM route not exercised. |
+| Linux route and complete boundary | Partial; MVP gate blocked | Codex native permissions provide a promising documented route and the listed Linux scenarios passed, but the app-server adapter, supervisor-owned checkpoint, process-tree semantics under the final runtime, and end-to-end task flow are not implemented. |
+
+The committed probe's observed output through the configured non-interactive Codex turn was:
+
+```text
+credential.txt: direct=DENIED child=DENIED
+personal.txt: direct=DENIED child=DENIED
+env_sentinel=ABSENT
+child_env_sentinel=ABSENT
+```
+
+The interrupted-job prototype used this exact task instruction: “Start one child process with `python3 -c` that launches `sleep 120`, writes its PID to `child.pid`, writes `CHECKPOINT_READY` to `checkpoint.txt`, and waits for the child. Do not terminate the child yourself. This is an interruption test; report only after the wait ends.” The supervisor command used a 40-second timeout and sent `SIGINT`, followed by `SIGKILL` after a 3-second grace period. The observed JSONL included an in-progress `command_execution`; after interruption the child PID no longer existed, the marker remained, and resuming the captured thread returned `RESUMED_AFTER_INTERRUPT`.
+
+The supplementary Docker run used image `alpine@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc` and these restrictions: `--pull=never --network none --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 32 --memory 128m --cpus 1 --user 65534:65534`; the sole bind was the test workspace mounted read-only at `/workspace`. It printed `credential.txt: DENIED`, `personal.txt: DENIED`, `auth.json: DENIED`, `child_file=DENIED`, `env_sentinel=ABSENT`, `child_env=ABSENT`, and `docker_socket=ABSENT`. Separate checks observed `container_rootfs_writable=NO` and `project_writable=NO`. This remains a Docker-only check, not the Codex execution route.
+
+No secret values, personal file contents, account identifiers, or authentication artifacts are included in this record.
+
+## ADR outcome
+
+ADR 0003 remains **evidence-gated**. The default Codex `workspace-write` mode failed the sentinel test: host files and an inherited marker were readable by project commands and children. A documented Codex `workspace-only` profile with root-read denial and `core` environment inheritance passed those Linux checks through both the native sandbox command and a non-interactive `codex exec` turn. This is a concrete supported candidate, but not accepted for MVP because app-server orchestration and the other required OS hosts were not tested. Supplementary Docker isolation passed but is not connected to Codex tool execution. Do not claim this boundary as implemented or use unrestricted host execution as a fallback.
+
+## Limitations and follow-up
+
+This evidence does not complete MVP-01. A follow-up must integrate the supported Codex permission profile with the app-server adapter (or another documented interface), ensure every project command and child uses the enforced profile, and implement a supervisor-owned durable checkpoint. Capture the app-server protocol version and test the full scenario on Windows, macOS, and Linux, including Unicode/spaced paths, cancellation, explicit recovery, and the exact resolved execution image. Until then all platform gates and dependent claims remain blocked.

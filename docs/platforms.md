@@ -4,11 +4,11 @@
 
 Altruforge's first public MVP must run on Windows, macOS, and Linux. The initial execution profile builds and tests Linux-compatible projects. A macOS host does not imply that the Linux executor can build an Xcode-only project.
 
-| Host target | CLI release target | Initial execution route | Verification status |
+| Host target | CLI release target | Codex command sandbox route | Verification status |
 | --- | --- | --- | --- |
-| Windows 11 | amd64 | Compatible Linux execution environment, such as Docker Desktop | Not yet tested |
-| macOS supported by the selected executor | arm64 and amd64 | Compatible Docker Engine through a desktop/VM environment | Not yet tested |
-| Linux | amd64 and arm64 | Compatible Docker Engine | Not yet tested |
+| Windows 11 | amd64 | Codex native Windows sandbox with a least-privilege permission profile when using PowerShell; WSL2 uses the Linux sandbox. A separate Docker verifier remains a possible route. | Vendor documentation reviewed; not exercised for MVP-01. |
+| macOS supported by the selected Codex release | arm64 and amd64 | Codex native Seatbelt sandbox with a least-privilege permission profile. A separate Docker verifier remains a possible route. | Vendor documentation reviewed; not exercised for MVP-01. |
+| Linux | amd64 and arm64 | Codex native bubblewrap/seccomp sandbox with a least-privilege permission profile; a separate Docker verifier is possible. | Partial prototype observed on Arch Linux x86_64 only; no Ubuntu 24.04 reference-host run or end-to-end Altruforge runtime. |
 
 Ubuntu 24.04 amd64 is the initial Linux reference environment. Other distributions and architectures require declared evidence before being described as verified. Windows arm64 is a later target unless the complete dependency chain is demonstrated.
 
@@ -16,7 +16,13 @@ Ubuntu 24.04 amd64 is the initial Linux reference environment. Other distributio
 
 Minimum OS and provider versions are the intersection of the pinned Go toolchain, coding agent, executor, and authentication requirements. MVP-01 records that matrix; a generic list of OS names is not sufficient.
 
-Resolve a container image to an immutable digest and platform before execution. Save both in the checkpoint/report. Resume cannot silently change the image.
+Resolve a container image to an immutable digest and platform before execution. Save both in the checkpoint/report. Resume cannot silently change the image. Native Codex agent sandboxing and Docker-based verification are separate boundaries; passing one does not prove the other.
+
+## MVP-01 observed boundary status
+
+[MVP-01 evidence](evidence/MVP-01-boundary.md) records Codex CLI `0.171.0` on Arch Linux rolling (kernel `7.3.5-arch1-1`, x86_64), with a `workspace-only` permissions profile and bubblewrap `0.13.1`. Host-home canaries and a custom environment sentinel were denied to command and child processes under that profile. Default `workspace-write` did not deny them. The profile is documented as beta, and app-server integration is not yet tested.
+
+The Windows PowerShell/native sandbox, Windows WSL2/Linux sandbox, and macOS Seatbelt routes above are based on [Codex sandbox documentation](https://developers.openai.com/codex/sandboxing), not execution evidence. Windows and macOS gates remain blocked until the complete sentinel, process-tree interruption, checkpoint, and provider-session scenarios are run natively. Documentation coverage does not certify the OS/version matrix.
 
 ## Required platform evidence
 

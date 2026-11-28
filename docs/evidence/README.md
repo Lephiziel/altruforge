@@ -1,6 +1,6 @@
 # Evidence index
 
-The repository bootstrap has no runtime or cross-platform end-to-end evidence.
+The repository has no complete runtime or cross-platform end-to-end evidence. Individual records may contain partial observations; consult each record's limitations before relying on it.
 
 Add evidence records when a task actually runs. A document describing a scenario is not a record that it passed.
 
@@ -13,5 +13,11 @@ Add evidence records when a task actually runs. A document describing a scenario
 | Artifacts | Redacted logs, reports, test output, or CI URL |
 | Limitations | Untested behavior, manual steps, and unsupported combinations |
 | Review | Reviewer and date |
+
+## Records
+
+| Record | Status |
+| --- | --- |
+| [MVP-01 boundary](MVP-01-boundary.md) | Partial Linux observations; acceptance gate remains blocked |
 
 Store public evidence as `docs/evidence/MVP-XX-<topic>.md`. Keep private account artifacts outside the repository.
