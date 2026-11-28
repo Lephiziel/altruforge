@@ -1,6 +1,6 @@
 # MVP-05 Implement GitHub identity and isolated Git workspaces
 
-Status: implemented in [PR](https://github.com/Lephiziel/altruforge/pull/REPLACE); awaiting maintainer review and merge. Implementation tests pass on Linux; native Windows/macOS evidence is pending CI.
+Status: implemented in [PR #39](https://github.com/Lephiziel/altruforge/pull/39); awaiting maintainer review and merge. Implementation tests pass on Linux; native Windows/macOS evidence is pending PR CI.
 Dependencies: [MVP-02](MVP-02.md)
 
 ## Outcome
@@ -32,7 +32,7 @@ Custom browser-session extraction, organization-wide access changes, and private
 
 - Task: MVP-05, [Issue #7](https://github.com/Lephiziel/altruforge/issues/7).
 - Branch: `feat/mvp-05-github-workspaces`.
-- PR: pending link replacement after publication.
+- PR: [#39](https://github.com/Lephiziel/altruforge/pull/39).
 
 ### Resulting behavior
 
