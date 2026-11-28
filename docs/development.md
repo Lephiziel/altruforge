@@ -2,7 +2,7 @@
 
 ## Current checkout
 
-[Draft PR #20](https://github.com/Lephiziel/altruforge/pull/20) contains the MVP-02 Go bootstrap: minimal Cobra help/error handling and a real SQLite persistence test. No executable release is published. Provider sign-in, contributor task execution, isolation, cancellation, recovery and publication remain unimplemented or unverified.
+[PR #20](https://github.com/Lephiziel/altruforge/pull/20) merged the MVP-02 Go bootstrap: minimal Cobra help/error handling and a real SQLite persistence test. MVP-04 adds a local durable run store; see the [storage contract](storage.md) and [task handoff](tasks/MVP-04.md). No executable release is published. Provider sign-in, contributor task execution, isolation, cancellation, orchestration-integrated recovery, and publication remain unimplemented or unverified.
 
 The independently reviewed source commit is `65f0d894d40db5d34c48d403a1efd8e3fc430c27` with tree `2df63d0ba0c1d1fd9dba9dc3262ae77b6efd1912`. It passed 12/12 mandatory isolated offline checks before and after exceptional operator-maintenance local integration, and received fresh independent external APPROVED review. This is not an autonomous Harness approval or remote merge.
 
@@ -54,6 +54,6 @@ The exact required offline commands and handoff are in [MVP-02](tasks/MVP-02.md)
 
 ## Scope and limitations
 
-Do not commit runtime databases, workspace clones, run logs, credentials or provider sessions. Migrations of future persisted runtime state need forward-compatibility and recovery checks. A working CLI bootstrap is not evidence that provider sign-in, real sandbox boundaries, process-tree termination, or remote publication works.
+Do not commit runtime databases, workspace clones, run logs, credentials or provider sessions. The MVP-04 store does not by itself integrate run recovery into the CLI or provide provider/session recovery. A working CLI bootstrap is not evidence that provider sign-in, real sandbox boundaries, process-tree termination, or remote publication works.
 
-PR #20 remains a Draft and [Issue #4](https://github.com/Lephiziel/altruforge/issues/4) remains open until maintainer acceptance. MVP-01 evidence is separate and outstanding; dependent gates remain blocked.
+PR #20 is merged and [Issue #4](https://github.com/Lephiziel/altruforge/issues/4) is closed. MVP-01 evidence is separate and outstanding; dependent gates remain blocked.

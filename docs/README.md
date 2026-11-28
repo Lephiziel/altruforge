@@ -11,6 +11,7 @@ Altruforge is pre-implementation. Documents define intended behavior; the [evide
 | [Agent implementation guide](agents/START_HERE.md) | How to turn the backlog into reviewable changes |
 | [Task index](tasks/README.md) | Dependencies, acceptance criteria, and current implementation order |
 | [Development](development.md) | Current checks and future runtime checks |
+| [Run storage](storage.md) | SQLite state, event, checkpoint, and side-effect persistence contract |
 | [Platforms](platforms.md) | Host targets, build environments, and verification status |
 | [Testing](testing.md) | Required behavior and failure-case coverage |
 | [Release readiness](release-readiness.md) | Evidence required for the first public runtime |

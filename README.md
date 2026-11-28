@@ -32,7 +32,7 @@ People already pay for capable coding agents. Open-source maintainers already kn
 
 A contributor supplies their supported AI tool and GitHub account. The maintainer defines eligible work, change boundaries, and acceptance checks. Altruforge selects a task, explains what it will do, carries out the work, and hands the result to the maintainer.
 
-**Current status:** [Draft PR #20](https://github.com/Lephiziel/altruforge/pull/20) contains the minimal Go CLI bootstrap, real SQLite persistence tests, and the application CI workflow. The source candidate passed 12 mandatory offline checks and received an independent external approval through a one-time local maintenance process. [Go application CI passed on Linux, macOS, and Windows](https://github.com/Lephiziel/altruforge/actions/runs/44932106464), while [documentation and contract checks passed independently](https://github.com/Lephiziel/altruforge/actions/runs/44932106438). This is still an unmerged Draft PR, not a released or complete contributor harness; MVP-01 security evidence remains outstanding. The workflow below describes the planned product.
+**Current status:** [PR #20](https://github.com/Lephiziel/altruforge/pull/20) merged the minimal Go CLI bootstrap, SQLite persistence test, and application CI workflow. MVP-04 adds a local durable run-state store; see [the storage contract](docs/storage.md) and [task handoff](docs/tasks/MVP-04.md). The earlier bootstrap source candidate passed 12 mandatory offline checks and received independent external approval through a one-time local maintenance process. [Go application CI passed on Linux, macOS, and Windows](https://github.com/Lephiziel/altruforge/actions/runs/44932106464), while [documentation and contract checks passed independently](https://github.com/Lephiziel/altruforge/actions/runs/44932106438). This is not a released or complete contributor harness; MVP-01 security evidence remains outstanding. The workflow below describes the planned product.
 
 ### Try the bootstrap
 
@@ -45,7 +45,7 @@ go test ./...
 go build ./cmd/altruforge
 ```
 
-These developer commands have passing GitHub Actions and offline verification evidence for the reviewed bootstrap candidate. See [development guidance](docs/development.md) and [MVP-02 handoff](docs/tasks/MVP-02.md) for exact results and limitations. Login, task execution, isolation, recovery, and publication remain planned. Bootstrap checks do not establish MVP-01 evidence or unblock dependent tasks.
+These developer commands have passing GitHub Actions and offline verification evidence for the reviewed bootstrap candidate. See [development guidance](docs/development.md), [MVP-02 handoff](docs/tasks/MVP-02.md), and [MVP-04 handoff](docs/tasks/MVP-04.md) for exact results and limitations. Login, task execution, isolation, orchestration-integrated recovery, and publication remain planned. Bootstrap checks do not establish MVP-01 evidence or unblock dependent security gates.
 
 ## How it will work
 
@@ -96,7 +96,7 @@ The specification is published independently from the Go reference implementatio
 
 ## Architecture
 
-The reference CLI bootstrap uses **Go** and **Cobra**, with **SQLite** exercised by a persistence test. The planned runtime adds adapters around documented agent protocols. Runtime state belongs to a local store; distributed task ownership belongs to a coordinator. Execution, verification, and publication have separate responsibilities.
+The reference CLI uses **Go** and **Cobra**. MVP-04 implements a local **SQLite** store for durable run state, events, checkpoints, and side-effect intent; it is not yet integrated into CLI orchestration. The planned runtime adds adapters around documented agent protocols. Distributed task ownership belongs to a coordinator. Execution, verification, and publication have separate responsibilities.
 
 Read [the architecture](docs/architecture.md), [the stack decision](docs/adr/0001-reference-runtime.md), and [the trust model](docs/security/threat-model.md).
 

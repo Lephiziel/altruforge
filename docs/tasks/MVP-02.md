@@ -1,6 +1,6 @@
 # MVP-02 Bootstrap the Go module and core development workflow
 
-Status: validated in [Draft PR #20](https://github.com/Lephiziel/altruforge/pull/20); not merged into remote `main`. [Issue #4](https://github.com/Lephiziel/altruforge/issues/4) remains open pending maintainer acceptance.
+Status: accepted; [PR #20](https://github.com/Lephiziel/altruforge/pull/20) merged and [Issue #4](https://github.com/Lephiziel/altruforge/issues/4) closed.
 
 Dependencies: No prerequisite for the bootstrap itself. MVP-01 security and runtime-boundary evidence remains a separate unproven gate.
 
@@ -90,7 +90,7 @@ The original trusted check receipts, independent review, and maintenance-integra
 - The candidate was integrated into **local** `main` under one-time operator-authorized maintenance, not through an autonomous approved Harness workflow.
 - No provider login, contributor task orchestration, runtime sandbox, cancellation, recovery, remote publication or release is established.
 - Three-OS Go application CI validates the bootstrap jobs only, not the complete planned runtime on those hosts.
-- This PR remains a Draft; upstream `main` has not changed and Issue #4 remains open.
+- The original candidate was validated in Draft PR #20 and later merged; this handoff records the accepted bootstrap baseline.
 - MVP-01 trust-boundary and supported login/isolated-execution evidence is still outstanding.
 
 ## Dependency handoff
