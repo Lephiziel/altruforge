@@ -1,6 +1,6 @@
 # MVP-04 Implement durable run state and crash recovery
 
-Status: implementation complete in [PR #37](https://github.com/Lephiziel/altruforge/pull/37); latest cross-platform CI is rerunning after the final attempt-limit enforcement update.
+Status: implementation complete; Linux/macOS/Windows application CI and documentation CI passed on commit `964997e32fda05eb565ed64ddd2b2daf3f05eb0c` in [PR #37](https://github.com/Lephiziel/altruforge/pull/37); awaiting maintainer review.
 Dependencies: [MVP-02](MVP-02.md)
 
 ## Outcome
@@ -59,7 +59,9 @@ The `internal/store` package provides SQLite-backed run identity, lifecycle tran
 | `CGO_ENABLED=0 go build ./cmd/altruforge` | Linux amd64, Go 1.27.4-X:nodwarf5 | PASS |
 | Forced child-process exit after committed state/event, then reopen and recover | Linux amd64 | PASS; committed preflight state and sequence survive, recovery changes it to paused |
 | `git diff --check` | Linux checkout | PASS |
-| Windows/macOS local execution | Not run locally | Latest PR CI rerun pending after the attempt-limit update |
+| [Go application PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46093847502) | Ubuntu, macOS, Windows; commit `964997e32fda05eb565ed64ddd2b2daf3f05eb0c` | PASS on all three operating systems |
+| [Documentation/contracts PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46093847544) | Same commit | PASS |
+| Windows/macOS local execution | Not run locally | Native GitHub Actions evidence above covers the application checks |
 
 ### Boundaries
 

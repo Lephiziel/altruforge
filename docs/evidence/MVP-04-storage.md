@@ -3,8 +3,8 @@
 ## Task and revision
 
 - Task: MVP-04, [Issue #6](https://github.com/Lephiziel/altruforge/issues/6).
-- Tested source commit: `b59a8420aeaf4f632c58fcccc1ffdfba64999550`.
-- Tested source tree: `faed9dc52ace1794a8b400ec5d211df119eb2e79`.
+- Tested source commit: `964997e32fda05eb565ed64ddd2b2daf3f05eb0c`.
+- Tested source tree: `5e020fc48ee4d3863c3700c48e2327cf4233a333`.
 - Branch: `implementation/mvp-04-durable-run`.
 
 ## Environment
@@ -24,12 +24,12 @@
 | `go test -race ./...` | PASS |
 | `CGO_ENABLED=0 go build -o /tmp/opencode/altruforge-mvp04/altruforge-test ./cmd/altruforge` | PASS; temporary binary removed |
 | `git diff --check` | PASS |
-| `npx --yes markdownlint-cli2 "**/*.md"` | Exit 0; CLI reported 61 files scanned and 0 lint issues |
+| `npx --yes markdownlint-cli2 "**/*.md"` | Exit 0; CLI reported 62 files scanned and 0 lint issues |
 | Child process exits after committing `preflighting`, with an uncommitted update to `awaiting_review`; parent reopens SQLite | PASS; committed state/event survive, uncommitted apparent success does not |
-| Run transitions and special outcomes, attempts, event replay/sequence, checkpoint persistence, side-effect intent/status, elapsed accumulation, sensitive fields | PASS in `internal/store` tests |
+| Run transitions and special outcomes, effective attempt-limit enforcement, event replay/sequence, checkpoint persistence, side-effect intent/status, elapsed accumulation, sensitive fields | PASS in `internal/store` tests |
 | Newer schema, incomplete versioned schema, and corrupt database open | PASS; each is rejected with an error |
-| [Go application PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46092986364), PR head `79e12d53031557f6d89ffb9d87f4e82b1ac919ef` | PASS on Ubuntu, macOS, and Windows (format, vet, tests, race, CGO-free build) |
-| [Documentation/contracts PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46092986305), same PR head | PASS |
+| [Go application PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46093847502), source commit `964997e32fda05eb565ed64ddd2b2daf3f05eb0c` | PASS on Ubuntu, macOS, and Windows (format, vet, tests, race, CGO-free build) |
+| [Documentation/contracts PR CI](https://github.com/Lephiziel/altruforge/actions/runs/46093847544), same commit | PASS |
 
 ## Limitations
 
