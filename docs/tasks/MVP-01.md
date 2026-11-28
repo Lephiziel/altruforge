@@ -19,7 +19,7 @@ Establish a supported Codex account/execution route for Windows, macOS, and Linu
 - [x] Record exact versions for the evaluated Linux environment and distinguish observations from Windows/macOS documentation review.
 - [x] Demonstrate supported ChatGPT login and non-interactive Codex CLI/app-server sessions on Linux without copying credentials into the sandbox.
 - [ ] Demonstrate the sentinel boundary across the required host routes. Linux passed with the documented custom profile; Windows and macOS remain untested.
-- [ ] Demonstrate full-runtime interruption and supervisor-owned recoverable checkpoint. A temporary Codex CLI job was interrupted/resumed, but no Altruforge checkpoint exists.
+- [x] Demonstrate full-job interruption and recoverable checkpoint in a temporary Linux app-server supervisor prototype; a fresh app-server resumed the stored thread. This is not the Altruforge production run state machine.
 - [x] Document Windows/macOS/Linux routes and gaps; leave Windows/macOS and full-runtime gates incomplete.
 - [x] Amend ADR 0003 with the Linux evidence and a supported Codex permission-profile candidate; final acceptance remains evidence-gated.
 
@@ -35,7 +35,7 @@ Use [the handoff template](../agents/HANDOFF.md). All changes and reports must b
 
 ## Current handoff (2026-11-28)
 
-See [MVP-01 boundary evidence](../evidence/MVP-01-boundary.md). Linux evidence now includes a successful supported login, non-interactive CLI and temporary app-server v2 turns, sentinel-denial and environment-filtering tests under a documented Codex permission profile, a bounded CLI process-tree interruption/resume prototype, and a separate Docker isolation check. It does not establish the Altruforge app-server adapter, app-server cancellation, or trusted supervisor checkpoint. Windows and macOS were unavailable. ADR 0003 remains evidence-gated; MVP-01 and dependent execution-boundary claims remain blocked.
+See [MVP-01 boundary evidence](../evidence/MVP-01-boundary.md). Linux evidence now includes a successful supported login, non-interactive CLI and app-server v2 turns, sentinel-denial and environment-filtering tests under a documented Codex permission profile, and a temporary app-server supervisor prototype that persisted a checkpoint before work, interrupted the full tool job, stopped its child, and resumed the thread/checkpoint from a fresh server process. It does not implement the Altruforge runtime. Windows and macOS were unavailable. ADR 0003 remains evidence-gated; MVP-01 and dependent execution-boundary claims remain blocked.
 
 ### Task and revision
 
@@ -45,7 +45,7 @@ See [MVP-01 boundary evidence](../evidence/MVP-01-boundary.md). Linux evidence n
 
 ### Resulting behavior and changes
 
-This change records actual Linux provider, app-server v2, native sandbox, Docker, cancellation, and CLI-session-resume observations. ADR 0003 proposes the documented Codex `workspace-only` profile as the supported alternative to unrestricted host execution, but leaves acceptance gated. Platform documentation distinguishes Codex native agent sandboxing from Docker-based verification. This is research evidence, not an Altruforge runtime implementation.
+This change records actual Linux provider, app-server v2, native sandbox, Docker, cancellation, and checkpoint/session-recovery observations. ADR 0003 proposes the documented Codex `workspace-only` profile as the supported alternative to unrestricted host execution, but leaves cross-platform acceptance gated. Platform documentation distinguishes Codex native agent sandboxing from Docker-based verification. This is research evidence, not an Altruforge runtime implementation.
 
 ### Validation
 
@@ -54,14 +54,15 @@ This change records actual Linux provider, app-server v2, native sandbox, Docker
 | `codex login status` and non-interactive `codex exec --json` | Arch Linux x86_64, Codex CLI 0.171.0 | Login via ChatGPT reported; non-interactive turn returned the expected response. |
 | Home-file and environment canaries under `workspace-only` profile | Arch Linux, bubblewrap 0.13.1 | Direct and child file reads denied; environment canary absent from command and child. |
 | Temporary app-server JSON-RPC v2 handshake, turn, and sandboxed canary call | Arch Linux, Codex CLI 0.171.0 | PASS; profile denied canaries and filtered environment marker. No Altruforge adapter was involved. |
-| Interrupt long-running Codex CLI process tree and resume session | Arch Linux, Codex CLI 0.171.0 | `SIGINT` stopped the observed child host process; temporary marker persisted; `codex exec resume` succeeded. This does not validate app-server cancellation or a Harness checkpoint. |
+| Temporary app-server cancellation and fresh-process recovery | Arch Linux, Codex CLI 0.171.0, JSON-RPC v2 | PASS; outside-workspace checkpoint persisted before work, `turn/interrupt` stopped the child, and fresh app-server `thread/resume` restored the conversation/checkpoint. Not an Altruforge runtime. |
+| Independent Codex CLI process-group interruption | Arch Linux, Codex CLI 0.171.0 | `SIGINT` stopped the observed child host process; temporary marker persisted; `codex exec resume` succeeded. |
 | Restricted Docker container canaries | Docker Engine 29.10.0, Linux/amd64 | Host canaries, Docker socket, network, and writes inaccessible under the recorded limits. Not connected to Codex tools. |
 | `npx --yes markdownlint-cli2 '**/*.md'` (markdownlint-cli2 0.24.2) | Linux | PASS, 61 files, zero issues. |
 | Documentation workflow's pinned `check-jsonschema==0.39.0` schema/fixture commands | Python 3.13 container on Linux | PASS for all schemas and project, report, event, and lease fixtures. |
 
 ### Boundaries and dependency handoff
 
-Acceptance criteria for the live provider session and Linux-native sandbox are partially met. The actual Codex app-server protocol was exercised, but the Altruforge adapter, app-server cancellation, supervisor-owned checkpoint, and complete Windows/macOS scenarios remain unverified. Keep MVP-01 and all dependent execution-boundary work blocked until those exact gates have evidence. See the evidence report for the proposed next test matrix and limitations.
+Acceptance criteria for the live provider session, Linux-native sandbox, and Linux interruption/checkpoint prototype are met for the tested host only. The Altruforge runtime is not implemented, and Windows/macOS sentinel boundaries remain unverified. Keep MVP-01 and dependent execution-boundary work blocked until the cross-platform boundary scenarios have evidence. See the evidence report for limitations.
 
 ### Review notes
 

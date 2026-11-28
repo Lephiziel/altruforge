@@ -11,7 +11,7 @@
 
 | Host | Provider/client | Executor | Observation |
 | --- | --- | --- | --- |
-| Arch Linux rolling, kernel `7.3.5-arch1-1`, x86_64 (`linux/amd64`) | Codex CLI `0.171.0`; CLI JSONL; app-server JSON-RPC schema v2 generated and exercised | Codex native `workspace-only` permission profile; bubblewrap `0.13.1`; Docker Engine client/server `29.10.0`, API `1.57`, containerd `v2.4.2`, runc `1.5.3` | Login, CLI and app-server turns, profile-enforced sentinel denial, environment filtering, process interruption, and CLI-session resume observed. This is not an Altruforge runtime or MVP-supported OS certification. |
+| Arch Linux rolling, kernel `7.3.5-arch1-1`, x86_64 (`linux/amd64`) | Codex CLI `0.171.0`; CLI JSONL; app-server JSON-RPC schema v2 generated and exercised | Codex native `workspace-only` permission profile; bubblewrap `0.13.1`; Docker Engine client/server `29.10.0`, API `1.57`, containerd `v2.4.2`, runc `1.5.3` | Login, CLI and app-server turns, profile-enforced sentinel denial, environment filtering, app-server interruption/checkpoint/resume, and CLI-session resume observed. This is not an Altruforge runtime or MVP-supported OS certification. |
 | Windows 11 amd64 | Not exercised; OpenAI Codex sandbox documentation reviewed | Not exercised | Blocked; no Windows host available. |
 | macOS arm64/amd64 | Not exercised; OpenAI Codex sandbox documentation reviewed | Not exercised | Blocked; no macOS host available. |
 
@@ -91,11 +91,11 @@ The committed probe [`scripts/mvp01-boundary-probe.py`](../../scripts/mvp01-boun
 | Supported account login and non-interactive session | Observed on Linux | `codex login status` reported ChatGPT login; `codex exec --json` returned `SESSION_OK`; a temporary JSON-RPC v2 app-server client completed a non-interactive turn and tool call. No credentials were inspected or copied to the command sandbox. |
 | Sentinel host credentials/personal files denied to project commands and child processes | Pass on Linux with `workspace-only` profile | Temporary canary files under a private directory in the host home were unreadable by the sandboxed Python process and its shell child. The profile's explicit `:root = deny` was necessary; the initial `workspace-write` profile could read files outside the workspace. |
 | Environment inheritance controlled | Pass on Linux with `shell_environment_policy.inherit = "core"` | A temporary `MVP01_SENTINEL` variable was absent in both the project command and its child under the custom profile. The initial default `workspace-write` test observed the variable in both processes. |
-| Full Codex CLI job interruption and recoverable state | Partial Linux prototype pass | Started `scripts/mvp01-long-job-probe.py` under Codex CLI, observed the host PID for its child, then interrupted the Codex process group with `SIGINT`. The child host process disappeared and the marker remained. The CLI conversation resumed with `codex exec resume --json <thread-id> ...`. This is not an Altruforge supervisor checkpoint or app-server cancellation test. |
+| Full app-server job interruption and recoverable state | Pass in temporary Linux prototype; product runtime not certified | `scripts/mvp01-appserver-probe.py` atomically persisted a supervisor test record outside the workspace before `turn/start`, observed `checkpoint.txt`, persisted `interrupt_requested`, sent `turn/interrupt`, and observed turn status `interrupted`. `scripts/mvp01-long-job-probe.py`'s child process disappeared; the marker remained. The app-server process exited; a fresh process resumed the recorded thread with `thread/resume` and advanced the external checkpoint to `resumed`. |
 | Supplementary Docker worker isolation | Pass on Linux, not Codex-integrated | Ran a child process in `alpine@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc` with no network, read-only rootfs, no capabilities, no-new-privileges, 128 MiB, 1 CPU, UID/GID 65534, and only a read-only project mount. Host canaries, child reads, inherited sentinel, and Docker socket were absent/denied; rootfs and project writes failed. This does not establish that Codex tools are routed through Docker. |
 | Windows route and complete boundary | Blocked | Windows host unavailable; Docker Desktop route not exercised. |
 | macOS route and complete boundary | Blocked | macOS host unavailable; Docker Desktop/VM route not exercised. |
-| Linux route and complete boundary | Partial; MVP gate blocked | A temporary app-server v2 client invoked a tool under the Codex native profile, and the CLI interruption test stopped a measured child process. The Altruforge app-server adapter, app-server cancellation path, supervisor-owned checkpoint, and end-to-end task flow are not implemented. |
+| Linux route and complete boundary | Partial; MVP gate blocked | Temporary app-server v2 and supervisor-probe code exercised tool isolation, cancellation, an external durable test checkpoint, process-tree termination, and fresh-process thread resume. The Altruforge runtime/adapter is not implemented, and Windows/macOS remain untested. |
 
 The committed probe's observed output through the configured non-interactive Codex turn was:
 
@@ -106,7 +106,18 @@ env_sentinel=ABSENT
 child_env_sentinel=ABSENT
 ```
 
-The interrupted-job prototype ran `python3 scripts/mvp01-long-job-probe.py`, which starts a child with a unique command-line marker, writes its PID and `CHECKPOINT_READY` marker, and waits. The host test observed the child host PID with `pgrep`, sent `SIGINT` to the Codex CLI process group, and verified the host PID no longer existed. `timeout --signal=INT --kill-after=3 40s` was the bounded fallback. The marker remained and `codex exec resume --json <thread-id> ...` returned `RESUMED_AFTER_INTERRUPT`. The earlier app-server `turn/interrupt` experiment did not complete and is not counted as a pass.
+The committed [`scripts/mvp01-appserver-probe.py`](../../scripts/mvp01-appserver-probe.py) wrote a versioned JSON checkpoint outside the worker workspace before starting the turn. When the long-job probe created `checkpoint.txt`, the client durably recorded `interrupt_requested` before sending `turn/interrupt`. The server reported `turn_status=interrupted`; the child process marker was no longer present in the host process table, while `checkpoint.txt` remained. After the first app-server exited, a fresh one resumed the stored `thread_id` and atomically changed checkpoint status to `resumed`. Observed result lines included:
+
+```text
+interrupt=REQUESTED
+turn_status=interrupted
+checkpoint_status=interrupted
+thread_resume=OK
+checkpoint_status=resumed
+child=STOPPED
+```
+
+A separate CLI process-group interruption also stopped a host-observed child and `codex exec resume` succeeded. These prototypes demonstrate Codex-side recoverability, not the Altruforge production run state machine.
 
 The supplementary Docker run used image `alpine@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc` and these restrictions: `--pull=never --network none --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 32 --memory 128m --cpus 1 --user 65534:65534`; the sole bind was the test workspace mounted read-only at `/workspace`. It printed `credential.txt: DENIED`, `personal.txt: DENIED`, `auth.json: DENIED`, `child_file=DENIED`, `env_sentinel=ABSENT`, `child_env=ABSENT`, and `docker_socket=ABSENT`. Separate checks observed `container_rootfs_writable=NO` and `project_writable=NO`. This remains a Docker-only check, not the Codex execution route.
 
